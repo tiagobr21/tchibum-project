@@ -15,12 +15,13 @@
        <div class="col-md-9 ftco-animate pb-5 text-center">
         <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="fa fa-chevron-right"></i></a></span> <span>Sobre nós <i class="fa fa-chevron-right"></i></span></p>
         <h1 class="mb-0 bread">Sobre nós</h1>
+        <a href="#sobre"> <i  class="fa fa-angle-double-down fa-lg" style="color: white" aria-hidden="true"></i></a>
       </div>
     </div>
   </div>
  </section>
  
- <section class="ftco-section services-section">
+ <section id="sobre" class="ftco-section services-section">
    <div class="container">
      <div class="row d-flex">
        <div class="col-md-6 order-md-last heading-section pl-md-5 ftco-animate d-flex align-items-center">
@@ -128,6 +129,17 @@
     </div>
   </div>
 </section>
+
+
+<script>
+  $(document).ready(function() {
+         // Rolar a tela para baixo até 500 pixels ao carregar a página
+         $('html, body').animate({
+             scrollTop: 700
+         }, 2000); // 1000 é a duração da animação em milissegundos
+     });
+</script>
+
 {{--  <section class="ftco-section ftco-about ftco-no-pt img">
   <div class="container">
    <div class="row d-flex">

@@ -13,6 +13,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
+
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
@@ -23,10 +24,11 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->label('Nome Completo')
-                    ->maxLength(255),
+                Forms\Components\Textarea::make('name')
+                ->label('Rótulo do Campo')
+                ->placeholder('Digite seu artigo aqui')
+                ->rows(10) // Define o número de linhas visíveis no textarea
+                ,
                 Forms\Components\TextInput::make('email')
                     ->email()
                     ->required()

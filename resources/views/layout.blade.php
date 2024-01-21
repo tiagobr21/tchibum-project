@@ -53,7 +53,7 @@
 								MAIS
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="/viajens">POSTS</a>
+								<a class="dropdown-item" href="/posts">POSTS</a>
 								<a class="dropdown-item" href="/momentos">COMUNIDADES</a>
                 <a class="dropdown-item" href="/momentos">EXPERIÊNCIAS</a>
 							</div>

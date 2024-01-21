@@ -8,6 +8,8 @@ use App\Http\Controllers\TravelController;
 use App\Http\Controllers\MomentController;
 use App\Http\Controllers\ContatusController;
 use App\Http\Controllers\PacksController;
+use App\Http\Controllers\PostsController;
+
 
 
 /*
@@ -32,6 +34,13 @@ Route::get('/viajens', [TravelController::class, 'index']);
 Route::get('/momentos', [MomentController::class, 'index']);
 
 Route::get('/faleconosco', [ContatusController::class, 'index']);
+
+Route::get('/posts', [PostsController::class, 'index']);
+
+
+
+Route::get('/{post}', [PostsController::class, 'post'])->name('post');
+
 
 Route::middleware([
     'auth:sanctum',
