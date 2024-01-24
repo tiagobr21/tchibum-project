@@ -37,9 +37,8 @@ Route::get('/faleconosco', [ContatusController::class, 'index']);
 
 Route::get('/posts', [PostsController::class, 'index']);
 
+Route::get('/{datepost}', [PostsController::class, 'post']);
 
-
-Route::get('/{post}', [PostsController::class, 'post'])->name('post');
 
 
 Route::middleware([
@@ -52,3 +51,4 @@ Route::middleware([
     Route::get('/pacotes', [PacksController::class, 'index']);
 
 });
+

@@ -8,8 +8,9 @@ use App\Models\Depoimentos;
 class TestimonyController extends Controller
 {
     public function index(){
-        $depoimentos = Depoimentos::latest()->paginate(3);
-    
+
+        $depoimentos = Depoimentos::latest()->paginate(6);
+
         return view('testimony',compact('depoimentos'));
     }
 }

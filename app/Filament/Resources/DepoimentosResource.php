@@ -30,12 +30,11 @@ class DepoimentosResource extends Resource
                 ->default(0)
                 ->required()
                 ->numeric(),
-                Forms\Components\TextInput::make('depoimento')
+                Forms\Components\MarkdownEditor::make('depoimento')
                 ->required()
-                ->maxLength(170),
-                Forms\Components\TextInput::make('foto')
-                ->required()
-                ->maxLength(255),
+                ->maxLength(165),
+                Forms\Components\FileUpload::make('foto')
+                ->required(),
                 Forms\Components\TextInput::make('ocupação')
                 ->required()
                 ->maxLength(25),

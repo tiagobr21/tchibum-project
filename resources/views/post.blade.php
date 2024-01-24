@@ -3,20 +3,19 @@
 @section('content')
 
 
+<section class="hero-wrap hero-wrap-1 js-fullheight" style="background-image: url(images/por-do-sol.jpg);">
 
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url(images/por-do-sol.jpg);
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-">
- <div class="overlay"></div>
- <div class="container">
-   <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
-     <div class="col-md-9 ftco-animate pb-5 text-center">
-     
-    </div>
-  </div>
-</div>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
+      <div class="col-md-9 ftco-animate pb-10 text-center">
+       <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Post <i class="fa fa-chevron-right"></i></span></p>
+       <h1 class="mb-0 bread">{{ $post->titulo  }}</h1>
+       <a href="#posts    "> <i  class="fa fa-angle-double-down fa-lg" style="color: white" aria-hidden="true"></i></a>
+     </div>
+   </div>
+ </div>
+
 </section>
 
 <section class="ftco-section ftco-about ftco-no-pt img">
@@ -24,10 +23,12 @@ background-size: cover;
     <div class="row d-flex">
       <div class="col-md-12 about-intro">
         <div class="row">
-          <div class="col-md-6 d-flex align-items-stretch">
-            <div class="img d-flex w-100 align-items-center justify-content-center"
-              style="background-image:url(http://localhost/storage/{{ $post->imagem_principal }});">
+          <div class="col-md-6 d-flex">
+          <div id="img-post" class="col-md-12 d-flex align-items-stretch">
+              <div class="img w-100 align-items-center justify-content-center"
+                style="background-image:url(http://localhost/storage/{{ $post->imagem_principal }});">
 
+              </div>
             </div>
           </div>
           <div class="col-md-6 pl-md-5 py-5">
@@ -54,6 +55,14 @@ background-size: cover;
          }, 2000); // 1000 é a duração da animação em milissegundos
      });
 </script> 
+
+<style>
+
+ #img-post{
+  height: 550px;
+  
+ }
+</style>
 
 @endsection
 

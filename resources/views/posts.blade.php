@@ -9,7 +9,7 @@
         <div class="col-md-9 ftco-animate pb-5 text-center">
          <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Posts <i class="fa fa-chevron-right"></i></span></p>
          <h1 class="mb-0 bread">Posts</h1>
-         <a href="#posts    "> <i  class="fa fa-angle-double-down fa-lg" style="color: white" aria-hidden="true"></i></a>
+         <a href="#posts"> <i  class="fa fa-angle-double-down fa-lg" style="color: white" aria-hidden="true"></i></a>
        </div>
      </div>
    </div>
@@ -26,7 +26,9 @@
 
             @php
                 $created_at = $post->created_at;
-        
+
+                $datepost = $created_at->format('Y-m-d H:i:s');
+
                 $dia = $created_at->format('d');
                 setlocale(LC_TIME, 'pt_BR.utf8', 'pt_BR', 'portuguese');
                 $mes = ucfirst(strftime('%B', strtotime($created_at->format('Y-m-d'))));
@@ -37,9 +39,6 @@
                     <div class="blog-entry justify-content-end">
                       <img class="block-20" src="{{asset('/storage/'. $post->imagem_principal)}}">
               
-                      
-                     
-
                       <div class="text">
                       <div class="d-flex align-items-center mb-4 topp">
                         <div class="one">
@@ -52,7 +51,7 @@
                     </div>
                     <h3 class="heading"><a href="#">{{ $post->titulo }}</a></h3>
                     <p>{{ $post->descricao }}</p>
-                    <p><a href="{{ route('post', [$post->id]) }}" class="btn btn-primary">Ler mais</a></p>
+                    <p><a href="/{{{$datepost}}}" class="btn btn-primary">Ler mais</a></p>
                   </div>
                 </div>
             </div>

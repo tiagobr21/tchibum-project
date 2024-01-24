@@ -259,6 +259,44 @@
   </div>
 </section>
 
+{{-- pacotes --}}
+<section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center pb-4">
+      <div class="col-md-12 heading-section text-center ftco-animate">
+        <h2 class="mb-4">Pacotes</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      
+    
+        
+      
+      <div class="col-md-4 ftco-animate">
+        <div class="project-wrap">
+          <a href="#" class="img" style="background-image: url(images/vitoria-regia.png);">
+            <span class="price">550/Pessoa</span>
+          </a>
+          <div class="text p-4">
+            <span class="days">1 Dia tour</span>
+            <h3><a href="#">Nome Pacote 1</a></h3>
+            <p class="location"><span class="fa fa-map-marker"></span> Manaus</p>
+            <ul>
+              <li><span class="flaticon-shower"></span>2</li>
+              <li><span class="flaticon-king-size"></span>3</li>
+              <li><span class="flaticon-mountains"></span>Near Mountain</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      
+
+    </div>
+  </div>
+</section>
+
 
 
 <section class="ftco-section" style="background-image: url(images/bg_3.jpg);">
@@ -339,47 +377,6 @@
         </div>
       </div>
      
-    </div>
-  </div>
-</section>
-
- 
-
-
-{{-- pacotes --}}
- <section class="ftco-section">
-  <div class="container">
-    <div class="row justify-content-center pb-4">
-      <div class="col-md-12 heading-section text-center ftco-animate">
-        <h2 class="mb-4">Pacotes</h2>
-      </div>
-    </div>
-
-    <div class="row">
-      
-    
-        
-      
-      <div class="col-md-4 ftco-animate">
-        <div class="project-wrap">
-          <a href="#" class="img" style="background-image: url(images/vitoria-regia.png);">
-            <span class="price">550/Pessoa</span>
-          </a>
-          <div class="text p-4">
-            <span class="days">1 Dia tour</span>
-            <h3><a href="#">Nome Pacote 1</a></h3>
-            <p class="location"><span class="fa fa-map-marker"></span> Manaus</p>
-            <ul>
-              <li><span class="flaticon-shower"></span>2</li>
-              <li><span class="flaticon-king-size"></span>3</li>
-              <li><span class="flaticon-mountains"></span>Near Mountain</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      
-
     </div>
   </div>
 </section>
@@ -509,7 +506,7 @@
                     </p>
                     <p class="mb-4">{{  $depoimento->depoimento }}</p>
                     <div class="d-flex align-items-center">
-                      <div class="user-img" style="background-image: url({{$depoimento->foto}})"></div>
+                      <div class="user-img" style="background-image: url('{{ asset('/storage/' . $depoimento->foto) }}')"></div>
                       <div class="pl-3">
                         <p class="name">{{  $depoimento->nome }}</p>
                         <span class="position">{{  $depoimento->ocupação }}</span>
@@ -545,7 +542,7 @@
        
       let avaliacoes = depoimentos.map((element)=>{
           return element.avaliação
-      })
+      });
       
    
       for (let index = 0; index < avaliacoes.length; index++) {
@@ -556,18 +553,7 @@
 
         } 
         
-        
       }
-     
-          
-          
-     
-
-      
-            
-
-
- 
 
   </script>
 

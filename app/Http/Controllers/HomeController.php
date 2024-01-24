@@ -11,7 +11,7 @@ class HomeController extends Controller
 
 
     public function index(){
-       $depoimentos = Depoimentos::all();
+        $depoimentos = Depoimentos::all();
 
         // dd(auth()->user());
         return view('home',compact('depoimentos'));

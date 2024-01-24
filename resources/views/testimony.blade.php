@@ -16,23 +16,30 @@
    </div>
   </div>
   </section>
-  
+
 
 
   <section id="depoimentos" class="ftco-section">
-    <div  class="row ftco-animate">
+    <div class="row ftco-animate">
+
         <div class="col-md-12">
-          <div class="carousel-testimony owl-carousel">
+            <div class="container">
             @foreach ($depoimentos as $depoimento)
-            <div  class="item">
-              <div class="testimony-wrap py-4">
+
+            <div class="item">
+              <div class="testimony-wrap py-4 d-flex">
                 <div class="text">
                   <p class="{{ $depoimento->id }}">
-                  
+
                   </p>
-                  <p class="mb-4">{{  $depoimento->depoimento }}</p>
+                  <div class="d-flex">
+                      <p class="mb-4">{{  $depoimento->depoimento }}</p>
+                      <div class="container"></div>
+                      <img class="experiencia" src="https://conteudo.vivala.com.br/app/uploads/2023/10/1.jpg">
+                  </div>
                   <div class="d-flex align-items-center">
-                    <div class="user-img" style="background-image: url({{$depoimento->foto}})"></div>
+
+                    <div class="user-img" style="background-image: url('{{ asset('/storage/' . $depoimento->foto) }}')"></div>
                     <div class="pl-3">
                       <p class="name">{{  $depoimento->nome }}</p>
                       <span class="position">{{  $depoimento->ocupação }}</span>
@@ -40,15 +47,19 @@
                   </div>
                 </div>
               </div>
-            </div>
-            @endforeach  
           </div>
 
-          <div class="d-flex">
+          @endforeach
+
+            </div>
+
+          <div id="pagination" class="d-flex">
             {!! $depoimentos->links() !!}
           </div>
 
         </div>
+
+
       </div>
   </section>
 
@@ -58,35 +69,78 @@
     #depoimentos{
       margin-top: -60px;
     }
+
+    .testimony-wrap{
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    #pagination{
+        margin-top: 50px;
+    }
+
+    .user-img{
+        float: left;
+    }
+
+    .experiencia {
+    width: 35%;
+    border-radius: 50px;
+    transition: transform 0.3s ease;
+    position: relative;
+   }
+
+    .experiencia:hover {
+        transform: scale(2.0);
+        cursor: pointer;
+
+    }
+
+
+
   </style>
 
+
   <script>
-     $(document).ready(function() {
+
+ /*     $(document).ready(function() {
             // Rolar a tela para baixo até 500 pixels ao carregar a página
             $('html, body').animate({
                 scrollTop: 500
             }, 2000); // 1000 é a duração da animação em milissegundos
-        });
-  </script>
-  
-  
-{{--   <section class="ftco-intro ftco-section ftco-no-pt">
-   <div class="container">
-      <div class="row justify-content-center">
-         <div class="col-md-12 text-center">
-            <div class="img"  style="background-image: url(images/bg_2.jpg);">
-               <div class="overlay"></div>
-               <h2>We Are Pacific A Travel Agency</h2>
-               <p>We can manage your dream building A small river named Duden flows by their place</p>
-               <p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Ask For A Quote</a></p>
-           </div>
-       </div>
-   </div>
-  </div>
-  </section> --}}
-  
+      });
+ */
 
-  
-  
-  
+        let depoimentos = @json($depoimentos);
+
+
+      let avaliacoes = depoimentos.data.map((element)=>{
+          return element.avaliação
+      })
+
+
+
+
+      for (let index = 0; index < avaliacoes.length; index++) {
+
+        for (let i= 0; i < avaliacoes[index]; i++) {
+
+
+          $(`.${depoimentos.data[index].id}`).append('<span style="margin-right:5px; color:#f4bc08" class="fa fa-star"></span>');
+
+        }
+
+
+      }
+
+
+  </script>
+
+
+
+
+
+
+
   @endsection
