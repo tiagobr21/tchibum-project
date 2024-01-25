@@ -75,7 +75,7 @@ class SobreResource extends Resource
                     ->maxLength(125),
                 Forms\Components\FileUpload::make('video_principal')
                     ->required()
-                    ->maxSize(20000),
+                    ->maxSize(50000),
             ]);
     }
 

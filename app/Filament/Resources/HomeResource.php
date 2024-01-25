@@ -27,7 +27,7 @@ class HomeResource extends Resource
                     ->required()
                     ->maxLength(40),
                 Forms\Components\FileUpload::make('video_principal')
-                    ->maxSize(20000)
+                    ->maxSize(50000)
                     ->required(),
                 Forms\Components\TextInput::make('titulo_bem_vindo')
                     ->required()
