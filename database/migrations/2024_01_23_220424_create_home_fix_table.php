@@ -19,20 +19,20 @@ return new class extends Migration
 
             $table->string('titulo_bem_vindo',20);
             $table->string('descricao_bem_vindo',700);
-            $table->string('nome_atividade_comunidade1',20);
-            $table->string('descricao_atividade_comunidade1',80);
+            $table->string('nome_atividade_comunidade1',25);
+            $table->string('descricao_atividade_comunidade1',125);
             $table->string('imagem_atividade_comunidade1',255);
 
-            $table->string('nome_atividade_comunidade2',20);
-            $table->string('descricao_atividade_comunidade2',80);
+            $table->string('nome_atividade_comunidade2',25);
+            $table->string('descricao_atividade_comunidade2',125);
             $table->string('imagem_atividade_comunidade2',255);
 
-            $table->string('nome_atividade_comunidade3',20);
-            $table->string('descricao_atividade_comunidade3',80);
+            $table->string('nome_atividade_comunidade3',25);
+            $table->string('descricao_atividade_comunidade3',125);
             $table->string('imagem_atividade_comunidade3',255);
 
-            $table->string('nome_atividade_comunidade4',20);
-            $table->string('descricao_atividade_comunidade4',80);
+            $table->string('nome_atividade_comunidade4',25);
+            $table->string('descricao_atividade_comunidade4',125);
             $table->string('imagem_atividade_comunidade4',255);
             $table->timestamps();
         });

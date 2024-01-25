@@ -38,47 +38,47 @@ class HomeResource extends Resource
                 Forms\Components\TextInput::make('nome_atividade_comunidade1')
                     ->required()
                     ->label('Nome Atividade/Comunidade 1')
-                    ->maxLength(20),
+                    ->maxLength(25),
                 Forms\Components\Textarea::make('descricao_atividade_comunidade1')
                     ->required()
                     ->label('Descrição Atividade/Comunidade 1')
-                    ->maxLength(80),
+                    ->maxLength(125),
                 Forms\Components\TextInput::make('nome_atividade_comunidade2')
                     ->required()
                     ->label('Nome Atividade/Comunidade 2')
-                    ->maxLength(20),
+                    ->maxLength(25),
                 Forms\Components\Textarea::make('descricao_atividade_comunidade2')
                     ->required()
                     ->label('Descrição Atividade/Comunidade 2')
-                    ->maxLength(80),
+                    ->maxLength(125),
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade1')
                     ->label('Imagem Atividade/Comunidade 1')
                     ->required(),
                 Forms\Components\TextInput::make('nome_atividade_comunidade3')
                     ->required()
                     ->label('Nome Atividade/Comunidade 3')
-                    ->maxLength(20),
+                    ->maxLength(25),
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade2')
                     ->label('Imagem Atividade/Comunidade 2')
                     ->required(),
                 Forms\Components\Textarea::make('descricao_atividade_comunidade3')
                     ->required()
                     ->label('Descrição Atividade/Comunidade 3')
-                    ->maxLength(80),
+                    ->maxLength(125),
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade3')
                     ->label('Imagem Atividade/Comunidade 3')
                     ->required(),
                 Forms\Components\TextInput::make('nome_atividade_comunidade4')
                     ->required()
                     ->label('Nome Atividade/Comunidade 4')
-                    ->maxLength(20),
+                    ->maxLength(25),
                 Forms\Components\FileUpload::make('imagem_atividade_comunidade4')
                     ->label('Imagem Atividade/Comunidade 4')
                     ->required(),
                 Forms\Components\Textarea::make('descricao_atividade_comunidade4')
                     ->required()
                     ->label('Descrição Atividade/Comunidade 4')
-                    ->maxLength(80),
+                    ->maxLength(125),
 
 
             ]);
