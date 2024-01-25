@@ -8459,14 +8459,24 @@ h1, h2, h3, h4, h5,
             display: none; } }
     .ftco-navbar-light .navbar-nav > .nav-item.cta > a {
       color: #fff;
+<<<<<<< Updated upstream
       border: 1px solid
 #f4bc08;
+=======
+      border: 1px solid 
+      #f4bc08;
+>>>>>>> Stashed changes
       padding-top: .8rem;
       padding-bottom: .8rem;
       padding-left: 18px;
       padding-right: 18px;
+<<<<<<< Updated upstream
       background:
 #f4bc08;
+=======
+      background: 
+      #f4bc08;
+>>>>>>> Stashed changes
       margin-top: .5rem;
       -webkit-border-radius: 2px;
       -moz-border-radius: 2px;
@@ -8476,10 +8486,17 @@ h1, h2, h3, h4, h5,
         display: inline-block;
         color: #fff; }
       .ftco-navbar-light .navbar-nav > .nav-item.cta > a:hover {
+<<<<<<< Updated upstream
         background:
 #f4bc08;
         border: 1px solid
 #f4bc08; }
+=======
+        background: 
+      #f4bc08;
+        border: 1px solid 
+      #f4bc08; }
+>>>>>>> Stashed changes
     .ftco-navbar-light .navbar-nav > .nav-item.cta.cta-colored a {
       border: 1px solid #040e26;
       background: #040e26 !important; }
@@ -8563,7 +8580,7 @@ h1, h2, h3, h4, h5,
       -webkit-transition: .3s all ease-out;
       -o-transition: .3s all ease-out;
       transition: .3s all ease-out; }
-    .ftco-navbar-light.scrolled.sleep {
+    .ftco-navbar-light.scrolled.sleep {sa
       -webkit-transition: .3s all ease-out;
       -o-transition: .3s all ease-out;
       transition: .3s all ease-out; }

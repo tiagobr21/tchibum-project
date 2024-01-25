@@ -60,10 +60,9 @@
 						</div>
 					</li>
 					<li class="nav-item"><a href="/faleconosco" class="nav-link">FALE CONOSOCO</a></li>
-         
           @guest
-          <li  class="nav-item"><a id="login" href="/login" class="nav-link">ENTRAR</a></li>
-          <li  class="nav-item"><a id="login" href="/register" class="nav-link">CADASTRAR</a></li>
+          <li  class="nav-item"><a href="/login" class="nav-link">ENTRAR</a></li>
+          <li  class="nav-item"><a href="/register" class="nav-link">CADASTRAR</a></li>
           @endguest
 
           @auth
