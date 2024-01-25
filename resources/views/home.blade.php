@@ -13,7 +13,7 @@
     top: 0;
     left: 0;
   ">
-    <source src="./video/bg-video.mp4" type="video/mp4">
+    <source src="{{asset('/storage/'. $home->video_principal)}}" type="video/mp4">
     Seu navegador não suporta o elemento de vídeo.
   </video>
   <div class="overlay"></div>
@@ -21,10 +21,10 @@
     <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
       <div class="col-md-7 ftco-animate">
 
-        <h1 class="mb-4">Explore a Magia da Amazônia Conosco</h1>
+        <h1 class="mb-4">{{ $home->titulo_principal }}</h1>
 
       </div>
-  
+
     </div>
   </div>
 </div>
@@ -191,15 +191,8 @@
     <div class="row d-flex">
       <div class="col-md-6 order-md-last heading-section pl-md-5 ftco-animate d-flex align-items-center">
         <div class="w-100">
-          <h2 class="mb-4">BEM VINDO A AMAZÔNIA</h2>
-          <p>Embarque em uma jornada inesquecível pela Amazônia, onde a exuberante biodiversidade se
-            revela a cada passo. Deixe-se envolver pela densa vegetação, sons misteriosos da floresta e
-            a hospitalidade única das comunidades locais. Cada momento nesta aventura é uma descoberta,
-            uma oportunidade de se conectar com a natureza de maneira autêntica.</p>
-          <p>Nosso itinerário cuidadosamente elaborado levará você a lugares intocados e segredos bem
-            guardados da Amazônia. Navegue pelos rios serpenteantes, desvende trilhas escondidas e
-            maravilhe-se com paisagens que desafiam a imaginação. Seja parte de uma viagem que
-            transcende o turismo comum, mergulhando nas maravilhas selvagens da Amazônia.</p>
+          <h2 class="mb-4">{{ $home->titulo_bem_vindo }}</h2>
+          <div  class="paragrafo"> {!! nl2br(e($home->descricao_bem_vindo)) !!}</div>
           <!-- <p><a href="#" class="btn btn-primary py-3 px-4">Search Destination</a></p> -->
         </div>
       </div>
@@ -207,49 +200,45 @@
         <div class="row">
           <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
             <div class="services services-1 color-1 d-block img"
-              style="background-image: url(images/anda-canoa.avif);">
+              style="background-image: url('{{ asset('/storage/' . $home->imagem_atividade_comunidade1) }}');">
               <div class="icon d-flex align-items-center justify-content-center"><span
                   class="flaticon-paragliding"></span></div>
               <div class="media-body">
-                <h3 class="heading mb-3">Atividades</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary
-                </p>
+                <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade1 }}</h3>
+                <p class="descricao_atividade_comunidade">{{  $home->descricao_atividade_comunidade1}}</p>
               </div>
             </div>
           </div>
           <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
             <div class="services services-1 color-2 d-block img"
-              style="background-image: url(images/arvore.jpg);">
+              style="background-image: url('{{ asset('/storage/' . $home->imagem_atividade_comunidade2) }}');">
               <div class="icon d-flex align-items-center justify-content-center"><span
                   class="flaticon-route"></span></div>
               <div class="media-body">
-                <h3 class="heading mb-3">Travel Arrangements</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary
-                </p>
+                <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade2 }}</h3>
+                <p class="descricao_atividade_comunidade">{{  $home->descricao_atividade_comunidade2 }}</p>
               </div>
             </div>
           </div>
           <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
             <div class="services services-1 color-3 d-block img"
-              style="background-image: url(images/services-3.jpg);">
+              style="background-image: url('{{ asset('/storage/' . $home->imagem_atividade_comunidade3) }}');">
               <div class="icon d-flex align-items-center justify-content-center"><span
                   class="flaticon-tour-guide"></span></div>
               <div class="media-body">
-                <h3 class="heading mb-3">Private Guide</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary
-                </p>
+                <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade3 }}</h3>
+                <p class="descricao_atividade_comunidade">{{ $home->descricao_atividade_comunidade3 }}</p>
               </div>
             </div>
           </div>
           <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
             <div class="services services-1 color-4 d-block img"
-              style="background-image: url(images/arara.jpg);">
+              style="background-image: url('{{ asset('/storage/' . $home->imagem_atividade_comunidade4) }}');">
               <div class="icon d-flex align-items-center justify-content-center"><span
                   class="flaticon-map"></span></div>
               <div class="media-body">
-                <h3 class="heading mb-3">Location Manager</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary
-                </p>
+                <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade4 }}</h3>
+                <p class="descricao_atividade_comunidade">{{ $home->descricao_atividade_comunidade4 }}</p>
               </div>
             </div>
           </div>
@@ -269,10 +258,10 @@
     </div>
 
     <div class="row">
-      
-    
-        
-      
+
+
+
+
       <div class="col-md-4 ftco-animate">
         <div class="project-wrap">
           <a href="#" class="img" style="background-image: url(images/vitoria-regia.png);">
@@ -291,7 +280,7 @@
         </div>
       </div>
 
-      
+
 
     </div>
   </div>
@@ -308,7 +297,7 @@
         </div>
               <div class="col-md-4 d-flex ftco-animate">
                     <div class="blog-entry justify-content-end">
-                
+
                       <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');"></a>
                       <div class="text">
                           <div class="d-flex align-items-center mb-4 topp">
@@ -326,17 +315,17 @@
                   </div>
                   </div>
                </div>
-    
+
       {{-- navegação --}}
       <div class="row mt-5">
         <div class="col text-center">
           <div class="block-27">
-            
+
           </div>
         </div>
       </div>
   </div>
-</section>	
+</section>
 
 <section class="ftco-section">
   <div class="container">
@@ -352,9 +341,9 @@
         style="background-image: url('images/image_1.jpg'); border-radius:50px">
       </a>
         <div class="blog-entry2 justify-content-end">
-        
+
           <div class="text" style="border-radius:10px;">
-        
+
             <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
             <p><a href="#" class="btn btn-primary">Ler mais</a></p>
@@ -367,16 +356,16 @@
         style="background-image: url('images/image_1.jpg'); border-radius:50px">
       </a>
         <div class="blog-entry2 justify-content-end">
-        
+
           <div class="text" style="border-radius:10px;">
-        
+
             <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
             <p><a href="#" class="btn btn-primary">Ler mais</a></p>
           </div>
         </div>
       </div>
-     
+
     </div>
   </div>
 </section>
@@ -402,7 +391,7 @@
               <a href="#" class="img" style="background-image: url(images/teatro-amazonas.jpg);">
                 <div class="text">
                   <h3>Manaus</h3>
-                 
+
                 </div>
               </a>
             </div>
@@ -412,7 +401,7 @@
               <a href="#" class="img" style="background-image: url(images/encontro-aguas.jpg);">
                 <div class="text">
                   <h3>Encontro das àguas</h3>
-             
+
                 </div>
               </a>
             </div>
@@ -422,7 +411,7 @@
               <a href="#" class="img" style="background-image: url(images/turista.jpg);">
                 <div class="text">
                   <h3>Passeio</h3>
-               
+
                 </div>
               </a>
             </div>
@@ -432,7 +421,7 @@
               <a href="#" class="img" style="background-image: url(images/boto.jpg);">
                 <div class="text">
                   <h3>Botos</h3>
-      
+
                 </div>
               </a>
             </div>
@@ -442,7 +431,7 @@
               <a href="#" class="img" style="background-image: url(images/vitoria-regia.png);">
                 <div class="text">
                   <h3>Regional</h3>
-      
+
                 </div>
               </a>
             </div>
@@ -474,7 +463,7 @@
               </a>
             </div>
           </div>
-         
+
         </div>
       </div>
     </div>
@@ -492,8 +481,8 @@
         <h2 class="mb-4">Feedback</h2>
       </div>
     </div>
-      
-        
+
+
         <div  class="row ftco-animate">
           <div class="col-md-12">
             <div class="carousel-testimony owl-carousel">
@@ -502,7 +491,7 @@
                 <div class="testimony-wrap py-4">
                   <div class="text">
                     <p class="{{ $depoimento->id }}">
-                    
+
                     </p>
                     <p class="mb-4">{{  $depoimento->depoimento }}</p>
                     <div class="d-flex align-items-center">
@@ -515,15 +504,15 @@
                   </div>
                 </div>
               </div>
-              @endforeach  
+              @endforeach
             </div>
           </div>
         </div>
-  
+
 </section>
 
 
- 
+
 
 
 
@@ -535,24 +524,34 @@
   </svg></div>
 
 
+  <style>
+       .paragrafo {
+            max-width: 600px;
+            margin: auto;
+            text-align: justify;
+        }
+
+
+  </style>
+
   <script >
 
       let depoimentos = @json($depoimentos);
- 
-       
+
+
       let avaliacoes = depoimentos.map((element)=>{
           return element.avaliação
       });
-      
-   
+
+
       for (let index = 0; index < avaliacoes.length; index++) {
-      
+
         for (let i= 0; i < avaliacoes[index]; i++) {
 
           $(`.${depoimentos[index].id}`).append('<span style="margin-right:5px; color:#f4bc08" class="fa fa-star"></span>');
 
-        } 
-        
+        }
+
       }
 
   </script>

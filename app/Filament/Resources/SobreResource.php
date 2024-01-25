@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\HomeResource\Pages;
-use App\Filament\Resources\HomeResource\RelationManagers;
-use App\Models\Home;
+use App\Filament\Resources\SobreResource\Pages;
+use App\Filament\Resources\SobreResource\RelationManagers;
+use App\Models\Sobre;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class HomeResource extends Resource
+class SobreResource extends Resource
 {
-    protected static ?string $model = Home::class;
+    protected static ?string $model = Sobre::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -26,16 +26,10 @@ class HomeResource extends Resource
                 Forms\Components\TextInput::make('titulo_principal')
                     ->required()
                     ->maxLength(40),
-                Forms\Components\FileUpload::make('video_principal')
-                    ->maxSize(20000)
-                    ->required(),
-                Forms\Components\TextInput::make('titulo_bem_vindo')
-                    ->required()
-                    ->maxLength(20),
-                Forms\Components\MarkdownEditor::make('descricao_bem_vindo')
+                Forms\Components\MarkdownEditor::make('sobre')
                     ->required()
                     ->maxLength(700),
-                Forms\Components\TextInput::make('nome_atividade_comunidade1')
+                    Forms\Components\TextInput::make('nome_atividade_comunidade1')
                     ->required()
                     ->label('Nome Atividade/Comunidade 1')
                     ->maxLength(25),
@@ -79,8 +73,9 @@ class HomeResource extends Resource
                     ->required()
                     ->label('Descrição Atividade/Comunidade 4')
                     ->maxLength(125),
-
-
+                Forms\Components\FileUpload::make('video_principal')
+                    ->required()
+                    ->maxSize(20000),
             ]);
     }
 
@@ -90,9 +85,9 @@ class HomeResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('titulo_principal')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('video_principal')
+                Tables\Columns\TextColumn::make('sobre')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('titulo_bem_vindo')
+                Tables\Columns\TextColumn::make('nome_atividade_comunidade1')
                     ->searchable(),
             ])
             ->filters([
@@ -118,9 +113,9 @@ class HomeResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListHomes::route('/'),
-            'create' => Pages\CreateHome::route('/create'),
-            'edit' => Pages\EditHome::route('/{record}/edit'),
+            'index' => Pages\ListSobres::route('/'),
+            'create' => Pages\CreateSobre::route('/create'),
+            'edit' => Pages\EditSobre::route('/{record}/edit'),
         ];
     }
 }

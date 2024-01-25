@@ -1,9 +1,9 @@
 @extends('layout')
 @section('title','sobre')
 @section('content')
-  
 
-  
+
+
   <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url(images/por-do-sol.jpg);
   background-position: center;
   background-repeat: no-repeat;
@@ -20,7 +20,7 @@
     </div>
   </div>
  </section>
- 
+
  <section id="sobre" class="ftco-section services-section">
    <div class="container">
      <div class="row d-flex">
@@ -39,36 +39,36 @@
            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-paragliding"></span></div>
            <div class="media-body">
              <h3 class="heading mb-3">AGROVILA</h3>
-             <p>Seja bem-vindo à Comunidade Agorvila, localizada no Tarumã-mirim, cerca de 40 minutos de Manaus.</p>
+             <p class="descricao_atividade_comunidade">Seja bem-vindo à Comunidade Agorvila, localizada no Tarumã-mirim, cerca de 40 minutos de Manaus.</p>
            </div>
-         </div>      
+         </div>
        </div>
        <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
          <div class="services services-1 color-2 d-block img" style="background-image: url('https://static1.s123-cdn-static-a.com/uploads/8711250/400_655d4775595ee.jpg');">
            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
            <div class="media-body">
              <h3 class="heading mb-3">TRÊS UNIDOS</h3>
-             <p>Esta é uma comunidade dos Povos Indígenas Kambeba, etnia originária das fronteiras do Brasil com os países andinos. </p>
+             <p class="descricao_atividade_comunidade">Esta é uma comunidade dos Povos Indígenas Kambeba, etnia originária das fronteiras do Brasil com os países andinos. </p>
            </div>
-         </div>    
+         </div>
        </div>
        <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
          <div class="services services-1 color-3 d-block img" style="background-image: url('https://static1.s123-cdn-static-a.com/uploads/8711250/800_655d4931d2c83.jpg?width=600');">
            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-tour-guide"></span></div>
            <div class="media-body">
              <h3 class="heading mb-3">EXPERIÊNCIA RIO NEGRO</h3>
-             <p>Experimente a magia da Amazônia com a 'Experiência Rio Negro', o melhor refúgio de aventura.</p>
+             <p class="descricao_atividade_comunidade">Experimente a magia da Amazônia com a 'Experiência Rio Negro', o melhor refúgio de aventura.</p>
            </div>
-         </div>      
+         </div>
        </div>
        <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
          <div class="services services-1 color-4 d-block img" style="background-image: url('https://static1.s123-cdn-static-a.com/uploads/8711250/800_655d51a42085a.jpg');">
            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-map"></span></div>
            <div class="media-body">
              <h3 class="heading mb-3">INTERCÂMBIO EDUCACIONAL</h3>
-             <p>É um programa abrangente de intercâmbio baseado em educação, projetado para integrar a aprendizagem e a consciência cultural.</p>
+             <p class="descricao_atividade_comunidade">É um programa abrangente de intercâmbio baseado em educação, projetado para integrar a aprendizagem e a consciência cultural.</p>
            </div>
-         </div>      
+         </div>
        </div>
      </div>
    </div>
@@ -79,7 +79,7 @@
  <div class="col-md-12 ftco-animate pb-5 text-center">
  <a href="#video"> <i  class="fa fa-angle-double-down fa-lg" style="color: black" aria-hidden="true"></i></a>
  </div>
- 
+
 
  <section id="video" class="ftco-section ftco-about img" style="background-image: url(images/por-do-sol.jpg);
   background-position: center;
@@ -101,6 +101,8 @@
 
 
 
+
+
 <script>
   $(document).ready(function() {
          // Rolar a tela para baixo até 500 pixels ao carregar a página
@@ -109,6 +111,6 @@
          }, 2000); // 1000 é a duração da animação em milissegundos
      });
 </script>
- 
- 
+
+
  @endsection
