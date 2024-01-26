@@ -73,6 +73,9 @@ class SobreResource extends Resource
                     ->required()
                     ->label('Descrição Atividade/Comunidade 4')
                     ->maxLength(125),
+                Forms\Components\FileUpload::make('capa_video_principal')
+                    ->required()
+                    ->maxSize(50000),
                 Forms\Components\FileUpload::make('video_principal')
                     ->required()
                     ->maxSize(50000),

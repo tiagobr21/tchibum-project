@@ -8463,7 +8463,7 @@ h1, h2, h3, h4, h5,
       border: 1px solid
 #f4bc08;
 =======
-      border: 1px solid 
+      border: 1px solid
       #f4bc08;
 >>>>>>> Stashed changes
       padding-top: .8rem;
@@ -8474,7 +8474,7 @@ h1, h2, h3, h4, h5,
       background:
 #f4bc08;
 =======
-      background: 
+      background:
       #f4bc08;
 >>>>>>> Stashed changes
       margin-top: .5rem;
@@ -8492,9 +8492,9 @@ h1, h2, h3, h4, h5,
         border: 1px solid
 #f4bc08; }
 =======
-        background: 
+        background:
       #f4bc08;
-        border: 1px solid 
+        border: 1px solid
       #f4bc08; }
 >>>>>>> Stashed changes
     .ftco-navbar-light .navbar-nav > .nav-item.cta.cta-colored a {
@@ -9281,6 +9281,10 @@ textarea.form-control {
     .ftco-section {
       padding: 6em 0; } }
 
+ #video{
+    border-radius: 50px;
+ }
+
 .ftco-no-pt {
   padding-top: 0 !important; }
 
@@ -9466,6 +9470,13 @@ textarea.form-control {
     -moz-box-shadow: 0 0 0 0 rgba(241, 93, 48, 0);
     -webkit-box-shadow: 0 0 0 0 rgba(241, 93, 48, 0);
     box-shadow: 0 0 0 0 rgba(241, 93, 48, 0); } }
+
+    .paragrafo {
+        max-width: 600px;
+        margin: auto;
+        text-align: justify;
+    }
+
 
 .heading-section .subheading {
   font-size: 30px;

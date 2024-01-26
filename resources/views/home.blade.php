@@ -524,16 +524,6 @@
   </svg></div>
 
 
-  <style>
-       .paragrafo {
-            max-width: 600px;
-            margin: auto;
-            text-align: justify;
-        }
-
-
-  </style>
-
   <script >
 
       let depoimentos = @json($depoimentos);
