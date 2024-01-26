@@ -463,14 +463,39 @@
               </a>
             </div>
           </div>
-
+          <div class="item">
+            <div class="galeria">
+              <a class="galeria-img" style="background-image: url(images/encontro-aguas.jpg);">
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-
+<!-- script imagem -->
+<script>
+// ao clicar na imagem abre o modal
+  $('.galeria-img').on('click', function() {
+    var src = $(this).css('background-image');
+    src = src.replace('url(','').replace(')','').replace(/\"/gi, "");
+    $('#imagemModal').attr('src', src);
+    $('#modalImagem').modal('show');
+  });
+</script>
+<!-- modal imagem -->
+<section>
+  <div class="modal fade" id="modalImagem" tabindex="-1" role="dialog" aria-labelledby="modalImagemLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content" style="background-color: transparent; border: none;">
+        <div class="modal-body">
+          <img src="" class="img-fluid" id="imagemModal" alt="Responsive image">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <section class="ftco-section testimony-section bg-bottom" style="background-image: url(images/amazonia-dicas-blog-1920x520.png);">
