@@ -36,7 +36,7 @@
 			<a class="navbar-brand" href="index.html">TCHIBUM<span>NA AMAZÔNIA</span></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
 				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="oi oi-menu"></span> =
+				<i class="fa fa-bars" aria-hidden="true"></i>
 			</button>
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
