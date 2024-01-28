@@ -17,7 +17,7 @@
 
 
 
-  
+
   <section id="posts" class="ftco-section">
     <div class="container">
         <div class="row d-flex">
@@ -38,7 +38,7 @@
             <div  class="col-md-4 d-flex ftco-animate">
                     <div class="blog-entry justify-content-end">
                       <img class="block-20" src="{{asset('/storage/'. $post->imagem_principal)}}">
-              
+
                       <div class="text">
                       <div class="d-flex align-items-center mb-4 topp">
                         <div class="one">
@@ -51,7 +51,7 @@
                     </div>
                     <h3 class="heading"><a href="#">{{ $post->titulo }}</a></h3>
                     <p>{{ $post->descricao }}</p>
-                    <p><a href="/{{{$datepost}}}" class="btn btn-primary">Ler mais</a></p>
+                    <p><a href="/post-{{$datepost}}" class="btn btn-primary">Ler mais</a></p>
                   </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
     </div>
     </div>
 
-  </section>	
+  </section>
 
 
 
@@ -83,7 +83,7 @@
                scrollTop: 615
            }, 2000); // 1000 é a duração da animação em milissegundos
        });
-  </script> 
+  </script>
 
 @endsection
 
@@ -95,7 +95,7 @@
 {{-- sessões arquivadas --}}
 
 
-  
+
 {{--   <section class="ftco-intro ftco-section ftco-no-pt">
    <div class="container">
     <div class="row justify-content-center">

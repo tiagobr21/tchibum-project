@@ -9,6 +9,7 @@ use App\Http\Controllers\MomentController;
 use App\Http\Controllers\ContatusController;
 use App\Http\Controllers\PacksController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\GeocodeController;
 
 
 
@@ -22,6 +23,8 @@ use App\Http\Controllers\PostsController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -37,16 +40,20 @@ Route::get('/faleconosco', [ContatusController::class, 'index']);
 
 Route::get('/posts', [PostsController::class, 'index']);
 
-Route::get('/{datepost}', [PostsController::class, 'post']);
+Route::get('/post-{datepost}', [PostsController::class, 'post']);
 
+Route::get('/geocode/{address}', [GeocodeController::class, 'geocode']);
 
+Route::get('/geocode/{address}', [GeocodeController::class, 'geocode']);
+
+Route::post('/faleconosco/mensagem', [ContatusController::class, 'mensagem']);
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
- 
+
 
     Route::get('/pacotes', [PacksController::class, 'index']);
 
