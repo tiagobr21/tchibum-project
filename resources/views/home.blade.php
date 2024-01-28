@@ -443,48 +443,38 @@
 </section>
 
 {{-- Galeria --}}
-
-<section class="ftco-section img ftco-select-destination" style="background-image: url(images/bg_3.jpg);">
-  <div class="container">
-    <div class="row justify-content-center pb-4">
-      <div class="col-md-6 heading-section text-center ftco-animate">
-        <span class="subheading">Momentos</span>
-        <h2 class="mb-4">Galeria</h2>
-      </div>
+<div class="container">
+  <div class="row justify-content-center pb-4">
+    <div class="col-md-6 heading-section text-center ftco-animate">
+      <span class="subheading">Momentos</span>
+      <h2 class="mb-4">Galeria</h2>
     </div>
   </div>
-  <div class="container ">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="carousel-destination owl-carousel ftco-animate">
-          <div class="item">
-            <div class="galeria">
-              <a class="galeria-img" style="background-image: url(images/teatro-amazonas.jpg);">
-              </a>
-            </div>
-          </div>
-          <div class="item">
-            <div class="galeria">
-              <a class="galeria-img" style="background-image: url(images/encontro-aguas.jpg);">
-              </a>
-            </div>
-          </div>
-        </div>
+</div>
+<section id="portfolio" class="portfolio">
+  <div class="container" data-aos="fade-up">
+    <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+      @foreach ($imagens as $imagem)
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="portfolio-img"><img src="{{ asset('/storage/' . $imagem->imagem) }}" class="img-fluid" alt="{{ $imagem->imagem}}"></div>
       </div>
+      @endforeach
+
     </div>
   </div>
 </section>
-<!-- script imagem -->
+
 <script>
-// ao clicar na imagem abre o modal
-  $('.galeria-img').on('click', function() {
-    var src = $(this).css('background-image');
-    src = src.replace('url(','').replace(')','').replace(/\"/gi, "");
-    $('#imagemModal').attr('src', src);
-    $('#modalImagem').modal('show');
+  $(document).ready(function(){
+    $('.portfolio-img').click(function(){
+      var src = $(this).children('img').attr('src');
+      $('#imagemModal').attr('src', src);
+      $('#modalImagem').modal('show');
+    });
   });
 </script>
-<!-- modal imagem -->
+
 <section>
   <div class="modal fade" id="modalImagem" tabindex="-1" role="dialog" aria-labelledby="modalImagemLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
@@ -497,7 +487,6 @@
   </div>
 </section>
 
-
 <section class="ftco-section testimony-section bg-bottom" style="background-image: url(images/amazonia-dicas-blog-1920x520.png);">
   <div class="overlay"></div>
   <div class="container">
@@ -506,7 +495,6 @@
         <h2 class="mb-4">Feedback</h2>
       </div>
     </div>
-
 
         <div  class="row ftco-animate">
           <div class="col-md-12">
