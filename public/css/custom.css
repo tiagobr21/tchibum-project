@@ -1,3 +1,4 @@
+/* Galeria */
 .portfolio .galeria-item {
   margin-bottom: 30px;
 }
@@ -20,4 +21,24 @@
 .portfolio .galeria-item:hover .portfolio-img img {
   transform: scale(1.10);
 
+
+}
+
+/* feedback */
+.testimony-wrap{
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+  width: 300px;
+  height: 390px;
+}
+.depoimento-info{
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+}
+.depoimento-nome{
+  font-size: 20px;
+  font-weight: bold;
 }

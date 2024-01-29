@@ -286,8 +286,6 @@
   </div>
 </section>
 
-
-
 <section class="ftco-section" style="background-image: url(images/bg_3.jpg);">
   <div class="container">
       <div class="row d-flex text-center">
@@ -295,27 +293,25 @@
 
           <h2 class="mb-4">Posts</h2>
         </div>
-              <div class="col-md-4 d-flex ftco-animate">
-                    <div class="blog-entry justify-content-end">
-
-                      <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');"></a>
-                      <div class="text">
-                          <div class="d-flex align-items-center mb-4 topp">
-                            <div class="one">
-                            <span class="day">11</span>
-                          </div>
-                          <div class="two">
-                            <span class="yr">2020</span>
-                            <span class="mos">September</span>
-                          </div>
+        <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry justify-content-end">
+                <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');"></a>
+                <div class="text">
+                  <div class="d-flex align-items-center mb-4 topp">
+                      <div class="one">
+                        <span class="day">11</span>
                       </div>
+                      <div class="two">
+                        <span class="yr">2020</span>
+                        <span class="mos">September</span>
+                      </div>
+                  </div>
                     <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
                     <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                     <p><a href="#" class="btn btn-primary">Ler mais</a></p>
-                  </div>
-                  </div>
-               </div>
-
+                </div>
+            </div>
+        </div>
       {{-- navegação --}}
       <div class="row mt-5">
         <div class="col text-center">
@@ -492,14 +488,12 @@
               <div  class="item">
                 <div class="testimony-wrap py-4">
                   <div class="text">
-                    <p class="{{ $depoimento->id }}">
-
-                    </p>
+                    <p class="{{ $depoimento->id }}"></p>
                     <p class="mb-4">{{  $depoimento->depoimento }}</p>
                     <div class="d-flex align-items-center">
                       <div class="user-img" style="background-image: url('{{ asset('/storage/' . $depoimento->foto) }}')"></div>
-                      <div class="pl-3">
-                        <p class="name">{{  $depoimento->nome }}</p>
+                      <div class="pl-3 depoimento-info">
+                        <p class="name depoimento-nome">{{  $depoimento->nome }}</p>
                         <span class="position">{{  $depoimento->ocupação }}</span>
                       </div>
                     </div>
@@ -509,13 +503,9 @@
               @endforeach
             </div>
           </div>
-        </div>
-
+      </div>
+  </div>
 </section>
-
-
-
-
 
 
 <!-- loader -->
