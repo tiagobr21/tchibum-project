@@ -442,7 +442,6 @@
   </div>
 </section>
 
-{{-- Galeria --}}
 <div class="container">
   <div class="row justify-content-center pb-4">
     <div class="col-md-6 heading-section text-center ftco-animate">
@@ -464,16 +463,6 @@
     </div>
   </div>
 </section>
-
-<script>
-  $(document).ready(function(){
-    $('.portfolio-img').click(function(){
-      var src = $(this).children('img').attr('src');
-      $('#imagemModal').attr('src', src);
-      $('#modalImagem').modal('show');
-    });
-  });
-</script>
 
 <section>
   <div class="modal fade" id="modalImagem" tabindex="-1" role="dialog" aria-labelledby="modalImagemLabel" aria-hidden="true">
@@ -558,7 +547,13 @@
       }
 
   </script>
-
-
-
+  <script>
+    $(document).ready(function(){
+      $('.portfolio-img').click(function(){
+        var src = $(this).children('img').attr('src');
+        $('#imagemModal').attr('src', src);
+        $('#modalImagem').modal('show');
+      });
+    });
+  </script>
 @endsection
