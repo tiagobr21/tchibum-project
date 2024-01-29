@@ -472,7 +472,7 @@
   </div>
 </section>
 
-<section class="ftco-section testimony-section bg-bottom" style="background-image: url(images/amazonia-dicas-blog-1920x520.png);">
+<section class="ftco-section testimony-section bg-bottom" style="background-image: url(images/bg_feedback.jpg);">
   <div class="overlay"></div>
   <div class="container">
     <div class="row justify-content-center pb-4">
