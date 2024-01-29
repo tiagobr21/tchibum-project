@@ -8,12 +8,12 @@
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
-    
-  
+
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/animate.css">
-    
+
     <link rel="stylesheet" href="{{ asset('/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/magnific-popup.css') }}">
@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/bootstrap-datepicker.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/jquery.timepicker.css') }}">
-  
-    
+
+
     <link rel="stylesheet" href="{{ asset('/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 
@@ -43,10 +43,10 @@
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a href="/" class="nav-link">HOME</a></li>
-       
+
           @if (auth()->user()?->role == 'admin') <li class="nav-item" ><a href="/admin" class="nav-link" >ADMIN</a></li> @endif
 					<li class="nav-item"><a href="/sobre" class="nav-link">QUEM SOMOS</a></li>
-					<li class="nav-item"><a href="/depoimentos" class="nav-link">DEPOIMENTOS</a></li>
+
 					<li class="nav-item">
 						<div class="nav-link dropdown">
 							<button class="nav-link btn dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -54,26 +54,45 @@
 								MAIS
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/depoimentos" class="nav-link">DEPOIMENTOS</a>
 								<a class="dropdown-item" href="/posts">POSTS</a>
 								<a class="dropdown-item" href="/momentos">COMUNIDADES</a>
-                <a class="dropdown-item" href="/momentos">ATIVIDADES</a>
+                                  <a class="dropdown-item" href="/momentos">ATIVIDADES</a>
 							</div>
 						</div>
 					</li>
+
 					<li class="nav-item"><a href="/faleconosco" class="nav-link">FALE CONOSOCO</a></li>
+
+                    <li class="nav-item">
+						<div class="nav-link dropdown">
+							<button class="nav-link btn dropdown-toggle" type="button" id="dropdownMenuButton"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								IDIOMAS
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{{ route('change.language', ['locale' => 'pt']) }}">Português</a>
+                               <a class="dropdown-item" href="{{ route('change.language', ['locale' => 'en']) }}">English</a>
+                               <a class="dropdown-item" href="{{ route('change.language', ['locale' => 'es']) }}">Espanhol</a>
+							</div>
+						</div>
+					</li>
+
+
+
           @guest
           <li  class="nav-item"><a href="/login" class="nav-link">ENTRAR</a></li>
           <li  class="nav-item"><a href="/register" class="nav-link">CADASTRAR</a></li>
           @endguest
 
           @auth
-        
-        
+
+
             <form action="/logout" method="POST">
               @csrf
               <li  class="nav-item"><a id="login"  href="/logout"  class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> </a></li>
             </form>
-  
+
           @endauth
 				</ul>
 			</div>
@@ -135,7 +154,7 @@
       </div>
       <div class="row">
         <div class="col-md-12 text-center">
-      
+
           <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos os direitos reservados | Software <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">DevMinds</a>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
@@ -143,9 +162,7 @@
       </div>
       </div>
       </footer>
-      
 
-      
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
         <script src="{{ asset('js/popper.min.js') }}"></script>

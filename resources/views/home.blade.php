@@ -21,7 +21,7 @@
     <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
       <div class="col-md-7 ftco-animate">
 
-        <h1 class="mb-4">{{ $home->titulo_principal }}</h1>
+        <h1 class="mb-4">{{ trans('messages.titulo_principal') }}</h1>
 
       </div>
 
@@ -539,6 +539,9 @@
   </script>
   <script>
     $(document).ready(function(){
+
+        // window.location.reload();
+
       $('.portfolio-img').click(function(){
         var src = $(this).children('img').attr('src');
         $('#imagemModal').attr('src', src);

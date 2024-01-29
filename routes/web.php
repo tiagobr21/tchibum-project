@@ -10,6 +10,7 @@ use App\Http\Controllers\ContatusController;
 use App\Http\Controllers\PacksController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\GeocodeController;
+use App\Http\Controllers\LanguageController;
 
 
 
@@ -45,6 +46,9 @@ Route::get('/post-{datepost}', [PostsController::class, 'post']);
 Route::get('/geocode/{address}', [GeocodeController::class, 'geocode']);
 
 Route::post('/faleconosco/mensagem', [ContatusController::class, 'mensagem']);
+
+Route::get('/change-language/{locale}', [LanguageController::class, 'changeLanguage'])->name('change.language');
+
 
 
 Route::middleware([
