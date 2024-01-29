@@ -86,8 +86,9 @@
           <div class="row mb-5">
             <div class="col-md pt-5">
               <div class="ftco-footer-widget pt-md-5 mb-4">
-                <h2 class="ftco-heading-2">About</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                <h2 class="ftco-heading-2">Que somos?</h2>
+                <p>Descubra a Amazônia com a Tchibum, nascida do amor pela região.
+                   Oferecemos pacotes de turismo que proporcionam uma imersão na riqueza da fauna e flora amazônica, garantindo conforto e segurança aos exploradores.</p>
                 <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
                   <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
                   <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
@@ -97,38 +98,36 @@
       </div>
       <div class="col-md pt-5 border-left">
           <div class="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
-            <h2 class="ftco-heading-2">Infromation</h2>
+            <h2 class="ftco-heading-2">Informações</h2>
             <ul class="list-unstyled">
-              <li><a href="#" class="py-2 d-block">Online Enquiry</a></li>
-              <li><a href="#" class="py-2 d-block">General Enquiries</a></li>
-              <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
-              <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-              <li><a href="#" class="py-2 d-block">Refund Policy</a></li>
-              <li><a href="#" class="py-2 d-block">Call Us</a></li>
+              <li><a href="#" class="py-2 d-block">Regulamento Geral</a></li>
+              <li><a href="#" class="py-2 d-block">Condições de Reserva</a></li>
+              <li><a href="#" class="py-2 d-block">Política de Privacidade</a></li>
+              <li><a href="#" class="py-2 d-block">Política de Reembolso</a></li>
           </ul>
       </div>
       </div>
       <div class="col-md pt-5 border-left">
          <div class="ftco-footer-widget pt-md-5 mb-4">
-            <h2 class="ftco-heading-2">Experience</h2>
+            <h2 class="ftco-heading-2">Experiência</h2>
             <ul class="list-unstyled">
-              <li><a href="#" class="py-2 d-block">Adventure</a></li>
-              <li><a href="#" class="py-2 d-block">Hotel and Restaurant</a></li>
-              <li><a href="#" class="py-2 d-block">Beach</a></li>
-              <li><a href="#" class="py-2 d-block">Nature</a></li>
-              <li><a href="#" class="py-2 d-block">Camping</a></li>
-              <li><a href="#" class="py-2 d-block">Party</a></li>
+              <li><a href="#" class="py-2 d-block">Aventura</a></li>
+              <li><a href="#" class="py-2 d-block">Hotel e Restaurantes</a></li>
+              <li><a href="#" class="py-2 d-block">Praias</a></li>
+              <li><a href="#" class="py-2 d-block">Natureza</a></li>
+              <li><a href="#" class="py-2 d-block">Acampamentos</a></li>
+              <li><a href="#" class="py-2 d-block">Festas Regionais</a></li>
           </ul>
       </div>
       </div>
       <div class="col-md pt-5 border-left">
           <div class="ftco-footer-widget pt-md-5 mb-4">
-             <h2 class="ftco-heading-2">Have a Questions?</h2>
+             <h2 class="ftco-heading-2">Dúvidas?</h2>
              <div class="block-23 mb-3">
                <ul>
-                 <li><span class="icon fa fa-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                 <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                 <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@yourdomain.com</span></a></li>
+                 <li><span class="icon fa fa-map-marker"></span><span class="text">Rua dos manauaras 100, Manaus, Amazonas, BR</span></li>
+                 <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+55 92 99324-2342</span></a></li>
+                 <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@tchibum.com</span></a></li>
              </ul>
          </div>
       </div>
@@ -138,7 +137,7 @@
         <div class="col-md-12 text-center">
       
           <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">DevMinds</a>
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos os direitos reservados | Software <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">DevMinds</a>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
         </div>
       </div>
