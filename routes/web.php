@@ -44,9 +44,8 @@ Route::get('/post-{datepost}', [PostsController::class, 'post']);
 
 Route::get('/geocode/{address}', [GeocodeController::class, 'geocode']);
 
-Route::get('/geocode/{address}', [GeocodeController::class, 'geocode']);
-
 Route::post('/faleconosco/mensagem', [ContatusController::class, 'mensagem']);
+
 
 Route::middleware([
     'auth:sanctum',

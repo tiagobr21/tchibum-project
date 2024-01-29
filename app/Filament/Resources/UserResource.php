@@ -62,23 +62,16 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('role')
                     ->searchable()
                     ->label('Permissão'),
-            /*     Tables\Columns\TextColumn::make('email_verified_at')
-                    ->dateTime()
-                    ->sortable(), */
-          /*       Tables\Columns\TextColumn::make('two_factor_confirmed_at')
-                    ->dateTime()
-                    ->sortable(), */
-                /* Tables\Columns\TextColumn::make('profile_photo_path')
-                    ->searchable(), */
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime('d/m/y H:m:s')
                     ->label('Criado em')
                     ->sortable(),
-    
-               /*  Tables\Columns\TextColumn::make('updated_at')
+                Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
+                    ->label('Organizar por Criação')
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true), */
+                    ->toggleable(isToggledHiddenByDefault: true),
+
             ])
             ->filters([
                 //

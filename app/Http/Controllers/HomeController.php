@@ -16,10 +16,12 @@ class HomeController extends Controller
         $depoimentos = Depoimentos::all();
 
         $home = Home::find(1);
-        
+
         $imagens = Galeria::all();
-        
+
         // dd(auth()->user());
         return view('home',compact('depoimentos','home','imagens'));
     }
+
+
 }

@@ -7,7 +7,7 @@
     <div class="container">
       <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
         <div class="col-md-9 ftco-animate pb-5 text-center">
-         <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Posts <i class="fa fa-chevron-right"></i></span></p>
+         <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="fa fa-chevron-right"></i></a></span> <span>Posts <i class="fa fa-chevron-right"></i></span></p>
          <h1 class="mb-0 bread">Posts</h1>
          <a href="#posts"> <i  class="fa fa-angle-double-down fa-lg" style="color: white" aria-hidden="true"></i></a>
        </div>
@@ -49,7 +49,7 @@
                         <span class="mos">{{ $mes }}</span>
                       </div>
                     </div>
-                    <h3 class="heading"><a href="#">{{ $post->titulo }}</a></h3>
+                    <h3 class="heading"><a href="/post-{{$datepost}}">{{ $post->titulo }}</a></h3>
                     <p>{{ $post->descricao }}</p>
                     <p><a href="/post-{{$datepost}}" class="btn btn-primary">Ler mais</a></p>
                   </div>
@@ -71,6 +71,8 @@
       </div>
     </div>
     </div>
+
+
 
   </section>
 

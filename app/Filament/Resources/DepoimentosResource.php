@@ -38,7 +38,7 @@ class DepoimentosResource extends Resource
                 Forms\Components\TextInput::make('ocupação')
                 ->required()
                 ->maxLength(25),
-    
+
             ]);
     }
 
@@ -52,6 +52,12 @@ class DepoimentosResource extends Resource
                 ->searchable(),
                 Tables\Columns\TextColumn::make('ocupação')
                 ->searchable(),
+                Tables\Columns\TextColumn::make('created_at')
+                ->dateTime()
+                ->label('Organizar por Criação')
+                ->sortable()
+                ->toggleable(isToggledHiddenByDefault: true),
+
             ])
             ->filters([
                 //

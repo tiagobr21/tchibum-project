@@ -53,10 +53,7 @@ class MensagemResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->label('Organizar por Criação')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])

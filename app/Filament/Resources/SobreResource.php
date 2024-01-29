@@ -92,6 +92,7 @@ class SobreResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('nome_atividade_comunidade1')
                     ->searchable(),
+
             ])
             ->filters([
                 //

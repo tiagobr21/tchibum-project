@@ -52,6 +52,12 @@ class PostsResource extends Resource
                     ->dateTime('d/m/y H:m:s')
                     ->label('Criado em')
                     ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->label('Organizar por Criação')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+
             ])
             ->filters([
                 //
