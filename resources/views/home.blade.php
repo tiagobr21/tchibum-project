@@ -455,7 +455,7 @@
     <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
       @foreach ($imagens as $imagem)
-      <div class="col-lg-4 col-md-6 portfolio-item">
+      <div class="col-lg-4 col-md-6 galeria-item">
         <div class="portfolio-img"><img src="{{ asset('/storage/' . $imagem->imagem) }}" class="img-fluid" alt="{{ $imagem->imagem}}"></div>
       </div>
       @endforeach
