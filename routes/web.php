@@ -47,7 +47,10 @@ Route::get('/geocode/{address}', [GeocodeController::class, 'geocode']);
 
 Route::post('/faleconosco/mensagem', [ContatusController::class, 'mensagem']);
 
-Route::get('/change-language/{locale}', [LanguageController::class, 'changeLanguage'])->name('change.language');
+
+Route::middleware('web')->group(function () {
+    Route::get('/change-language/{locale}', [LanguageController::class, 'changeLanguage'])->name('change.language');
+});
 
 
 
