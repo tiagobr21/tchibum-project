@@ -4,7 +4,7 @@
 @section('content')
 
 
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');">
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_faleconosco.jpg');">
     <div class="overlay"></div>
     <div class="container">
       <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
@@ -144,7 +144,7 @@
   <script>
 
 
-   let whatsapp = @json($contato->whatsapp);
+    let whatsapp = @json($contato->whatsapp);
 
 
    $(document).ready(function() {
