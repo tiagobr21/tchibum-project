@@ -432,6 +432,7 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 10px;
+        cursor: pointer;
 
     }
     #pacote-fixo-nome{
@@ -441,7 +442,7 @@
 
     #pacote-comunidade-nome{
         color: #f4bc08;
-
+        cursor: pointer;
     }
 
    #pacote-fixo-img{
