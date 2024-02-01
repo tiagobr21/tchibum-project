@@ -156,8 +156,6 @@
            // gerar link whatsapp
 
             $("#gerarLink").click(function() {
-                // Número de telefone para o qual o link será gerado
-                let numeroTelefone = "55123456789"; // Substitua pelo número desejado
 
                 // Mensagem opcional para ser enviada junto com o link
                 let mensagem = "Olá, gostaria de tirar algumas dúvidas"; // Substitua pela mensagem desejada

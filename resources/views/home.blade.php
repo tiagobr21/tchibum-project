@@ -52,14 +52,14 @@
                                 <div id="pacote-fixo">
                                     <img id="pacote-fixo-img" src="/images/pacote-fixo2.png">
                                 </div>
-                                <p id="pacote-fixo-nome">Pacotes Fixos</p>
+                                <p id="pacote-fixo-nome">Pacotes Fechados</p>
                            </div>
 
                            <div id="pacotes">
                             <div id="pacote-comunidade">
                                 <img id="pacote-comunidade-img" src="/images/pacote-comunidade.png">
                             </div>
-                                <p id="pacote-comunidade-nome">Pacotes Comunidades</p>
+                                <p id="pacote-comunidade-nome">Pacotes das Comunidades</p>
                            </div>
 
 
@@ -178,27 +178,44 @@
       <div class="row d-flex text-center">
         <div class="col-md-12 heading-section text-center ftco-animate">
 
-          <h2 class="mb-4">Posts</h2>
+          <h2 class="mb-4">Posts</h2><br>
         </div>
+
+        @foreach ($posts as $post)
         <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry justify-content-end">
-                <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');"></a>
+                <img class="block-20" src="{{asset('/storage/'. $post->imagem_principal)}}">
+
+                @php
+                    $created_at = $post->created_at;
+
+                    $datepost = $created_at->format('Y-m-d H:i:s');
+
+                    $dia = $created_at->format('d');
+                    setlocale(LC_TIME, 'pt_BR.utf8', 'pt_BR', 'portuguese');
+                    $mes = ucfirst(strftime('%B', strtotime($created_at->format('Y-m-d'))));
+                    $ano = $created_at->format('Y');
+               @endphp
+
                 <div class="text">
                   <div class="d-flex align-items-center mb-4 topp">
                       <div class="one">
-                        <span class="day">11</span>
+                        <span class="day">{{ $dia }}</span>
                       </div>
                       <div class="two">
-                        <span class="yr">2020</span>
-                        <span class="mos">September</span>
+                        <span class="yr">{{ $mes }}</span>
+                        <span class="mos">{{ $ano }}</span>
                       </div>
                   </div>
-                    <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
-                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                    <p><a href="#" class="btn btn-primary">{{ trans('messages.ler_mais') }}</a></p>
+                    <h3 class="heading"><a href="/post-{{$datepost}}">{{ $post->titulo }}</a></h3>
+                    <p>{{ $post->descricao }}</p>
+                    <p><a href="/post-{{$datepost}}" class="btn btn-primary">{{ trans('messages.ler_mais') }}</a></p>
                 </div>
+
             </div>
         </div>
+
+        @endforeach
       {{-- navegação --}}
       <div class="row mt-5">
         <div class="col text-center">
@@ -406,11 +423,12 @@
 
 
     #container-pacotes{
-        background-color:#2c5423;
+        background-color:white;
         opacity: 0.95;
         border-radius: 20px;
         padding: 10px;
         margin-top: 40px;
+        border: 1px solid black
     }
     #pacotes{
         display: inline-block; /* Permite centralizar verticalmente */
@@ -438,13 +456,14 @@
     }
     #pacote-fixo-nome{
         color: #f4bc08;
+        font-weight: 600;
         opacity: 0.5;
     }
 
     #pacote-comunidade-nome{
         color: #f4bc08;
         cursor: pointer;
-        opacity: 1;
+        font-weight: 600;
     }
 
    #pacote-fixo-img{

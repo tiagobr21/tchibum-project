@@ -158,9 +158,10 @@
                                 <li><span class="icon fa fa-map-marker"></span><span class="text">Rua dos manauaras
                                         100, Manaus, Amazonas, BR</span></li>
                                 <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+55
-                                            92 99324-2342</span></a></li>
-                                <li><a href="#"><span class="icon fa fa-paper-plane"></span><span
-                                            class="text">info@tchibum.com</span></a></li>
+                                    92 99219-7150</span></a></li>
+                                <li>
+                                    <a><span class="icon fa fa-paper-plane"></span><span
+                                    class="text" style="font-size: 14px;"> tchibumnamazonia@gmail.com</span></a></li>
                             </ul>
                         </div>
                     </div>
