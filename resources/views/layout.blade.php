@@ -58,7 +58,7 @@
                                 MAIS
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="/depoimentos" class="nav-link">DEPOIMENTOS</a>
+                                {{-- <a class="dropdown-item" href="/depoimentos" class="nav-link">DEPOIMENTOS</a> --}}
                                 <a class="dropdown-item" href="/posts">POSTS</a>
                                 <a class="dropdown-item" href="/momentos">COMUNIDADES</a>
                                 <a class="dropdown-item" href="/momentos">ATIVIDADES</a>
@@ -68,7 +68,7 @@
 
                     <li class="nav-item"><a href="/faleconosco" class="nav-link">FALE CONOSOCO</a></li>
 
-                    <li class="nav-item">
+                 {{--    <li class="nav-item">
                         <div class="nav-link dropdown">
                             <button class="nav-link btn dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -83,7 +83,7 @@
                                     href="{{ route('change.language', ['locale' => 'es']) }}">Espanhol</a>
                             </div>
                         </div>
-                    </li>
+                    </li> --}}
 
 
 

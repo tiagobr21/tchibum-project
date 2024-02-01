@@ -49,9 +49,9 @@
                         <span class="mos">{{ $mes }}</span>
                       </div>
                     </div>
-                    <h3 class="heading"><a href="/post-{{$datepost}}">{{ $post->titulo }}</a></h3>
-                    <p>{{ $post->descricao }}</p>
-                    <p><a href="/post-{{$datepost}}" class="btn btn-primary">Ler mais</a></p>
+                    <h3 class="heading"><a href="/post-{{$datepost}}">{{ trans('messages.post_titulo') }}</a></h3>
+                    <p>{{ trans('messages.post_descricao') }}</p>
+                    <p><a href="/post-{{$datepost}}" class="btn btn-primary">{{ trans('messages.ler_mais') }}</a></p>
                   </div>
                 </div>
             </div>

@@ -37,18 +37,7 @@
       <div class="col-md-12">
         <div class="ftco-search d-flex justify-content-center">
           <div class="row">
-            <div class="col-md-12 nav-link-wrap">
-              <div class="nav nav-pills text-center" id="v-pills-tab" role="tablist"
-                aria-orientation="vertical">
-                <a class="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill"
-                  href="#v-pills-1" role="tab" aria-controls="v-pills-1"
-                  aria-selected="true">Buscar Tour</a>
 
-                <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2"
-                  role="tab" aria-controls="v-pills-2" aria-selected="false">Hotel</a>
-
-              </div>
-            </div>
             <div class="col-md-12 tab-wrap">
 
               <div class="tab-content" id="v-pills-tabContent">
@@ -57,127 +46,28 @@
                   aria-labelledby="v-pills-nextgen-tab">
                   <form action="#" class="search-property-1">
                     <div class="row no-gutters">
-                      <div class="col-md d-flex">
+
+                      <div id="container-pacotes" class="col-md d-flex">
                         <div class="form-group p-4 border-0">
-                          <label for="#">Destino</label>
-                          <div class="form-field">
-                            <div class="icon"><span class="fa fa-search"></span></div>
-                            <input type="text" class="form-control"
-                              placeholder="Search place">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md d-flex">
-                        <div class="form-group p-4">
-                          <label for="#">Check-in data</label>
-                          <div class="form-field">
-                            <div class="icon"><span class="fa fa-calendar"></span></div>
-                            <input type="text" class="form-control checkin_date"
-                              placeholder="Check In Date">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md d-flex">
-                        <div class="form-group p-4">
-                          <label for="#">Check-out data</label>
-                          <div class="form-field">
-                            <div class="icon"><span class="fa fa-calendar"></span></div>
-                            <input type="text" class="form-control checkout_date"
-                              placeholder="Check Out Date">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md d-flex">
-                        <div class="form-group p-4">
-                          <label for="#">Preço Máximo</label>
-                          <div class="form-field">
-                            <div class="select-wrap">
-                              <div class="icon"><span
-                                  class="fa fa-chevron-down"></span></div>
-                              <select name="" id="" class="form-control">
-                                <option value="">R$ 180,00</option>
-                                <option value="">R$ 1000,00</option>
-                                <option value="">R$ 5000,00</option>
-                                <option value="">R$ 1000,00</option>
-                              </select>
+
+                            <div id="pacotes">
+                                <div id="pacote-fixo">
+                                    <img id="pacote-fixo-img" src="/images/pacote-fixo2.png">
+                                </div>
+                                <p id="pacote-fixo-nome">Pacotes Fixos</p>
+                           </div>
+
+                           <div id="pacotes">
+                            <div id="pacote-comunidade">
+                                <img id="pacote-comunidade-img" src="/images/pacote-comunidade.png">
                             </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md d-flex">
-                        <div class="form-group d-flex w-100 border-0">
-                          <div class="form-field w-100 align-items-center d-flex">
-                            <input type="submit" value="Search"
-                              class="align-self-stretch form-control btn btn-primary">
-                          </div>
-                        </div>
-                      </div>
+                                <p id="pacote-comunidade-nome">Pacotes Comunidades</p>
+                           </div>
+
                     </div>
                   </form>
                 </div>
 
-                <div class="tab-pane fade" id="v-pills-2" role="tabpanel"
-                  aria-labelledby="v-pills-performance-tab">
-                  <form action="#" class="search-property-1">
-                    <div class="row no-gutters">
-                      <div class="col-lg d-flex">
-                        <div class="form-group p-4 border-0">
-                          <label for="#">Destino</label>
-                          <div class="form-field">
-                            <div class="icon"><span class="fa fa-search"></span></div>
-                            <input type="text" class="form-control"
-                              placeholder="Search place">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg d-flex">
-                        <div class="form-group p-4">
-                          <label for="#">Check-in data</label>
-                          <div class="form-field">
-                            <div class="icon"><span class="fa fa-calendar"></span></div>
-                            <input type="text" class="form-control checkin_date"
-                              placeholder="Check In Date">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg d-flex">
-                        <div class="form-group p-4">
-                          <label for="#">Check-out data</label>
-                          <div class="form-field">
-                            <div class="icon"><span class="fa fa-calendar"></span></div>
-                            <input type="text" class="form-control checkout_date"
-                              placeholder="Check Out Date">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg d-flex">
-                        <div class="form-group p-4">
-                          <label for="#">Prço Limite</label>
-                          <div class="form-field">
-                            <div class="select-wrap">
-                              <div class="icon"><span
-                                  class="fa fa-chevron-down"></span></div>
-                              <select name="" id="" class="form-control">
-                                <option value="">R$ 180,00</option>
-                                <option value="">R$ 250,00</option>
-                                <option value="">R$ 500,00</option>
-                                <option value="">R$ 1000,00</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg d-flex">
-                        <div class="form-group d-flex w-100 border-0">
-                          <div class="form-field w-100 align-items-center d-flex">
-                            <input type="submit" value="Search"
-                              class="align-self-stretch form-control btn btn-primary p-0">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
               </div>
             </div>
           </div>
@@ -192,7 +82,7 @@
       <div class="col-md-6 order-md-last heading-section pl-md-5 ftco-animate d-flex align-items-center">
         <div class="w-100">
           <h2 class="mb-4">{{ $home->titulo_bem_vindo }}</h2>
-          <div  class="paragrafo"> {!! nl2br(e($home->descricao_bem_vindo)) !!}</div>
+          <div  class="paragrafo"> {!! nl2br(e(trans('messages.descricao_bem_vindo') )) !!}</div>
           <!-- <p><a href="#" class="btn btn-primary py-3 px-4">Search Destination</a></p> -->
         </div>
       </div>
@@ -205,7 +95,7 @@
                   class="flaticon-paragliding"></span></div>
               <div class="media-body">
                 <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade1 }}</h3>
-                <p class="descricao_atividade_comunidade">{{  $home->descricao_atividade_comunidade1}}</p>
+                <p class="descricao_atividade_comunidade">{{  trans('messages.home_descricao_atividade_comunidade1') }}</p>
               </div>
             </div>
           </div>
@@ -216,7 +106,7 @@
                   class="flaticon-route"></span></div>
               <div class="media-body">
                 <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade2 }}</h3>
-                <p class="descricao_atividade_comunidade">{{  $home->descricao_atividade_comunidade2 }}</p>
+                <p class="descricao_atividade_comunidade">{{  trans('messages.home_descricao_atividade_comunidade2') }}</p>
               </div>
             </div>
           </div>
@@ -227,7 +117,7 @@
                   class="flaticon-tour-guide"></span></div>
               <div class="media-body">
                 <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade3 }}</h3>
-                <p class="descricao_atividade_comunidade">{{ $home->descricao_atividade_comunidade3 }}</p>
+                <p class="descricao_atividade_comunidade">{{ trans('messages.home_descricao_atividade_comunidade3') }}</p>
               </div>
             </div>
           </div>
@@ -238,7 +128,7 @@
                   class="flaticon-map"></span></div>
               <div class="media-body">
                 <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade4 }}</h3>
-                <p class="descricao_atividade_comunidade">{{ $home->descricao_atividade_comunidade4 }}</p>
+                <p class="descricao_atividade_comunidade">{{ trans('messages.home_descricao_atividade_comunidade4') }}</p>
               </div>
             </div>
           </div>
@@ -253,7 +143,7 @@
   <div class="container">
     <div class="row justify-content-center pb-4">
       <div class="col-md-12 heading-section text-center ftco-animate">
-        <h2 class="mb-4">Pacotes</h2>
+        <h2 class="mb-4">{{ trans('messages.pacotes')  }}</h2>
       </div>
     </div>
 
@@ -308,7 +198,7 @@
                   </div>
                     <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
                     <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                    <p><a href="#" class="btn btn-primary">Ler mais</a></p>
+                    <p><a href="#" class="btn btn-primary">{{ trans('messages.ler_mais') }}</a></p>
                 </div>
             </div>
         </div>
@@ -328,7 +218,7 @@
     <div class="row justify-content-center pb-4">
       <div class="col-md-12 heading-section text-center ftco-animate">
 
-        <h2 class="mb-4">COMUNIDADES QUE ATUAMOS</h2>
+        <h2 class="mb-4">{{ trans('messages.comunidades_que_atuamos') }}</h2>
       </div>
     </div>
     <div class="row d-flex">
@@ -341,8 +231,8 @@
           <div class="text" style="border-radius:10px;">
 
             <h3 class="heading"><a href="#">Nova Terra</a></h3>
-            <p>Um pequeno vilarejo onde vivem 200 pessoas, que vivem da agricultura e do artesanato.</p>
-            <p><a href="#" class="btn btn-primary">Ler mais</a></p>
+            Um pequeno vilarejo onde vivem 200 pessoas, que vivem da agricultura e do artesanato.</p>
+            <p><a href="#" class="btn btn-primary">{{ trans('messages.ler_mais') }}</a></p>
           </div>
         </div>
       </div>
@@ -355,8 +245,8 @@
 
           <div class="text" style="border-radius:10px;">
 
-            <h3 class="heading"><a href="#">Colinas</a></h3>
-            <p>Um pequeno vilarejo onde vivem 200 pessoas, que vivem da agricultura e do artesanato.</p>
+            <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
+            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
             <p><a href="#" class="btn btn-primary">Ler mais</a></p>
           </div>
         </div>
@@ -373,8 +263,8 @@
   <div class="container">
     <div class="row justify-content-center pb-4">
       <div class="col-md-6 heading-section text-center ftco-animate">
-        <span class="subheading">O que oferecemos de melhor</span>
-        <h2 class="mb-4">Nossas Atividades</h2>
+        <span class="subheading">{{ trans('messages.o_que_oferecemo_de_melhor') }}</span>
+        <h2 class="mb-4">{{ trans('messages.nossas_atividades') }}</h2>
       </div>
     </div>
   </div>
@@ -441,8 +331,8 @@
 <div class="container">
   <div class="row justify-content-center pb-4">
     <div class="col-md-6 heading-section text-center ftco-animate">
-      <span class="subheading">Momentos</span>
-      <h2 class="mb-4">Galeria</h2>
+      <span class="subheading">{{ trans('messages.momentos') }}</span>
+      <h2 class="mb-4">{{ trans('messages.galeria') }}</h2>
     </div>
   </div>
 </div>
@@ -515,6 +405,60 @@
       stroke="#F96D00" />
   </svg></div>
 
+  <style>
+
+    #container-pacotes{
+        background-color:#2c5423;
+        border-radius: 20px;
+    }
+    #pacotes{
+        display: inline-block; /* Permite centralizar verticalmente */
+        padding: 10px 100px;
+
+    }
+
+    #pacote-fixo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        opacity: 0.5;
+    }
+
+    #pacote-comunidade{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+
+    }
+    #pacote-fixo-nome{
+        color: #f4bc08;
+        opacity: 0.5;
+    }
+
+    #pacote-comunidade-nome{
+        color: #f4bc08;
+
+    }
+
+   #pacote-fixo-img{
+        width: 100px;
+        border-radius: 20px;
+        background-color: white;
+        opacity: 0.5;
+    }
+
+    #pacote-comunidade-img{
+        width: 100px;
+        border-radius: 20px;
+        background-color: white;
+
+    }
+
+  </style>
 
   <script >
 

@@ -13,8 +13,8 @@
    <div class="container">
      <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
        <div class="col-md-9 ftco-animate pb-5 text-center">
-        <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="fa fa-chevron-right"></i></a></span> <span>Sobre nós <i class="fa fa-chevron-right"></i></span></p>
-        <h1 class="mb-0 bread">Sobre nós</h1>
+        <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="fa fa-chevron-right"></i></a></span> <span>{{ trans('messages.sobre_nos') }} <i class="fa fa-chevron-right"></i></span></p>
+        <h1 class="mb-0 bread">{{ trans('messages.sobre_nos') }}</h1>
         <a href="#sobre"> <i  class="fa fa-angle-double-down fa-lg" style="color: white" aria-hidden="true"></i></a>
       </div>
     </div>
@@ -26,9 +26,9 @@
      <div class="row d-flex">
        <div class="col-md-6 order-md-last heading-section pl-md-5 ftco-animate d-flex align-items-center">
         <div class="w-100">
-         <span class="subheading">{{ $sobre->titulo_principal }}</span>
-         <h2 class="mb-4">SOBRE</h2>
-         <p class="paragrafo"> {!! nl2br(e($sobre->sobre)) !!}</p>
+         <span class="subheading">{{ trans('messages.sobre_titulo') }}</span>
+         <h2 class="mb-4">{{ trans('messages.sobre') }}</h2>
+         <p class="paragrafo"> {!! nl2br(e(trans('messages.sobre_texto'))) !!}</p>
        </div>
      </div>
      <div class="col-md-6">
@@ -56,7 +56,7 @@
            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-tour-guide"></span></div>
            <div class="media-body">
              <h3 class="heading mb-3">{{ $sobre->nome_atividade_comunidade3 }}</h3>
-             <p class="descricao_atividade_comunidade">{{ $sobre->nome_atividade_comunidade3 }}</p>
+             <p class="descricao_atividade_comunidade">{{ $sobre->descricao_atividade_comunidade3 }}</p>
            </div>
          </div>
        </div>
@@ -65,7 +65,7 @@
            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-map"></span></div>
            <div class="media-body">
              <h3 class="heading mb-3">{{ $sobre->nome_atividade_comunidade4 }}</h3>
-             <p class="descricao_atividade_comunidade">{{ $sobre->nome_atividade_comunidade4 }}</p>
+             <p class="descricao_atividade_comunidade">{{ $sobre->descricao_atividade_comunidade4 }}</p>
            </div>
          </div>
        </div>
