@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class MomentController extends Controller
+class CommunityController extends Controller
 {
     public function index(){
-        return view('moment');
+        return view('community');
     }
 }

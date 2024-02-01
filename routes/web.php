@@ -11,6 +11,8 @@ use App\Http\Controllers\PacksController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\GeocodeController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\CommunityController;
+use App\Http\Controllers\ActivitiesController;
 
 
 
@@ -33,9 +35,9 @@ Route::get('/sobre', [AboutController::class, 'index']);
 
 Route::get('/depoimentos', [TestimonyController::class, 'index']);
 
-Route::get('/viajens', [TravelController::class, 'index']);
+Route::get('/comunidades', [CommunityController::class, 'index']);
 
-Route::get('/momentos', [MomentController::class, 'index']);
+Route::get('/atividades', [ActivitiesController::class, 'index']);
 
 Route::get('/faleconosco', [ContatusController::class, 'index']);
 

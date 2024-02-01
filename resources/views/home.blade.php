@@ -40,15 +40,13 @@
 
             <div class="col-md-12 tab-wrap">
 
-              <div class="tab-content" id="v-pills-tabContent">
-
                 <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
                   aria-labelledby="v-pills-nextgen-tab">
                   <form action="#" class="search-property-1">
                     <div class="row no-gutters">
 
                       <div id="container-pacotes" class="col-md d-flex">
-                        <div class="form-group p-4 border-0">
+
 
                             <div id="pacotes">
                                 <div id="pacote-fixo">
@@ -64,11 +62,10 @@
                                 <p id="pacote-comunidade-nome">Pacotes Comunidades</p>
                            </div>
 
-                    </div>
+
                   </form>
                 </div>
 
-              </div>
             </div>
           </div>
         </div>
@@ -407,9 +404,13 @@
 
   <style>
 
+
     #container-pacotes{
         background-color:#2c5423;
+        opacity: 0.95;
         border-radius: 20px;
+        padding: 10px;
+        margin-top: 40px;
     }
     #pacotes{
         display: inline-block; /* Permite centralizar verticalmente */
@@ -433,7 +434,7 @@
         justify-content: center;
         margin-bottom: 10px;
         cursor: pointer;
-
+        opacity: 1;
     }
     #pacote-fixo-nome{
         color: #f4bc08;
@@ -443,6 +444,7 @@
     #pacote-comunidade-nome{
         color: #f4bc08;
         cursor: pointer;
+        opacity: 1;
     }
 
    #pacote-fixo-img{

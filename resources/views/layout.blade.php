@@ -60,8 +60,8 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 {{-- <a class="dropdown-item" href="/depoimentos" class="nav-link">DEPOIMENTOS</a> --}}
                                 <a class="dropdown-item" href="/posts">POSTS</a>
-                                <a class="dropdown-item" href="/momentos">COMUNIDADES</a>
-                                <a class="dropdown-item" href="/momentos">ATIVIDADES</a>
+                                <a class="dropdown-item" href="/comunidades">COMUNIDADES</a>
+                                <a class="dropdown-item" href="/atividades">ATIVIDADES</a>
                             </div>
                         </div>
                     </li>
@@ -141,12 +141,12 @@
                     <div class="ftco-footer-widget pt-md-5 mb-4">
                         <h2 class="ftco-heading-2">Experiência</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="py-2 d-block">Aventura</a></li>
-                            <li><a href="#" class="py-2 d-block">Hotel e Restaurantes</a></li>
-                            <li><a href="#" class="py-2 d-block">Praias</a></li>
-                            <li><a href="#" class="py-2 d-block">Natureza</a></li>
-                            <li><a href="#" class="py-2 d-block">Acampamentos</a></li>
-                            <li><a href="#" class="py-2 d-block">Festas Regionais</a></li>
+                            <li><a class="py-2 d-block">Aventura</a></li>
+                            <li><a class="py-2 d-block">Hotel e Restaurantes</a></li>
+                            <li><a class="py-2 d-block">Praias</a></li>
+                            <li><a class="py-2 d-block">Natureza</a></li>
+                            <li><a class="py-2 d-block">Acampamentos</a></li>
+                            <li><a class="py-2 d-block">Festas Regionais</a></li>
                         </ul>
                     </div>
                 </div>

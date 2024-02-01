@@ -1,23 +1,24 @@
 
 @extends('layout')
-@section('title','depoimentos')
+@section('title','comunidades')
 @section('content')
 
 
-  
-  <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_viajens.jpg');">
+
+  <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');">
    <div class="overlay"></div>
    <div class="container">
      <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
        <div class="col-md-9 ftco-animate pb-5 text-center">
-        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Viajens <i class="fa fa-chevron-right"></i></span></p>
-        <h1 class="mb-0 bread">Viajens</h1>
+        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Comunidades <i class="fa fa-chevron-right"></i></span></p>
+        <h1 class="mb-0 bread">Comunidades</h1>
+        <a href="#comunidades"> <i  class="fa fa-angle-double-down fa-lg" style="color: white" aria-hidden="true"></i></a>
       </div>
     </div>
   </div>
  </section>
- 
- <section class="ftco-section">
+
+ <section id="comunidades" class="ftco-section">
    <div class="container">
      <div class="row d-flex">
        <div class="col-md-4 d-flex ftco-animate">
@@ -157,8 +158,8 @@
    </div>
  </div>
  </div>
- </section>	
- 
+ </section>
+
  <section class="ftco-intro ftco-section ftco-no-pt">
   <div class="container">
    <div class="row justify-content-center">
@@ -173,5 +174,14 @@
  </div>
  </div>
  </section>
+
+ <script>
+    $(document).ready(function() {
+           // Rolar a tela para baixo até 500 pixels ao carregar a página
+           $('html, body').animate({
+               scrollTop: 615
+           }, 2000); // 1000 é a duração da animação em milissegundos
+       });
+  </script>
 
  @endsection
