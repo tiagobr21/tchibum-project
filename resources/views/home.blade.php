@@ -334,14 +334,14 @@
     <div class="row d-flex">
       <div class="col-md-12 d-flex ftco-animate" style="margin-bottom: 50px">
         <a href="blog-single.html" class="block-30"
-        style="background-image: url('images/image_1.jpg'); border-radius:50px">
+        style="background-image: url('images/28.jpg'); border-radius:50px">
       </a>
         <div class="blog-entry2 justify-content-end">
 
           <div class="text" style="border-radius:10px;">
 
-            <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            <h3 class="heading"><a href="#">Nova Terra</a></h3>
+            <p>Um pequeno vilarejo onde vivem 200 pessoas, que vivem da agricultura e do artesanato.</p>
             <p><a href="#" class="btn btn-primary">Ler mais</a></p>
           </div>
         </div>
@@ -349,14 +349,14 @@
 
       <div class="col-md-12 d-flex ftco-animate">
         <a href="blog-single.html" class="block-30"
-        style="background-image: url('images/image_1.jpg'); border-radius:50px">
+        style="background-image: url('images/51.jpg'); border-radius:50px">
       </a>
         <div class="blog-entry2 justify-content-end">
 
           <div class="text" style="border-radius:10px;">
 
-            <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            <h3 class="heading"><a href="#">Colinas</a></h3>
+            <p>Um pequeno vilarejo onde vivem 200 pessoas, que vivem da agricultura e do artesanato.</p>
             <p><a href="#" class="btn btn-primary">Ler mais</a></p>
           </div>
         </div>
