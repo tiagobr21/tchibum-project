@@ -4,7 +4,7 @@
 
 
 
-  <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url(images/por-do-sol.jpg);
+  <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url(images/27.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
