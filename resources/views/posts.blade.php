@@ -63,11 +63,11 @@
 
     <div class="row mt-5">
       <div class="col text-center">
-        <div class="block-27">
+
             <div class="d-flex">
               {!! $posts->links() !!}
             </div>
-        </div>
+
       </div>
     </div>
     </div>

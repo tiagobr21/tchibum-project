@@ -9,6 +9,10 @@ class Comunidade extends Model
 {
 
     protected $table = 'comunidades';
-    protected $fillable = ['nome','descricao','latitude','longitude','endereço','imagem_principal','video'];
+    protected $fillable = ['nome','descricao','latitude','longitude','endereço','imagem_principal','imagens_secundarias','video'];
+
+    protected $casts = [
+        'imagens_secundarias' => 'array',
+    ];
 
 }

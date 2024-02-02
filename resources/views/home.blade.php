@@ -235,38 +235,28 @@
         <h2 class="mb-4">{{ trans('messages.comunidades_que_atuamos') }}</h2>
       </div>
     </div>
+
+    @foreach ($comunidades as $comunidade)
+
     <div class="row d-flex">
       <div class="col-md-12 d-flex ftco-animate" style="margin-bottom: 50px">
         <a href="blog-single.html" class="block-30"
-        style="background-image: url('images/28.jpg'); border-radius:50px">
+        style="background-image: url('{{ asset('/storage/' . $comunidade->imagem_principal) }}'); border-radius:50px">
       </a>
         <div class="blog-entry2 justify-content-end">
 
-          <div class="text" style="border-radius:10px;">
+          <div class="text" style="border-radius:50px;">
 
-            <h3 class="heading"><a href="#">Nova Terra</a></h3>
-            Um pequeno vilarejo onde vivem 200 pessoas, que vivem da agricultura e do artesanato.</p>
+            <h3 class="heading"><a href="#">{{ $comunidade->nome }}</a></h3>
+            {{ $comunidade->titulo }}</p>
             <p><a href="#" class="btn btn-primary">{{ trans('messages.ler_mais') }}</a></p>
           </div>
         </div>
       </div>
 
-      <div class="col-md-12 d-flex ftco-animate">
-        <a href="blog-single.html" class="block-30"
-        style="background-image: url('images/51.jpg'); border-radius:50px">
-      </a>
-        <div class="blog-entry2 justify-content-end">
-
-          <div class="text" style="border-radius:10px;">
-
-            <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-            <p><a href="#" class="btn btn-primary">Ler mais</a></p>
-          </div>
-        </div>
-      </div>
-
     </div>
+
+    @endforeach
   </div>
 </section>
 
@@ -442,7 +432,7 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 10px;
-        opacity: 0.5;
+        cursor: pointer;
     }
 
     #pacote-comunidade{
@@ -452,12 +442,13 @@
         justify-content: center;
         margin-bottom: 10px;
         cursor: pointer;
-        opacity: 1;
+
     }
     #pacote-fixo-nome{
         color: #f4bc08;
+        cursor: pointer;
         font-weight: 600;
-        opacity: 0.5;
+
     }
 
     #pacote-comunidade-nome{
@@ -470,7 +461,7 @@
         width: 100px;
         border-radius: 20px;
         background-color: white;
-        opacity: 0.5;
+
     }
 
     #pacote-comunidade-img{

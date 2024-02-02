@@ -7,7 +7,7 @@ use App\Models\Depoimentos;
 use App\Models\Home;
 use App\Models\Galeria;
 use App\Models\Posts;
-
+use App\Models\Comunidade;
 
 class HomeController extends Controller
 {
@@ -19,9 +19,10 @@ class HomeController extends Controller
         $depoimentos = Depoimentos::all();
         $imagens = Galeria::all();
         $posts = Posts::latest()->paginate(6);
+        $comunidades = Comunidade::latest()->paginate(6);
 
         // dd(auth()->user());
-        return view('home',compact('depoimentos','home','imagens','posts'));
+        return view('home',compact('depoimentos','home','imagens','posts','comunidades'));
     }
 
 
