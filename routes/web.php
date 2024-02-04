@@ -37,6 +37,8 @@ Route::get('/depoimentos', [TestimonyController::class, 'index']);
 
 Route::get('/comunidades', [CommunityController::class, 'index']);
 
+Route::get('/comunidade-{comunidade}', [CommunityController::class, 'community'])   ;
+
 Route::get('/atividades', [ActivitiesController::class, 'index']);
 
 Route::get('/faleconosco', [ContatusController::class, 'index']);
