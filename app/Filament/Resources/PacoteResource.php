@@ -12,6 +12,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Select;
+use App\Models\Comunidade;
 
 class PacoteResource extends Resource
 {
@@ -19,8 +21,11 @@ class PacoteResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+
+
     public static function form(Form $form): Form
     {
+
         return $form
             ->schema([
                 Forms\Components\TextInput::make('nome')
@@ -32,10 +37,17 @@ class PacoteResource extends Resource
                 Forms\Components\TextInput::make('descricao')
                     ->required()
                     ->maxLength(300),
+                Forms\Components\Select::make('comunidade_id')
+                    ->label('Comunidade')
+                    ->options(Comunidade::all()->pluck('nome', 'id'))
+                    ->searchable()
+                    ->required(),
                 Forms\Components\FileUpload::make('imagem_principal')
+                    ->label('Imagem Principal')
                     ->maxSize(50000)
                     ->required(),
                 Forms\Components\FileUpload::make('imagens_secundarias')
+                    ->label('Imagens Secundarias')
                     ->multiple()
                     ->required(),
                 Forms\Components\TextInput::make('preco')
@@ -44,6 +56,7 @@ class PacoteResource extends Resource
                 Forms\Components\DatePicker::make('data')
                     ->required(),
                 Forms\Components\MarkdownEditor::make('infos')
+                    ->label('Informações')
                     ->required()
                     ->maxLength(1000),
                 Forms\Components\FileUpload::make('video')
@@ -55,7 +68,10 @@ class PacoteResource extends Resource
                 Forms\Components\TextInput::make('dias')
                     ->required()
                     ->numeric(),
+
             ]);
+
+
     }
 
     public static function table(Table $table): Table
@@ -63,10 +79,6 @@ class PacoteResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('nome')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('titulo')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('descricao')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('preco')
                     ->numeric()

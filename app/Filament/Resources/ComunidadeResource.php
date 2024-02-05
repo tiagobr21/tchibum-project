@@ -31,7 +31,7 @@ class ComunidadeResource extends Resource
                     ->maxLength(80),
                 Forms\Components\MarkdownEditor::make('descricao')
                     ->required()
-                    ->maxLength(1000),
+                    ->maxLength(1200),
                 Forms\Components\TextInput::make('latitude')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('longitude')

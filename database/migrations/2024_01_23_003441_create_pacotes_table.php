@@ -22,6 +22,16 @@ return new class extends Migration
             $table->datetime('data');
             $table->string('infos',1000);
             $table->string('video',50);
+            $table->integer('pessoas');
+            $table->integer('dias');
+
+            $table->unsignedBigInteger('comunidade_id')->unsigned();
+
+            $table->foreign("comunidade_id")
+            ->references("id")
+            ->on("comunidades")
+            ->onDelete("cascade");
+
             $table->timestamps();
         });
     }

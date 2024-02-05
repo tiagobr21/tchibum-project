@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nome',35);
             $table->string('titulo',80);
-            $table->string('descricao',700);
+            $table->string('descricao',1200);
             $table->string('latitude',255)->nullable();
             $table->string('longitude',255)->nullable();
             $table->string('endereço',255);
