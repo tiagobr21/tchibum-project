@@ -59,7 +59,7 @@
                             <div id="pacote-comunidade">
                                 <img id="pacote-comunidade-img" src="/images/pacote-comunidade.png">
                             </div>
-                                <p id="pacote-comunidade-nome">Pacotes das Comunidades</p>
+                                <p id="pacote-comunidade-nome">Pacotes Personalizados</p>
                            </div>
 
 
@@ -200,7 +200,7 @@
                 <div class="text">
                   <div class="d-flex align-items-center mb-4 topp">
                       <div class="one">
-                        <span class="day">{{ $dia }}</span>
+                        <span class="day" style="font-size:30px;">{{ $dia }}</span>
                       </div>
                       <div class="two">
                         <span class="yr">{{ $mes }}</span>
@@ -470,6 +470,7 @@
         background-color: white;
 
     }
+
 
   </style>
 

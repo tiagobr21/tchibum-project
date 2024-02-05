@@ -4,7 +4,7 @@
 @section('content')
 
 
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_faleconosco.jpg');">
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{asset('/storage/'. $contato->imagem_principal)}}');">
     <div class="overlay"></div>
     <div class="container">
       <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
@@ -149,9 +149,9 @@
 
    $(document).ready(function() {
            // Rolar a tela para baixo até 500 pixels ao carregar a página
-           /* $('html, body').animate({
+            $('html, body').animate({
                scrollTop: 615
-           }, 2000); // 1000 é a duração da animação em milissegundos */
+           }, 2000); // 1000 é a duração da animação em milissegundos 
 
            // gerar link whatsapp
 
