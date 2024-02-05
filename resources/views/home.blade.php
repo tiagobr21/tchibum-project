@@ -414,7 +414,6 @@
 
     #container-pacotes{
         background-color:white;
-        opacity: 0.95;
         border-radius: 20px;
         padding: 10px;
         margin-top: 40px;
