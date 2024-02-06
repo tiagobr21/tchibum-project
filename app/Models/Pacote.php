@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Opcao;
+use App\Models\Opcoe;
 
 
 class Pacote extends Model
@@ -18,6 +18,6 @@ class Pacote extends Model
 
     public function opcoes()
     {
-        return $this->belongsToMany(Opcao::class, 'pacotes_opcoes', 'pacote_id', 'opcao_id');
+        return $this->belongsToMany(Opcoe::class, 'pacotes_opcoes', 'pacote_id', 'opcao_id');
     }
 }

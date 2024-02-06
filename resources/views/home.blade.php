@@ -274,60 +274,29 @@
   </div>
   <div class="container ">
     <div class="row">
-      <div class="col-md-12">
-        <div class="carousel-destination owl-carousel ftco-animate">
-          <div class="item">
-            <div class="project-destination">
-              <a href="#" class="img" style="background-image: url(images/teatro-amazonas.jpg);">
-                <div class="text">
-                  <h3>Manaus</h3>
 
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="item">
-            <div class="project-destination">
-              <a href="#" class="img" style="background-image: url(images/encontro-aguas.jpg);">
-                <div class="text">
-                  <h3>Encontro das àguas</h3>
+      @foreach ( $opcoes as $opcoe)
 
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="item">
-            <div class="project-destination">
-              <a href="#" class="img" style="background-image: url(images/turista.jpg);">
-                <div class="text">
-                  <h3>Passeio</h3>
 
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="item">
-            <div class="project-destination">
-              <a href="#" class="img" style="background-image: url(images/boto.jpg);">
-                <div class="text">
-                  <h3>Botos</h3>
+        <div class="col-md-12">
 
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="item">
-            <div class="project-destination">
-              <a href="#" class="img" style="background-image: url(images/vitoria-regia.png);">
-                <div class="text">
-                  <h3>Regional</h3>
+            <div class="carousel-destination owl-carousel">
 
+            <div class="item">
+                <div class="project-destination">
+                <a href="/atividade-{{ $opcoe->id }}" class="img" style="background-image: url('{{ asset('/storage/' . $opcoe->imagem) }}');">
+                    <div class="text">
+                    <h3>{{ $opcoe->nome }}</h3>
+
+                    </div>
+                </a>
                 </div>
-              </a>
             </div>
-          </div>
+            </div>
         </div>
-      </div>
+
+      @endforeach
+
     </div>
   </div>
 </section>

@@ -8,6 +8,7 @@ use App\Models\Home;
 use App\Models\Galeria;
 use App\Models\Posts;
 use App\Models\Comunidade;
+use App\Models\Opcoe;
 
 class HomeController extends Controller
 {
@@ -20,9 +21,10 @@ class HomeController extends Controller
         $imagens = Galeria::all();
         $posts = Posts::latest()->paginate(6);
         $comunidades = Comunidade::latest()->paginate(6);
+        $opcoes = Opcoe::all();
 
         // dd(auth()->user());
-        return view('home',compact('depoimentos','home','imagens','posts','comunidades'));
+        return view('home',compact('depoimentos','home','imagens','posts','comunidades','opcoes'));
     }
 
 

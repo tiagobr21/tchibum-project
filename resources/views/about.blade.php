@@ -97,14 +97,14 @@
 </section>
 
 
-{{-- <script>
+<script>
   $(document).ready(function() {
          // Rolar a tela para baixo até 500 pixels ao carregar a página
          $('html, body').animate({
              scrollTop: 700
          }, 2000); // 1000 é a duração da animação em milissegundos
      });
-</script> --}}
+</script>
 
 
  @endsection

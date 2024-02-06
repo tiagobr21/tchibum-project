@@ -41,6 +41,8 @@ Route::get('/comunidade-{comunidade}', [CommunityController::class, 'community']
 
 Route::get('/atividades', [ActivitiesController::class, 'index']);
 
+Route::get('/atividade-{opcoe}', [ActivitiesController::class, 'activity']);
+
 Route::get('/faleconosco', [ContatusController::class, 'index']);
 
 Route::get('/posts', [PostsController::class, 'index']);
