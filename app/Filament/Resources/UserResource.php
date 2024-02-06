@@ -24,28 +24,21 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Textarea::make('name')
-                ->label('Rótulo do Campo')
-                ->placeholder('Digite seu artigo aqui')
-                ->rows(10) // Define o número de linhas visíveis no textarea
-                ,
+                Forms\Components\TextInput::make('name')
+                ->label('Nome')
+                ->required(),
                 Forms\Components\TextInput::make('email')
                     ->email()
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('role')
+                Forms\Components\Select::make('role')
                     ->required()
-                    ->label('Permissão')
-                    ->maxLength(255)
-                    ->default('user'),
-                // Forms\Components\DateTimePicker::make('email_verified_at'),
+                    ->options(User::all()->pluck('role','role'))
+                    ->label('Permissão'),
                 Forms\Components\TextInput::make('password')
                     ->password()
-                    ->required()
-                    ->maxLength(255),
-                // Forms\Components\DateTimePicker::make('two_factor_confirmed_at'),
-                Forms\Components\TextInput::make('profile_photo_path')
-                    ->maxLength(2048)
+                    ->minLength(8),
+                Forms\Components\FileUpload::make('profile_photo_path')
                     ->label('Foto de perfil'),
             ]);
     }
