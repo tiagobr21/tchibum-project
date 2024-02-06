@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pacotes_opcoes', function (Blueprint $table) {
+        Schema::create('pacoteopcoe', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('pacote_id');
             $table->unsignedBigInteger('opcao_id');
-            $table->primary(['pacote_id', 'opcao_id']);
             $table->foreign('pacote_id')->references('id')->on('pacotes')->onDelete('cascade');
-            $table->foreign('opcao_id')->references('id')->on('opcaos')->onDelete('cascade');
+            $table->foreign('opcao_id')->references('id')->on('opcoes')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pacotes_opcoes');
+        Schema::dropIfExists('pacoteopcoe');
     }
 };

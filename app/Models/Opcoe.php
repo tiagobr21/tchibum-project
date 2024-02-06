@@ -13,6 +13,6 @@ class Opcoe extends Model
 
     public function pacotes()
     {
-        return $this->belongsToMany(Pacote::class, 'pacotes_opcoes', 'opcao_id', 'pacote_id');
+        return $this->belongsToMany(Pacote::class, 'pacoteopcoe', 'opcao_id', 'pacote_id');
     }
 }
