@@ -275,27 +275,33 @@
   <div class="container ">
     <div class="row">
 
-      @foreach ( $opcoes as $opcoe)
 
 
         <div class="col-md-12">
 
             <div class="carousel-destination owl-carousel">
 
-            <div class="item">
-                <div class="project-destination">
-                <a href="/atividade-{{ $opcoe->id }}" class="img" style="background-image: url('{{ asset('/storage/' . $opcoe->imagem) }}');">
-                    <div class="text">
-                    <h3>{{ $opcoe->nome }}</h3>
+                @foreach ( $opcoes as $opcoe)
+
+                    <div class="item">
+                        <div class="project-destination">
+                        <a href="/atividade-{{ $opcoe->id }}" class="img" style="background-image: url('{{ asset('/storage/' . $opcoe->imagem) }}');">
+                            <div class="text">
+                            <h3>{{ $opcoe->nome }}</h3>
+
+                            </div>
+                        </a>
+                        </div>
 
                     </div>
-                </a>
-                </div>
+
+                @endforeach
+
             </div>
-            </div>
+
         </div>
 
-      @endforeach
+
 
     </div>
   </div>
