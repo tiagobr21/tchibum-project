@@ -87,7 +87,7 @@
   <div class="container py-md-5">
     <div class="row py-md-5">
       <div class="col-md d-flex align-items-center justify-content-center">
-        <a href="http://localhost/storage/{{ $sobre->video_principal }}"
+        <a href="http://195.35.17.151/storage/{{ $sobre->video_principal }}"
           class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
           <span class="fa fa-play"></span>
         </a>

@@ -27,7 +27,7 @@
             <div class="col-md-6 d-flex">
                 <div id="img-post" class="col-md-12 d-flex align-items-stretch">
                     <div class="img w-100 align-items-center justify-content-center"
-                        style="background-image:url(http://localhost/storage/{{ $post->imagem_principal }});">
+                        style="background-image:url(http://195.35.17.151/storage/{{ $post->imagem_principal }});">
                     </div>
                 </div>
             </div>
