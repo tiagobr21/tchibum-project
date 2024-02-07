@@ -33,8 +33,6 @@ class PostsResource extends Resource
                     ->maxLength(5000),
                 Forms\Components\FileUpload::make('imagem_principal')
                     ->required(),
-         /*        Forms\Components\TextInput::make('imagens_secundarias')
-                    ->maxLength(500), */
             ]);
     }
 

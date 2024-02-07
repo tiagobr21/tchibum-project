@@ -120,8 +120,8 @@
                             Oferecemos pacotes de turismo que proporcionam uma imersão na riqueza da fauna e flora
                             amazônica, garantindo conforto e segurança aos exploradores.</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
-                            <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-                            <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="https://api.whatsapp.com/send/?phone=559292197150&text=Ol%C3%A1%2C+gostaria+de+tirar+algumas+d%C3%BAvidas&type=phone_number&app_absent=0"><span class="fa fa-whatsapp"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.instagram.com/tchibumnaamazonia/"><span class="fa fa-facebook"></span></a></li>
                             <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
                         </ul>
                     </div>
