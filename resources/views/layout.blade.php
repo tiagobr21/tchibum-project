@@ -155,10 +155,8 @@
                         <h2 class="ftco-heading-2">Dúvidas?</h2>
                         <div class="block-23 mb-3">
                             <ul>
-                                <li><span class="icon fa fa-map-marker"></span><span class="text">Rua dos manauaras
-                                        100, Manaus, Amazonas, BR</span></li>
-                                <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+55
-                                    92 99219-7150</span></a></li>
+                                <li><span class="icon fa fa-map-marker"></span><span class="text">Rua Coronel Salgado, 529, Aparecida, 69010450, Manaus – AM.</span></li>
+                                <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+55 92 9219-7150</span></a></li>
                                 <li>
                                     <a><span class="icon fa fa-paper-plane"></span><span
                                     class="text" style="font-size: 14px;"> tchibumnamazonia@gmail.com</span></a></li>

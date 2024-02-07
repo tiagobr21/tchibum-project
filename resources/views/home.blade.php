@@ -61,8 +61,8 @@
                             </div>
                                 <p id="pacote-comunidade-nome">Pacotes Personalizados</p>
                            </div>
-
-
+                      </div>
+                    </div>
                   </form>
                 </div>
 
@@ -386,13 +386,23 @@
 
   <style>
 
+    @media screen and (max-width: 768px) {
+        #container-pacotes {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    }
 
     #container-pacotes{
         background-color:white;
         border-radius: 20px;
         padding: 10px;
         margin-top: 40px;
-        border: 1px solid black
+        border: 1px solid black;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
     }
     #pacotes{
         display: inline-block; /* Permite centralizar verticalmente */
