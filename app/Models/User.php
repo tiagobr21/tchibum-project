@@ -11,8 +11,9 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
+use App\Models\Pacote;
 
-class User extends Authenticatable //implements FilamentUser
+class User extends Authenticatable implements FilamentUser
 {
     use HasApiTokens;
     use HasFactory;
@@ -20,10 +21,20 @@ class User extends Authenticatable //implements FilamentUser
     use Notifiable;
     use TwoFactorAuthenticatable;
 
-/*      public function canAccessPanel(Panel $panel): bool {
-        return str_ends_with($this->email, '@devsmind.com') && $this->hasVerifiedEmail();
-    } 
- */
+     public function canAccessPanel(Panel $panel): bool {
+
+        $allowedDomains = ['devminds.com', 'tchibum.com'];
+
+        $emailDomain = substr(strrchr($this->email, "@"), 1);
+
+        return in_array($emailDomain, $allowedDomains);
+    }
+
+    public function pacote()
+    {
+        return $this->belongsToMany(Pacote::class, 'pacoteusuarios','user_id', 'pacote_id');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
