@@ -9,6 +9,7 @@ use App\Models\Pacote;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PacoteUsuarios;
+use App\Mail\Contato;
 
 class CreatePacoteUsuario extends CreateRecord
 {
@@ -16,14 +17,14 @@ class CreatePacoteUsuario extends CreateRecord
 
     protected function mutateFormDataBeforeCreate(array $data): array{
 
-        $pacote = Pacote::find($data['pacote_id']);
-        $user = User::find($data['user_id']);   
-        
+        $pacote = Pacote::with('comunidade')->find($data['pacote_id']);
+        $user = User::find($data['user_id']);
+
         $mail = Mail::to($user->email)->send(new PacoteUsuarios([
             'pacote'=> $pacote,
             'user'=> $user,
         ]));
-    
+
         dd($mail);
-    } 
+    }
 }

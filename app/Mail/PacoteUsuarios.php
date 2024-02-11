@@ -19,26 +19,25 @@ class PacoteUsuarios extends Mailable
      */
     public function __construct($data)
     {
- 
- 
-   
+
+    //    dd($data);
        $this->pacote = $data['pacote'];
        $this->user = $data['user'];
 
-      
+
     }
 
     /**
      * Get the message content definition.
      */
     public function build()
-    { 
+    {
         $pacote = $this->pacote;
         $user = $this->user;
         return $this->view('mail.pacoteusuarios',compact('pacote','user'))
                     ->subject('Solicitação de Compra de Pacote');
-                
-                    
+
+
     }
 
 }
