@@ -19,7 +19,10 @@ class CreatePacoteUsuario extends CreateRecord
         $pacote = Pacote::find($data['pacote_id']);
         $user = User::find($data['user_id']);   
         
-        $mail = Mail::to($user->email)->send(new PacoteUsuarios($pacote));
+        $mail = Mail::to($user->email)->send(new PacoteUsuarios([
+            'pacote'=> $pacote,
+            'user'=> $user,
+        ]));
     
         dd($mail);
     } 

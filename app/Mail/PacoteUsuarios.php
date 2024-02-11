@@ -19,9 +19,11 @@ class PacoteUsuarios extends Mailable
      */
     public function __construct($data)
     {
-
+ 
+ 
    
-       $this->pacote = $data;
+       $this->pacote = $data['pacote'];
+       $this->user = $data['user'];
 
       
     }
@@ -32,9 +34,11 @@ class PacoteUsuarios extends Mailable
     public function build()
     { 
         $pacote = $this->pacote;
-        return $this->view('mail.pacoteusuarios',compact('pacote'))
+        $user = $this->user;
+        return $this->view('mail.pacoteusuarios',compact('pacote','user'))
                     ->subject('Solicitação de Compra de Pacote');
                 
+                    
     }
 
 }
