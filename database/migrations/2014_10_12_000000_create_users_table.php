@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('cpf',14);
+            $table->string('uf');
+            $table->string('endereco');
+            $table->string('cep',9);
             $table->string("role")->default('user');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
