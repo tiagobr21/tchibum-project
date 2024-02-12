@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PacoteResource\Pages;
-use App\Filament\Resources\PacoteResource\RelationManagers;
-use App\Models\Pacote;
+use App\Filament\Resources\PacotePersonalizadoResource\Pages;
+use App\Filament\Resources\PacotePersonalizadoResource\RelationManagers;
+use App\Models\PacotePersonalizado;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -14,54 +14,31 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Select;
 use App\Models\Comunidade;
+use App\Models\User;
 
-class PacoteResource extends Resource
+class PacotePersonalizadoResource extends Resource
 {
-    protected static ?string $model = Pacote::class;
+    protected static ?string $model = PacotePersonalizado::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-
-
     public static function form(Form $form): Form
     {
-
         return $form
             ->schema([
-                Forms\Components\TextInput::make('nome')
-                    ->required()
-                    ->maxLength(35),
-                Forms\Components\TextInput::make('titulo')
-                    ->required()
-                    ->maxLength(100),
-                Forms\Components\TextInput::make('descricao')
-                    ->required()
-                    ->maxLength(300),
                 Forms\Components\Select::make('comunidade_id')
                     ->label('Comunidade')
                     ->options(Comunidade::all()->pluck('nome', 'id'))
-                    ->searchable()
                     ->required(),
-                Forms\Components\FileUpload::make('imagem_principal')
-                    ->label('Imagem Principal')
-                    ->maxSize(50000)
-                    ->required(),
-                Forms\Components\FileUpload::make('imagens_secundarias')
-                    ->label('Imagens Secundarias')
-                    ->multiple()
+                Forms\Components\Select::make('user_id')
+                    ->label('Usuário')
+                    ->options(user::all()->pluck('name', 'id'))
                     ->required(),
                 Forms\Components\TextInput::make('preco')
                     ->required()
-                    ->numeric(10,2),
+                    ->numeric(),
                 Forms\Components\DatePicker::make('data')
-                    ->date()
-                    ->required(),
-                Forms\Components\MarkdownEditor::make('infos')
-                    ->label('Informações')
-                    ->required()
-                    ->maxLength(1000),
-                Forms\Components\FileUpload::make('video')
-                    ->maxSize(50000)
+                    ->date('d/m/Y')
                     ->required(),
                 Forms\Components\TextInput::make('pessoas')
                     ->required()
@@ -69,32 +46,40 @@ class PacoteResource extends Resource
                 Forms\Components\TextInput::make('dias')
                     ->required()
                     ->numeric(),
-
+                Forms\Components\Select::make('status')
+                    ->required()
+                    ->options([ 'EM_ANALISE' => 'EM ANALISE',
+                            'APROVADO'=> 'APROVADO',
+                            'RECUSADO'=>'RECUSADO'])
+                    ->default('EM_ANALISE'),
             ]);
-
-
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('nome')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('preco')
-                    ->numeric()
-                    ->sortable()
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('data')
-                    ->date('d/M/Y H:i:s')
-                    ->sortable()
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('comunidade.nome')
-                    ->sortable()
+                    ->label('Comunidade')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('user.name')
+                    ->label('Solicitante')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('preco')
+                    ->label('Preço')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('data')
+                    ->date('d/M/Y')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('status')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
-                    ->label('Organizar por Criação')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
@@ -121,9 +106,9 @@ class PacoteResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPacotes::route('/'),
-            'create' => Pages\CreatePacote::route('/create'),
-            'edit' => Pages\EditPacote::route('/{record}/edit'),
+            'index' => Pages\ListPacotePersonalizados::route('/'),
+            'create' => Pages\CreatePacotePersonalizado::route('/create'),
+            'edit' => Pages\EditPacotePersonalizado::route('/{record}/edit'),
         ];
     }
 }

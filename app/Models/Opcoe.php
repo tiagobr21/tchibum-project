@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Posts;
+use App\Models\Pacote;
+use App\Models\PacotePersonalizado;
 
 class Opcoe extends Model
 {
@@ -14,5 +15,10 @@ class Opcoe extends Model
     public function pacotes()
     {
         return $this->belongsToMany(Pacote::class, 'pacoteopcoe', 'opcao_id', 'pacote_id');
+    }
+
+    public function pacoteperso()
+    {
+        return $this->belongsToMany(PacotePersonalizado::class, 'pacotepersoopcoe', 'opcaoperso_id', 'pacoteperso_id');
     }
 }

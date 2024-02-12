@@ -43,10 +43,14 @@ class PacoteOpcoeResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('pacote_id'),
-
-                Tables\Columns\TextColumn::make('opcao_id'),
-
+                Tables\Columns\TextColumn::make('pacote.nome')
+                    ->label('Pacotes')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('opcao.nome')
+                    ->label('Atividades')
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->label('Organizar por Criação')

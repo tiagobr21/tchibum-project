@@ -12,6 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use App\Models\Pacote;
+use App\Models\PacotePersonalizado;
 
 class User extends Authenticatable implements FilamentUser
 {
@@ -33,6 +34,11 @@ class User extends Authenticatable implements FilamentUser
     public function pacote()
     {
         return $this->belongsToMany(Pacote::class, 'pacoteusuarios','user_id', 'pacote_id');
+    }
+
+    public function pacoteperso()
+    {
+        return $this->belongsToMany(PacotePersonalizado::class, 'pacoteusuarios','user_id', 'pacoteperso_id');
     }
 
     /**
