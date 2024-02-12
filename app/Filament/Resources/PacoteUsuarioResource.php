@@ -51,16 +51,16 @@ class PacoteUsuarioResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('pacote_id')
-                    ->label('Pacotes')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('user_id')
-                    ->label('Usuários')
-                    ->numeric()
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('pacote.nome')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('user.email')
+                   ->label('Cliente')
+                   ->searchable()
+                   ->sortable(),
                 Tables\Columns\TextColumn::make('data')
-                    ->dateTime()
+                     ->date('d/m/Y H:i:s')
+                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('status')
                     ->searchable(),
@@ -68,10 +68,7 @@ class PacoteUsuarioResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+
             ])
             ->filters([
                 //

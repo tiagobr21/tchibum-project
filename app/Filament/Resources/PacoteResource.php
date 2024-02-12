@@ -82,10 +82,15 @@ class PacoteResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('preco')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('data')
-                    ->dateTime()
-                    ->sortable(),
+                    ->date('d/m/Y H:i:s')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('comunidade.nome')
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->label('Organizar por Criação')

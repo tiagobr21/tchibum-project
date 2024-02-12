@@ -9,4 +9,6 @@ class PacoteOpcoe extends Model
 {
     protected $table = 'pacoteopcoe';
     protected $fillable = ['pacote_id', 'opcao_id'];
+
+
 }
