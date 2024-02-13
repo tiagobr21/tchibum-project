@@ -17,10 +17,12 @@ class CreatePacoteUsuario extends CreateRecord
 
     protected function mutateFormDataBeforeCreate(array $data): array{
 
-        $pacote = Pacote::with('comunidade')->find($data['pacote_id']);
+        $pacote = Pacote::with('comunidade','opcoes')->find($data['pacote_id']);
         $user = User::find($data['user_id']);
 
-        $mail = Mail::to($user->email)->send(new PacoteUsuarios([
+        $email_tchibum = 'tchibumnaamazonia@gmail.com';
+
+        $mail = Mail::to([$user->email,$email_tchibum])->send(new PacoteUsuarios([
             'pacote'=> $pacote,
             'user'=> $user,
         ]));

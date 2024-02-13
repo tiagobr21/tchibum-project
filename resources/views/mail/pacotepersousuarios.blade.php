@@ -8,22 +8,26 @@
 </head>
 
 <div class="container">
-    <h3>Nova Solicitação de Compra <br>(Pacote Fechado)</h3><br>
+    <h3>Nova Solicitação de Compra <br>(Pacote Personalizado)</h3><br>
     <h5>Informações do Pacote: </h5>
     <div id="pacote">
-        <p> <strong>Pacote:</strong>  {{$pacote->nome}}</p>
-        <p>  <strong>Preço:</strong> R$ {{$pacote->preco}}</p>
-        <p> <strong>Data:</strong> {{date('d/m/Y', strtotime($pacote->data))}}</p>
+        <p> <strong>Pacote:</strong>  {{$pacotepersonalizado->id}}</p>
+        <p>  <strong>Preço:</strong> R$ {{$pacotepersonalizado->preco}}</p>
+        <p> <strong>Data:</strong> {{date('d/m/Y', strtotime($pacotepersonalizado->data))}}</p>
 
     </div>
 
     <div id="pacote">
-        <p> <strong>Quantidade de Pessoas:</strong> {{$pacote->pessoas}}</p>
-        <p> <strong>Dias do Pacote:</strong> {{$pacote->dias}}</p>
-        <p> <strong>Comunidade:</strong> {{$pacote->comunidade->nome}}</p>
+        <p> <strong>Quantidade de Pessoas:</strong> {{$pacotepersonalizado->pessoas}}</p>
+        <p> <strong>Dias do Pacote:</strong> {{$pacotepersonalizado->dias}}</p>
+
     </div>
 
+    <div id="pacote"><p> <strong>Comunidade:</strong> {{$pacotepersonalizado->comunidade->nome}}</p></div>
+
     <h5>Informações das Atividades Inclusas: </h5>
+
+
 
 
         <table class="table" >
@@ -33,7 +37,7 @@
                 <th scope="col">Preço</th>
               </tr>
             </thead>
-            @foreach ($pacote->opcoes as $opcao )
+            @foreach ($pacotepersonalizado->opcoes as $opcao )
                 <tbody>
                 <tr>
                     <td >{{ $opcao->nome }}</td>
@@ -44,14 +48,15 @@
           </table>
 
 
-
     <h5>Informações do Cliente: </h5>
     <div id="user">
         <p> <strong>Nome:</strong> {{$user->name}}</p>
         <p> <strong>Email:</strong> {{$user->email}}</p>
     </div>
     <p>Atenciosamente,<br>Seu Nome<br>Seu Cargo<br>Nome da Sua Empresa</p>
-    <a href="https://www.exemplo.com" class="button">Acompanhe sua Compra</a>
+
+    <a href="https://www.exemplo.com" class="btn btn-primary">Acompanhe sua Compra</a>
+
   </div>
 
 
@@ -75,14 +80,7 @@ body {
     }
 
 
-    .button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #3498db;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 3px;
-    }
+
     #pacote{
         display: flex;
 

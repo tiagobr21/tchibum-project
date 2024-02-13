@@ -10,7 +10,7 @@ use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
 
-class PacoteUsuarios extends Mailable
+class PacotePersoUsuarios extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -20,8 +20,7 @@ class PacoteUsuarios extends Mailable
     public function __construct($data)
     {
 
-
-       $this->pacote = $data['pacote'];
+       $this->pacotepersonalizado = $data['pacote'];
        $this->user = $data['user'];
 
 
@@ -32,9 +31,9 @@ class PacoteUsuarios extends Mailable
      */
     public function build()
     {
-        $pacote = $this->pacote;
+        $pacotepersonalizado = $this->pacotepersonalizado;
         $user = $this->user;
-        return $this->view('mail.pacoteusuarios',compact('pacote','user'))
+        return $this->view('mail.pacotepersousuarios',compact('pacotepersonalizado','user'))
                     ->subject('Solicitação de Compra de Pacote');
 
 

@@ -18,7 +18,7 @@ class PacotePersonalizado extends Model
         return $this->belongsTo(Comunidade::class);
     }
 
-    public function opcoe()
+    public function opcoes()
     {
         return $this->belongsToMany(Opcoe::class, 'pacotepersoopcoe', 'pacoteperso_id', 'opcaoperso_id');
     }

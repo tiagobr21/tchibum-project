@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pacotepersoopcoe', function (Blueprint $table) {
+        Schema::create('pacotepersousuarios', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('pacoteperso_id');
-            $table->unsignedBigInteger('opcaoperso_id');
+            $table->unsignedBigInteger('user_id');
             $table->foreign('pacoteperso_id')->references('id')->on('pacotes_personalizados')->onDelete('cascade');
-            $table->foreign('opcaoperso_id')->references('id')->on('opcoes')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->datetime('data');
+            $table->string('status')->default('PENDENTE');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pacotepersoopcoes');
+        Schema::dropIfExists('pacotepersousuarios');
     }
 };

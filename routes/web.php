@@ -13,6 +13,8 @@ use App\Http\Controllers\GeocodeController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\ActivitiesController;
+use App\Http\Controllers\PacksCustomControllers;
+
 
 
 
@@ -27,7 +29,7 @@ use App\Http\Controllers\ActivitiesController;
 |
 */
 
-
+//instutucional
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -35,15 +37,23 @@ Route::get('/sobre', [AboutController::class, 'index']);
 
 Route::get('/depoimentos', [TestimonyController::class, 'index']);
 
+Route::get('/faleconosco', [ContatusController::class, 'index']);
+
+Route::post('/faleconosco/mensagem', [ContatusController::class, 'mensagem']);
+
+//comunidade
+
 Route::get('/comunidades', [CommunityController::class, 'index']);
 
-Route::get('/comunidade-{comunidade}', [CommunityController::class, 'community'])   ;
+Route::get('/comunidade-{comunidade}', [CommunityController::class, 'community']);
+
+//atividades
 
 Route::get('/atividades', [ActivitiesController::class, 'index']);
 
 Route::get('/atividade-{opcoe}', [ActivitiesController::class, 'activity']);
 
-Route::get('/faleconosco', [ContatusController::class, 'index']);
+//posts
 
 Route::get('/posts', [PostsController::class, 'index']);
 
@@ -51,14 +61,15 @@ Route::get('/post-{datepost}', [PostsController::class, 'post']);
 
 Route::get('/geocode/{address}', [GeocodeController::class, 'geocode']);
 
-Route::post('/faleconosco/mensagem', [ContatusController::class, 'mensagem']);
 
+//idiomas
 
 Route::middleware('web')->group(function () {
     Route::get('/change-language/{locale}', [LanguageController::class, 'changeLanguage'])->name('change.language');
 });
 
 
+//pacotes
 
 Route::middleware([
     'auth:sanctum',
@@ -66,8 +77,15 @@ Route::middleware([
     'verified',
 ])->group(function () {
 
+    // Pacotes Fechados
 
     Route::get('/pacotes', [PacksController::class, 'index']);
+
+    // Pacotes Personalizados
+
+    Route::get('/pacoteperso/enviarsolicitacao/{pacotepersonalizado}', [PacksCustomControllers::class, 'EnviarSolicitacao']);
+    Route::get('/pacoteperso/aprovarsolicitacao/{pacotepersonalizado}', [PacksCustomControllers::class, 'AprovarSolicitacao']);
+    Route::get('/pacoteperso/reprovarsolicitacao/{pacotepersonalizado}', [PacksCustomControllers::class, 'ReprovarSolicitacao']);
 
 });
 

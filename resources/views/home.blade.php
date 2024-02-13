@@ -242,13 +242,13 @@
             </div>
 
             @foreach ($comunidades as $comunidade)
-                <div class="row col-12">
+                <div class="row col-12" style="margin-top: 10px;">
                     <div class="col-md-6 mx-auto">
                         <a class="block-30 d-flex align-items-center justify-content-center"
                             style="background-image: url('{{ asset('/storage/' . $comunidade->imagem_principal) }}'); height: 300px; border-radius: 50px;">
                         </a>
                     </div>
-                    <div class="col-md-6 mx-auto">
+                    <div class="col-md-6 mx-auto" >
                         <div class="text" style="border-radius: 50px;">
                             <h3 class="heading"><a>{{ $comunidade->nome }}</a></h3>
                             <p>{{ $comunidade->titulo }}</p>
