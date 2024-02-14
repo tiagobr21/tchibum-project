@@ -80,6 +80,8 @@ Route::middleware([
     // Pacotes Fechados
 
     Route::get('/pacotes', [PacksController::class, 'index']);
+    Route::get('/pacote-{pacote}', [PacksController::class, 'pack']);
+    Route::get('/solicitacaocompra/{pacote}', [PacksController::class, 'solicitacaCompra']);
 
     // Pacotes Personalizados
 

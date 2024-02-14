@@ -98,8 +98,8 @@
                         <form action="/logout" method="POST">
                             @csrf
                             <li class="nav-item"><a id="login" href="/logout" class="nav-link"
-                                    onclick="event.preventDefault(); this.closest('form').submit();"><i
-                                        class="fa fa-sign-out fa-lg" aria-hidden="true"></i> </a></li>
+                                    onclick="event.preventDefault(); this.closest('form').submit();">
+                                    <i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> </a></li>
                         </form>
 
                     @endauth

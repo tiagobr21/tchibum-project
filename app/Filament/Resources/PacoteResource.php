@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Select;
 use App\Models\Comunidade;
+use Filament\Forms\Components\MarkdownEditor;
 
 class PacoteResource extends Resource
 {
@@ -56,8 +57,24 @@ class PacoteResource extends Resource
                 Forms\Components\DatePicker::make('data')
                     ->date()
                     ->required(),
-                Forms\Components\MarkdownEditor::make('infos')
+                MarkdownEditor::make('infos')
                     ->label('Informações')
+                    ->toolbarButtons([
+                        'attachFiles',
+                        'blockquote',
+                        'bold',
+                        'bulletList',
+                        'codeBlock',
+                        'h2',
+                        'h3',
+                        'italic',
+                        'link',
+                        'orderedList',
+                        'redo',
+                        'strike',
+                        'underline',
+                        'undo',
+                    ])
                     ->required()
                     ->maxLength(1000),
                 Forms\Components\FileUpload::make('video')

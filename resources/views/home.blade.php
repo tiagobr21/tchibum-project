@@ -48,14 +48,14 @@
 
                                             <div id="container-pacotes" class="col-md d-flex">
 
-
-                                                <div id="pacotes">
-                                                    <div id="pacote-fixo">
-                                                        <img id="pacote-fixo-img" src="/images/pacote-fixo2.png">
+                                                <a href="/pacotes">
+                                                    <div id="pacotes">
+                                                        <div id="pacote-fixo">
+                                                            <img id="pacote-fixo-img" src="/images/pacote-fixo2.png">
+                                                        </div>
+                                                        <p id="pacote-fixo-nome">Pacotes Fechados</p>
                                                     </div>
-                                                    <p id="pacote-fixo-nome">Pacotes Fechados</p>
-                                                </div>
-
+                                                </a>
                                                 <div id="pacotes">
                                                     <div id="pacote-comunidade">
                                                         <img id="pacote-comunidade-img" src="/images/pacote-comunidade.png">
