@@ -82,6 +82,7 @@ Route::middleware([
     Route::get('/pacotes', [PacksController::class, 'index']);
     Route::get('/pacote-{pacote}', [PacksController::class, 'pack']);
     Route::get('/solicitacaocompra/{pacote}', [PacksController::class, 'solicitacaCompra']);
+    Route::get('/adddadoscomple/{user}', [PacksController::class, 'solicitacaCompra']);
 
     // Pacotes Personalizados
 
