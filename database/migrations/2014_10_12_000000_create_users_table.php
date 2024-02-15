@@ -19,6 +19,11 @@ return new class extends Migration
             $table->string('uf');
             $table->string('endereco');
             $table->string('cep',9);
+            $table->string('cidade');
+            $table->string('identificao');
+            $table->string('proficao');
+            $table->string('nacionalidade');
+            $table->string('estado');
             $table->string("role")->default('user');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

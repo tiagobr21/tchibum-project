@@ -21,17 +21,11 @@ class PacksController extends Controller
 
     public function solicitacaCompra(Pacote $pacote){
 
-       if(auth()->user()->cpf == '' ||
-          auth()->user()->uf == '' ||
-          auth()->user()->endereco ||
-          auth()->user()->cep == ''){
-
-            return redirect()->route();
-       }
+      dd($pacote);
 
     }
 
-    public function adddadoscomple(){
-        dd(auth()->user());
+    public function addDadosComple(Request $request){
+        dd($request);
     }
 }

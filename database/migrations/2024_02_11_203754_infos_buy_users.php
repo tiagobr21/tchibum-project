@@ -16,6 +16,11 @@ return new class extends Migration
             $table->string('uf')->after('cpf');
             $table->string('endereco')->after('uf');
             $table->string('cep',9)->after('endereco');
+            $table->string('cidade')->after('cep');
+            $table->string('identificao')->after('cidade');
+            $table->string('proficao')->after('identificao');
+            $table->string('nacionalidade')->after('proficao');
+            $table->string('estado')->after('nacionalidade');
         });
     }
 

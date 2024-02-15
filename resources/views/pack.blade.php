@@ -118,6 +118,37 @@
 
   </section>
 
+
+  <script>
+
+    let user = @json(auth()->user());
+
+
+    if(user->cpf == '' ||
+       user->uf == '' ||
+       user->endereco ||
+       user->cep == ''){
+
+    }
+
+    console.log(user);
+
+
+    $(document).ready(function() {
+
+        $('.product-image').click(function() {
+            let src = $(this).children('img').attr('src');
+            $('#imagemModal').attr('src', src);
+            $('#modalImagem').modal('show');
+        });
+
+        $('.thumbnail').click(function() {
+            let newImageSrc = $(this).attr('src');
+            $('.product-image img').attr('src', newImageSrc);
+        });
+    });
+</script>
+
   <style>
 
 
@@ -207,21 +238,7 @@
 
 </style>
 
-<script>
-    $(document).ready(function() {
 
-        $('.product-image').click(function() {
-            let src = $(this).children('img').attr('src');
-            $('#imagemModal').attr('src', src);
-            $('#modalImagem').modal('show');
-        });
-
-        $('.thumbnail').click(function() {
-            let newImageSrc = $(this).attr('src');
-            $('.product-image img').attr('src', newImageSrc);
-        });
-    });
-</script>
 
 @endsection
 
