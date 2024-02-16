@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('cpf',14)->after('email');
-            $table->string('uf')->after('cpf');
-            $table->string('endereco')->after('uf');
-            $table->string('cep',9)->after('endereco');
-            $table->string('cidade')->after('cep');
-            $table->string('identificao')->after('cidade');
-            $table->string('proficao')->after('identificao');
-            $table->string('nacionalidade')->after('proficao');
-            $table->string('estado')->after('nacionalidade');
+            $table->string('cpf',14)->after('email')->nullable();
+            $table->string('uf')->after('cpf')->nullable();
+            $table->string('endereco')->after('uf')->nullable();
+            $table->string('cep',9)->after('endereco')->nullable();
+            $table->string('cidade')->after('cep')->nullable();
+            $table->string('identificao')->after('cidade')->nullable();
+            $table->string('proficao')->after('identificao')->nullable();
+            $table->string('nacionalidade')->after('proficao')->nullable();
+            $table->string('estado')->after('nacionalidade')->nullable();
         });
     }
 

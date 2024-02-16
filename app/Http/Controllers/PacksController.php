@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pacote;
+use App\Models\User;
 
 class PacksController extends Controller
 {
@@ -25,7 +26,22 @@ class PacksController extends Controller
 
     }
 
-    public function addDadosComple(Request $request){
-        dd($request);
+    public function addDadosComple(Request $request, User $user){
+
+        $user->cpf =  $request->cpf;
+        $user->uf =  $request->uf;
+        $user->endereco =  $request->endereco;
+        $user->cep =  $request->cep;
+        $user->cidade =  $request->cidade;
+        $user->identificao =  $request->identificao;
+        $user->proficao =  $request->proficao;
+        $user->nacionalidade =  $request->nacionalidade;
+        $user->estado =  $request->estado;
+
+        $user->save();
+
+
+       return 'Seus dados foram enviados clique em Comprar Novamente';
+
     }
 }

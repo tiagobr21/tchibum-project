@@ -6,6 +6,14 @@
 <section id="posts" class="ftco-section" style="background-image:url('images/32.jpg');">
     <div class="container">
         <div class="row d-flex">
+
+            <div id="alerta" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+                <strong>Mensagem:</strong> <span id="mensagemAlerta"></span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
             <div class="product-container">
 
                 <div class="image-thumbnails">
@@ -30,14 +38,14 @@
                     </p>
                     <p class="product-price">R$ {{ $pacote->preco }}</p>
 
-                    <a href="/solicitacaocompra/{{ $pacote->id }}" class="btn btn-success">Comprar</a>
+                    <a  id="comprar" class="btn btn-success">Comprar</a>
+
+                    {{-- href="/solicitacaocompra/{{ $pacote->id }}" --}}
                 </div>
             </div>
 
             <div class="infos">
                 <div class="product-details">
-
-
 
                 <div class="col-md-12 d-flex">
                     <h5><i class="fa fa-calendar" aria-hidden="true"></i> Data: {{ date('d/m/Y',strtotime($pacote->data)) }}</h5>
@@ -67,8 +75,6 @@
                       </table>
                 </div>
 
-
-
                     <br>
 
                     <h2>Informações </h2>
@@ -83,18 +89,86 @@
 
 
 
-            <section>
-                <div class="modal fade" id="modalImagemSecund" tabindex="-1" role="dialog" aria-labelledby="modalImagemLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content" style="background-color: transparent; border: none;">
-                            <div class="modal-body">
-                                <img src="" class="thumbnail" id="imagemModalSecund" alt="Responsive image">
+
+            <div class="modal" id="meuModal">
+                <div class="modal-dialog">
+                   <div class="modal-content">
+
+
+
+                      <!-- Cabeçalho do Modal -->
+                      <div class="modal-header">
+                         <h4 class="modal-title">Informações Adicionais</h4>
+                         <button type="button" id="fechar" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+
+
+                      <!-- Corpo do Modal -->
+                      <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
+                        <form id="form">
+                           @csrf
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="estrangeiro">
+                                <label class="form-check-label" for="flexRadioDefault1" >
+                                   Você é estrangeiro?
+                                </label>
+                              </div>
+
+                            <div class="mb-3" id="cpf-container">
+                                <label for="cpf"  class="form-label">CPF</label>
+                                <input type="text" id="cpf" name="cpf" class="form-control" placeholder="Digite seu CPF">
                             </div>
-                        </div>
-                    </div>
+
+                              <div class="mb-3" id="uf-container">
+                                <label for="uf" class="form-label">UF</label>
+                                <input type="text" id="uf" name="uf" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Endereço</label>
+                                <input type="text" id="endereco" name="endereco" class="form-control" >
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Cep</label>
+                                <input type="text" id="cep" name="cep" class="form-control" >
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Cidade</label>
+                                <input type="text" id="cidade" name="cidade" class="form-control" >
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Identificação ( Se for Estrangeiro)</label>
+                                <input type="text" id="identificacao" name="identificacao" class="form-control" >
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Profissão</label>
+                                <input type="text" id="proficao" name="proficao" class="form-control" >
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Nacionalidade</label>
+                                <input type="text" id="nacionalidade" name="nacionalidade" class="form-control" >
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Estado</label>
+                                <input type="text" id="estado" name="estado" class="form-control" >
+                            </div>
+
+                          </form>
+
+                      </div>
+
+                      <!-- Rodapé do Modal -->
+                      <div class="modal-footer">
+                        <button id="enviardadoscomple" type="submit" class="btn btn-success" data-dismiss="modal">Enviar</button>
+
+                      </div>
+
+                   </div>
                 </div>
-            </section>
+             </div>
+
+
 
             <section>
                 <div class="modal fade" id="modalImagem" tabindex="-1" role="dialog" aria-labelledby="modalImagemLabel"
@@ -108,6 +182,7 @@
                     </div>
                 </div>
             </section>
+
         </div>
     </div>
 
@@ -118,23 +193,37 @@
 
   </section>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
   <script>
 
-    let user = @json(auth()->user());
+
+     let user = @json(auth()->user());
+     let pacote = @json($pacote);
 
 
-    if(user->cpf == '' ||
-       user->uf == '' ||
-       user->endereco ||
-       user->cep == ''){
-
-    }
-
-    console.log(user);
+    jQuery(document).ready(function ($) {
+      // Aplicar a máscara para o CPF
+      $('#cpf').mask('000.000.000-00', { reverse: true });
+     });
 
 
     $(document).ready(function() {
+
+        // if estrangeiro
+
+
+        $('#estrangeiro').change(function () {
+            // Se o checkbox estiver marcado (pessoa estrangeira), oculte os campos "UF" e "CPF"
+            if ($(this).prop('checked')) {
+                $('#uf, #cpf').hide();
+            } else {
+                // Se o checkbox estiver desmarcado (pessoa não estrangeira), exiba os campos "UF" e "CPF"
+                $('#uf, #cpf').show();
+            }
+        });
+
+        //imgs
 
         $('.product-image').click(function() {
             let src = $(this).children('img').attr('src');
@@ -147,13 +236,83 @@
             $('.product-image img').attr('src', newImageSrc);
         });
     });
+
+
+    $("#comprar").click(function () {
+            if(user.cpf == null || '' &&
+            user.uf == null || '' &&
+            user.endereco == null || '' &&
+            user.cep == null || ''&&
+            user.cidade == null || '' &&
+            user.identificacao == null || '' &&
+            user.proficao == null || '' &&
+            user.nacionalidade == null || '' &&
+            user.estado == null || '' ){
+
+                $("#meuModal").fadeIn();
+
+            }else{
+                $.ajax({
+                    type: 'POST',
+                    url: '/solicitacaocompra/'+ pacote.id,
+                    data: { _token: '{{ csrf_token() }}' },
+                    success: function (response) {
+
+                        console.log(response);
+
+                    },
+                    error: function (error) {
+                        // Lógica para tratar erros (se necessário)
+                        console.log(error);
+                    }
+                });
+            }
+    });
+
+     // form
+
+     $('#enviardadoscomple').click(function () {
+            let formData = $('#form').serialize();
+
+            $.ajax({
+                type: 'POST',
+                url: '/adddadoscomple/'+ user.id,  // Substitua '/sua-rota-no-laravel' pela sua rota Laravel
+                data: formData,
+                success: function (response) {
+
+                    console.log(response);
+                    $('#mensagemAlerta').text(response);
+                    $('#alerta').fadeIn();
+
+                    // Feche o modal após o envio
+                    $("#meuModal").fadeOut();
+                },
+                error: function (error) {
+                    // Lógica para tratar erros (se necessário)
+                    console.log(error);
+                }
+
+            });
+        });
+
+    $("#fechar").click(function () {
+
+      $("#meuModal").fadeOut();
+
+   });
+
+
 </script>
+
 
   <style>
 
+    #comprar{
+        color: #fff
+    }
 
     .container {
-        margin-top: 50px;
+        margin-top: 30px;
     }
 
     body {

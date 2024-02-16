@@ -84,9 +84,8 @@ Route::middleware([
     'verified',
 ])->group(function () {
 
-
-    Route::get('/solicitacaocompra/{pacote}', [PacksController::class, 'solicitacaCompra']);
-    Route::get('/adddadoscomple/{user}', [PacksController::class, 'addDadosComple'])->name('adddadoscomple');
+    Route::post('/adddadoscomple/{user}', [PacksController::class, 'addDadosComple'])->name('adddadoscomple');
+    Route::post('/solicitacaocompra/{pacote}', [PacksController::class, 'solicitacaCompra']);
 
     // Pacotes Personalizados
     Route::middleware(['admin'])->group(function(){
