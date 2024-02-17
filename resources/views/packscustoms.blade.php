@@ -65,28 +65,28 @@
                         <label for="field2" class="form-label">Selecione as Atividades:</label>
                         <div class="mb-3 select-container">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                                <select class="js-select2 select-dd" name="atividades[]" multiple="multiple">
-                                    @foreach ( as )
+                                <select class="js-select2 select-dd" id="opcoes" name="atividades[]" multiple="multiple">
+                                    @foreach ( $opcoes as $opcoe )
 
-                                    <option data-badge="">Option1</option>
-                                    <option  data-badge="">Option2</option>
-                                    <option  data-badge="">Option3</option>
+                                    <option value="{{ $opcoe->preco }}" data-badge="">{{ $opcoe->nome }} R$ {{$opcoe->preco }}</option>
 
                                     @endforeach
                                 </select>
                         </div>
                         </div>
                         <button type="button" class="btn btn-primary prev-step">Previous</button>
-                        <button type="button" class="btn btn-primary next-step">Next</button>
+                        <button type="button" id="continuar-resultado" class="btn btn-primary next-step">Continuar</button>
                     </div>
 
                     <div class="step step-3">
                         <!-- Step 3 form fields here -->
-                        <h3>Step 3</h3>
-                        <div class="mb-3">
-                        <label for="field3" class="form-label">Field 3:</label>
-                        <input type="text" class="form-control" id="field3" name="field3">
-                        </div>
+                        <h3>Seu Pacote</h3>
+
+                         <div id="respostas">
+
+                         </div>
+                         <br>
+
                         <button type="button" class="btn btn-primary prev-step">Previous</button>
                         <button type="submit" class="btn btn-success">Submit</button>
                     </div>
@@ -103,32 +103,81 @@
     $(document).ready(function() {
 
         let dados = {};
+        let resultado = '';
+        let soma = 0;
 
         $('#comunidade').on('change', function() {
             dados.comunidade = $(this).val();
-            atualizarResultado();
+            console.log(dados.comunidade);
       });
-
-
 
         $('#data').on('input', function() {
             dados.data = $(this).val();
-            atualizarResultado();
+
         });
 
 
         $('#dias').on('input', function() {
             dados.dias = $(this).val();
-            atualizarResultado();
+
         });
 
         $('#pessoas').on('input', function() {
             dados.pessoas = $(this).val();
-            atualizarResultado();
+
         });
 
-      function atualizarResultado() {
-        console.log(dados);
+        $('#opcoes').select2();
+
+        $('#opcoes').on('change', function() {
+            dados.opcoes = $('#opcoes').select2('data');
+
+            let comunidade = '<i class="fa fa-home" aria-hidden="true"> <strong> Comunidade: </strong>' + dados.comunidade + '<br><br>';
+
+            var dataOriginal = dados.data;  // Substitua isso pela sua data
+
+            // Converte para um objeto Date
+            var dataObjeto = new Date(dataOriginal);
+
+            // Obtém os componentes da data
+            var dia = dataObjeto.getDate().toString().padStart(2, '0');
+            var mes = (dataObjeto.getMonth() + 1).toString().padStart(2, '0');
+            var ano = dataObjeto.getFullYear();
+
+            // Cria a string da data no formato desejado
+            var dataFormatada = dia + '/' + mes + '/' + ano;
+
+            let data = '<i class="fa fa-calendar" aria-hidden="true"> <strong> Data: </strong> ' + dataFormatada + '<br><br>';
+
+            let dias = '<i class="fa fa-bed" aria-hidden="true"> <strong> Quantidade de Dias: </strong> ' + dados.dias + '<br><br>';
+
+            let pessoas = '<i class="fa fa-users" aria-hidden="true"> <strong> Quantidade de Pessoas: </strong>' + dados.pessoas + '<br><br>';
+
+            dados.opcoes.forEach(function(opcao) {
+                soma = soma + opcao.id;
+
+                console.log(soma);
+            });
+
+
+
+            resultado = comunidade + data + dias + pessoas +'<strong> Opções selecionadas: </strong> <br>';
+
+            dados.opcoes.forEach(function(opcao) {
+
+                resultado += opcao.text + '<br>';
+            });
+
+
+
+            exibirResultado()
+        });
+
+
+      function exibirResultado() {
+
+
+        $('#respostas').html(resultado);
       }
 
     });
@@ -202,6 +251,14 @@
 
   <style>
 
+
+        #respostas{
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 20px;
+            font-size: 20px;
+            background-color: #fff;
+        }
         h3{
             color: #fff
         }

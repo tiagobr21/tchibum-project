@@ -201,6 +201,8 @@
      let user = @json(auth()->user());
      let pacote = @json($pacote);
 
+     console.log(user);
+
     jQuery(document).ready(function ($) {
       // Aplicar a máscara para o CPF
       $('#cpf').mask('000.000.000-00', { reverse: true });

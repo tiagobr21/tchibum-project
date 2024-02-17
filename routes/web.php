@@ -89,12 +89,12 @@ Route::middleware([
      // Pacotes Fechados
 
     Route::post('/adddadoscomple/{user}', [PacksController::class, 'addDadosComple'])->name('adddadoscomple');
-    Route::post('/solicitacaocompra/{pacote}', [PacksController::class, 'solicitacaCompra']);
+    Route::post('/solicitacaocompra/{pacote}', [PacksController::class, 'solicitacaoCompra']);
     Route::get('/pacote/enviarsolicitacao/{pacote}', [PacksController::class, 'enviarSolicitacao']);
 
     // Pacotes Personalizados
 
-    Route::get('/pacoteperso/enviarsolicitacao/{pacotepersonalizado}', [PacksCustomControllers::class, 'EnviarSolicitacao']);
+    Route::get('/pacoteperso/enviarsolicitacao/{pacotepersonalizado}', [PacksCustomControllers::class, 'enviarSolicitacao']);
 
     Route::middleware(['admin'])->group(function(){
         Route::get('/pacoteperso/aprovarsolicitacao/{pacotepersonalizado}', [PacksCustomControllers::class, 'AprovarSolicitacao']);

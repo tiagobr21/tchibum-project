@@ -22,12 +22,12 @@ class PacksCustomControllers extends Controller
         return view('packscustoms',compact('comunidades','opcoes','user'));
     }
 
-    protected function EnviarSolicitacao($pacotepersonalizado){
+    protected function enviarSolicitacao($pacotepersonalizado){
 
 
        $pacote = PacotePersonalizado::with('comunidade','opcoes')->find($pacotepersonalizado);
 
-       $user = User::find($pacote->user_id);
+       $user = auth()->user();
 
 
         $email_tchibum = 'tchibumnaamazonia@gmail.com';

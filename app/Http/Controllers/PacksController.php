@@ -25,7 +25,7 @@ class PacksController extends Controller
         return view('pack',compact('pacote'));
     }
 
-    public function solicitacaCompra(Pacote $pacote){
+    public function solicitacaoCompra(Pacote $pacote){
 
         $pacote = $pacote->with('comunidade','opcoes')->find( $pacote->comunidade_id);
 
