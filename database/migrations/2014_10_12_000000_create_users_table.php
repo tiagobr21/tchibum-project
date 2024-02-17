@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('endereco')->nullable();
             $table->string('cep',9)->nullable();
             $table->string('cidade')->nullable();
-            $table->string('identificao')->nullable()->unique();
+            $table->string('identificacao')->nullable()->unique();
             $table->string('proficao')->nullable();
             $table->string('nacionalidade')->nullable();
             $table->string('estado');

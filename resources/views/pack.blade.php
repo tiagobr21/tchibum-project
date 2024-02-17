@@ -7,13 +7,6 @@
     <div class="container">
         <div class="row d-flex">
 
-            <div id="alerta" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
-                <strong>Mensagem:</strong> <span id="mensagemAlerta"></span>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
             <div class="product-container">
 
                 <div class="image-thumbnails">
@@ -22,6 +15,13 @@
                     @foreach ($pacote->imagens_secundarias as $imagem )
                         <img class="thumbnail" src="{{asset('/storage/'. $imagem )}}" alt="Thumbnail 1">
                     @endforeach
+                </div>
+
+
+                <div id="loading">
+                    <div  class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                      </div>
                 </div>
 
 
@@ -201,7 +201,6 @@
      let user = @json(auth()->user());
      let pacote = @json($pacote);
 
-
     jQuery(document).ready(function ($) {
       // Aplicar a máscara para o CPF
       $('#cpf').mask('000.000.000-00', { reverse: true });
@@ -209,7 +208,7 @@
 
 
     $(document).ready(function() {
-
+        $("#loading").hide();
         // if estrangeiro
 
 
@@ -239,34 +238,47 @@
 
 
     $("#comprar").click(function () {
-            if(user.cpf == null || '' &&
-            user.uf == null || '' &&
-            user.endereco == null || '' &&
-            user.cep == null || ''&&
-            user.cidade == null || '' &&
-            user.identificacao == null || '' &&
-            user.proficao == null || '' &&
-            user.nacionalidade == null || '' &&
-            user.estado == null || '' ){
+
+        if(user == null){
+
+            window.location.href = '/register';
+
+        }else{
+
+
+
+            if(user.endereco == null &&
+            user.cep == null &&
+            user.cidade == null &&
+            user.proficao == null &&
+            user.nacionalidade == null &&
+            user.estado == null ){
 
                 $("#meuModal").fadeIn();
 
             }else{
+
+                $("#loading").show();
+
                 $.ajax({
                     type: 'POST',
                     url: '/solicitacaocompra/'+ pacote.id,
                     data: { _token: '{{ csrf_token() }}' },
                     success: function (response) {
 
-                        console.log(response);
+                        $("#loading").hide();
+                        window.location.href = response;
+
 
                     },
                     error: function (error) {
                         // Lógica para tratar erros (se necessário)
+                        $("#loading").hide();
                         console.log(error);
                     }
                 });
             }
+        }
     });
 
      // form
@@ -274,18 +286,35 @@
      $('#enviardadoscomple').click(function () {
             let formData = $('#form').serialize();
 
+
+            $("#meuModal").fadeIn();
+
             $.ajax({
                 type: 'POST',
                 url: '/adddadoscomple/'+ user.id,  // Substitua '/sua-rota-no-laravel' pela sua rota Laravel
                 data: formData,
                 success: function (response) {
 
-                    console.log(response);
-                    $('#mensagemAlerta').text(response);
-                    $('#alerta').fadeIn();
+                    location.reload();
 
-                    // Feche o modal após o envio
-                    $("#meuModal").fadeOut();
+                    $.ajax({
+                    type: 'POST',
+                    url: '/solicitacaocompra/'+ pacote.id,
+                    data: { _token: '{{ csrf_token() }}' },
+                    success: function (response) {
+
+                        $("#loading").hide();
+                        window.location.href = response;
+
+
+                    },
+                    error: function (error) {
+                        // Lógica para tratar erros (se necessário)
+                        $("#loading").hide();
+                        console.log(error);
+                    }
+                });
+
                 },
                 error: function (error) {
                     // Lógica para tratar erros (se necessário)
@@ -374,6 +403,28 @@
         font-size: 24px;
         color: #333;
     }
+
+    #loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        #loading p {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            background: #fff;
+        }
 
     /* Media queries for responsive design */
     @media (max-width: 768px) {

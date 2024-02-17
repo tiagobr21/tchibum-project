@@ -56,12 +56,14 @@
                                                         <p id="pacote-fixo-nome">Pacotes Fechados</p>
                                                     </div>
                                                 </a>
+                                                <a href="/pacotes_personalizados">
                                                 <div id="pacotes">
                                                     <div id="pacote-comunidade">
                                                         <img id="pacote-comunidade-img" src="/images/pacote-comunidade.png">
                                                     </div>
                                                     <p id="pacote-comunidade-nome">Pacotes Personalizados</p>
                                                 </div>
+                                                </a>
                                             </div>
                                         </div>
                                     </form>

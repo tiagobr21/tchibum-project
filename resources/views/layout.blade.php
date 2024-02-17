@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="{{ asset('/css/bootstrap-datepicker.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/jquery.timepicker.css') }}">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('/multiselect-05/css/style.css') }}">
+
 
     <link rel="stylesheet" href="{{ asset('/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
@@ -181,7 +184,8 @@
     </footer>
 
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+    <script src="./multiselect-05/js/main.js"></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>

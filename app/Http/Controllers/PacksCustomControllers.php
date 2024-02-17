@@ -6,13 +6,20 @@ use Illuminate\Http\Request;
 use App\Models\PacotePersonalizado;
 use App\Models\PacotePersoUsuario;
 use App\Models\User;
+use App\Models\Comunidade;
+use App\Models\Opcoe;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PacotePersonalizados;
 
 class PacksCustomControllers extends Controller
 {
     public function index(){
-       return 'true';
+
+        $comunidades = Comunidade::all();
+        $opcoes = Opcoe::all();
+        $user = auth()->user();
+
+        return view('packscustoms',compact('comunidades','opcoes','user'));
     }
 
     protected function EnviarSolicitacao($pacotepersonalizado){

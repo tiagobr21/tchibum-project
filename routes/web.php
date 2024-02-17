@@ -77,6 +77,8 @@ Route::get('/pacotes', [PacksController::class, 'index']);
 Route::get('/pacote-{pacote}', [PacksController::class, 'pack']);
 
 
+Route::get('/pacotes_personalizados', [PacksCustomControllers::class, 'index']);
+
 
 Route::middleware([
     'auth:sanctum',
@@ -84,12 +86,17 @@ Route::middleware([
     'verified',
 ])->group(function () {
 
+     // Pacotes Fechados
+
     Route::post('/adddadoscomple/{user}', [PacksController::class, 'addDadosComple'])->name('adddadoscomple');
     Route::post('/solicitacaocompra/{pacote}', [PacksController::class, 'solicitacaCompra']);
+    Route::get('/pacote/enviarsolicitacao/{pacote}', [PacksController::class, 'enviarSolicitacao']);
 
     // Pacotes Personalizados
+
+    Route::get('/pacoteperso/enviarsolicitacao/{pacotepersonalizado}', [PacksCustomControllers::class, 'EnviarSolicitacao']);
+
     Route::middleware(['admin'])->group(function(){
-        Route::get('/pacoteperso/enviarsolicitacao/{pacotepersonalizado}', [PacksCustomControllers::class, 'EnviarSolicitacao']);
         Route::get('/pacoteperso/aprovarsolicitacao/{pacotepersonalizado}', [PacksCustomControllers::class, 'AprovarSolicitacao']);
         Route::get('/pacoteperso/reprovarsolicitacao/{pacotepersonalizado}', [PacksCustomControllers::class, 'ReprovarSolicitacao']);
     });

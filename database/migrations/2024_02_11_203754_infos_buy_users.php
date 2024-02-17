@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('endereco')->after('uf')->nullable();
             $table->string('cep',9)->after('endereco')->nullable();
             $table->string('cidade')->after('cep')->nullable();
-            $table->string('identificao')->after('cidade')->nullable();
+            $table->string('identificacao')->after('cidade')->nullable();
             $table->string('proficao')->after('identificao')->nullable();
             $table->string('nacionalidade')->after('proficao')->nullable();
             $table->string('estado')->after('nacionalidade')->nullable();
