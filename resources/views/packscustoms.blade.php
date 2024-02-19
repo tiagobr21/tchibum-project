@@ -72,13 +72,8 @@
 
                         <div class="mb-3 select-container">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                                <select class="js-select2 select-dd" id="opcoes" name="atividades[]" multiple="multiple" >
+                                <select class="js-select2 select-dd" id="opcoes_comunidade" name="atividades[]" multiple="multiple" >
 
-                                    @foreach ( $opcoes as $opcoe )
-
-                                    <option value="{{ $opcoe->preco }}" data-badge="">{{ $opcoe->nome }} (por pessoa) </option>
-
-                                    @endforeach
                                 </select>
                         </div>
 
@@ -109,8 +104,14 @@
 </section>
 
   <script>
+
     let currentStep = 1;
     let updateProgressBar;
+    let comunidades = @json($comunidades);
+    let opcoes = @json($opcoes);
+    let comunidade_escolhida = 0;
+    let opcoes_comunidade =  [];
+
 
     $(document).ready(function() {
 
@@ -123,7 +124,30 @@
 
         $('#comunidade').on('change', function() {
             dados.comunidade = $(this).val();
-            console.log(dados.comunidade);
+
+            comunidades.map(function(comunidade){
+               if(comunidade.nome ==  dados.comunidade ){
+                    comunidade_escolhida = comunidade.id;
+
+               }
+            });
+
+            opcoes.map(function(opcoe){
+
+                if(opcoe.comunidade_id ==  comunidade_escolhida){
+                    opcoes_comunidade.push(opcoe);
+               }
+            })
+
+            $('#opcoes_comunidade').empty();
+
+            opcoes_comunidade.forEach(function(opcao) {
+
+                let option = $('<option></option>').attr('value', JSON.stringify(opcao.preco)).text(opcao.nome);
+
+                $('#opcoes_comunidade').append(option);
+            });
+
       });
 
         $('#data').on('input', function() {
@@ -142,12 +166,11 @@
 
         });
 
-        $('#opcoes').select2();
+        $('#opcoes_comunidade').select2();
 
-        $('#opcoes').on('change', function() {
-            dados.opcoes = $('#opcoes').select2('data');
+        $('#opcoes_comunidade').on('change', function() {
+            dados.opcoes = $('#opcoes_comunidade').select2('data');
 
-            console.log( dados.opcoes );
 
             let comunidade = '<i class="fa fa-home" aria-hidden="true"> <strong> Comunidade: </strong>' + dados.comunidade + '<br><br>';
 
@@ -170,9 +193,14 @@
 
             let pessoas = '<i class="fa fa-users" aria-hidden="true"> <strong> Quantidade de Pessoas: </strong>' + dados.pessoas + '<br><br>';
 
+            let numeroAleatorio = parseFloat((Math.random() * (0.50 - 0.10) + 0.10).toFixed(2));
+
             dados.opcoes.forEach(function(opcao) {
                 var opcao_preco = parseFloat(opcao.id);
-                valoresUnicos.add(opcao_preco);
+
+                resultado = opcao_preco + numeroAleatorio;
+
+                valoresUnicos.add(resultado);
 
             });
 
@@ -182,15 +210,17 @@
                     return acc + valor;
             }, 0);
 
-            dados.precototal = soma;
 
-            let precototal = '<i class="fa fa-money-bill" aria-hidden="true"> <strong> Preço Total: </strong> ' + soma
+            dados.precototal = Math.floor(soma);
+
+
+            let precototal = '<i class="fa fa-money-bill" aria-hidden="true"> <strong> Preço Total: </strong> ' + 'R$' + Math.floor(soma)
 
             resultado = comunidade + data + dias + pessoas + '<strong> Opções selecionadas: </strong> <br>';
 
             dados.opcoes.forEach(function(opcao) {
 
-                resultado += opcao.text + 'R$' + opcao.id + '<br>';
+                resultado += opcao.text + ' R$' + opcao.id + '<br>';
             });
 
             resultado += '<br>'+ precototal;

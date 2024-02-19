@@ -40,8 +40,8 @@
             @foreach ($pacotepersonalizado->opcoes as $opcao )
                 <tbody>
                 <tr>
-                    <td >{{ $opcao->nome }}</td>
-                    <td>{{ $opcao->preco }}</td>
+                    <td>{{ $opcao->nome }}</td>
+                    <td>R$ {{ $opcao->preco }}</td>
                 </tr>
                 </tbody>
             @endforeach
