@@ -18,6 +18,15 @@ return new class extends Migration
             $table->string('descricao',1200);
             $table->string('imagem',255);
             $table->float('preco',10,2);
+
+            $table->unsignedBigInteger('comunidade_id')->unsigned();
+
+            $table->foreign("comunidade_id")
+            ->references("id")
+            ->on("comunidades")
+            ->onDelete("cascade");
+
+
             $table->timestamps();
         });
     }

@@ -9474,6 +9474,7 @@ textarea.form-control {
     .paragrafo {
         max-width: 600px;
         margin: auto;
+        font-size: 16px;
         text-align: justify;
     }
 

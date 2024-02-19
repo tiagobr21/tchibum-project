@@ -5,12 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Pacote;
+use App\Models\Comunidade;
 use App\Models\PacotePersonalizado;
 
 class Opcoe extends Model
 {
     protected $table = 'opcoes';
-    protected $fillable = ['nome','titulo','descricao','imagem','preco'];
+    protected $fillable = ['nome','titulo','descricao','imagem','preco','comunidade_id'];
+
+    public function comunidade()
+    {
+        return $this->belongsTo(Comunidade::class);
+    }
 
     public function pacotes()
     {
@@ -21,4 +27,6 @@ class Opcoe extends Model
     {
         return $this->belongsToMany(PacotePersonalizado::class, 'pacotepersoopcoe', 'opcaoperso_id', 'pacoteperso_id');
     }
+
+
 }

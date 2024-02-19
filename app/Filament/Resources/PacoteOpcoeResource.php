@@ -21,6 +21,10 @@ class PacoteOpcoeResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'Pacotes Fechados';
+
+    protected static ?string $navigationLabel = 'Atividades Inclusas';
+
     public static function form(Form $form): Form
     {
         return $form

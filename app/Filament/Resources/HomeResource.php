@@ -19,6 +19,8 @@ class HomeResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationLabel = 'Home';
+
     public static function form(Form $form): Form
     {
         return $form

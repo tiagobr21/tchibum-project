@@ -22,6 +22,8 @@ class PacoteResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'Pacotes Fechados';
+
 
 
     public static function form(Form $form): Form

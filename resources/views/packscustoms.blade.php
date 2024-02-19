@@ -7,6 +7,12 @@
     <div class="container">
         <div class="row d-flex">
 
+            <div id="loading">
+                <div  class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+            </div>
+
 
 
             <!-- partial:index.partial.html -->
@@ -26,7 +32,6 @@
                         <h3 >Localidade e Datas!</h3>
                         <div class="mb-3">
                             <label  for="comunidade" class="form-label">Selecione a comunidade:</label>
-
                             <select class="form-select" id="comunidade" name="field1">
 
                                 <option selected>Escolha uma opção</option>
@@ -37,6 +42,7 @@
 
                                 @endforeach
                             </select>
+                            <div id="comunidade-page" class="form-text">Quer conhecer mais as comuniades? <a href="/comunidades">clique aqui</a></div>
 
                         </div>
                         <!-- data e dias-->
@@ -62,19 +68,25 @@
                         <label for="pessoas" class="form-label">Quantidade de pessoas:</label>
                         <input type="number" id="pessoas" class="form-control" name="pessoas">
                         </div>
-                        <label for="field2" class="form-label">Selecione as Atividades:</label>
+                        <label for="field2" class="form-label">Selecione as Atividades: (clique no campo)</label>
+
                         <div class="mb-3 select-container">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                                <select class="js-select2 select-dd" id="opcoes" name="atividades[]" multiple="multiple">
+                                <select class="js-select2 select-dd" id="opcoes" name="atividades[]" multiple="multiple" >
+
                                     @foreach ( $opcoes as $opcoe )
 
-                                    <option value="{{ $opcoe->preco }}" data-badge="">{{ $opcoe->nome }} R$ {{$opcoe->preco }}</option>
+                                    <option value="{{ $opcoe->preco }}" data-badge="">{{ $opcoe->nome }} (por pessoa) </option>
 
                                     @endforeach
                                 </select>
                         </div>
+
                         </div>
-                        <button type="button" class="btn btn-primary prev-step">Previous</button>
+
+                        <div id="atividade-page" class="form-text">Quer conhecer mais as atividades? <a href="/atividades">clique aqui</a></div><br>
+
+                        <button type="button" class="btn btn-primary prev-step">Anterior</button>
                         <button type="button" id="continuar-resultado" class="btn btn-primary next-step">Continuar</button>
                     </div>
 
@@ -87,8 +99,8 @@
                          </div>
                          <br>
 
-                        <button type="button" class="btn btn-primary prev-step">Previous</button>
-                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="button" class="btn btn-primary prev-step">Anterior</button>
+                        <button type="button" id="enviarDados" class="btn btn-success">Enviar</button>
                     </div>
                 </form>
             </div>
@@ -105,6 +117,9 @@
         let dados = {};
         let resultado = '';
         let soma = 0;
+        var valoresUnicos = new Set();
+        $('#loading').fadeOut();
+
 
         $('#comunidade').on('change', function() {
             dados.comunidade = $(this).val();
@@ -132,6 +147,8 @@
         $('#opcoes').on('change', function() {
             dados.opcoes = $('#opcoes').select2('data');
 
+            console.log( dados.opcoes );
+
             let comunidade = '<i class="fa fa-home" aria-hidden="true"> <strong> Comunidade: </strong>' + dados.comunidade + '<br><br>';
 
             var dataOriginal = dados.data;  // Substitua isso pela sua data
@@ -154,23 +171,31 @@
             let pessoas = '<i class="fa fa-users" aria-hidden="true"> <strong> Quantidade de Pessoas: </strong>' + dados.pessoas + '<br><br>';
 
             dados.opcoes.forEach(function(opcao) {
-                soma = soma + opcao.id;
+                var opcao_preco = parseFloat(opcao.id);
+                valoresUnicos.add(opcao_preco);
 
-                console.log(soma);
             });
 
+            let arrayValoresUnicos = Array.from(valoresUnicos);
 
+            let soma = arrayValoresUnicos.reduce(function(acc, valor) {
+                    return acc + valor;
+            }, 0);
 
-            resultado = comunidade + data + dias + pessoas +'<strong> Opções selecionadas: </strong> <br>';
+            dados.precototal = soma;
+
+            let precototal = '<i class="fa fa-money-bill" aria-hidden="true"> <strong> Preço Total: </strong> ' + soma
+
+            resultado = comunidade + data + dias + pessoas + '<strong> Opções selecionadas: </strong> <br>';
 
             dados.opcoes.forEach(function(opcao) {
 
-                resultado += opcao.text + '<br>';
+                resultado += opcao.text + 'R$' + opcao.id + '<br>';
             });
 
+            resultado += '<br>'+ precototal;
 
-
-            exibirResultado()
+            exibirResultado();
         });
 
 
@@ -180,30 +205,49 @@
         $('#respostas').html(resultado);
       }
 
-    });
-/*     $('#enviardadoscomple').click(function () {
-            let formData = $('#form').serialize();
+      $('#enviarDados').click(function () {
+
+        let formData = {
+            comunidade: dados.comunidade,
+            data: dados.data,
+            dias: dados.dias,
+            pessoas: dados.dias,
+            opcoes:  [],
+            precototal: dados.precototal
+        };
+
+        dados.opcoes.map(function(opcoe){
+
+            formData.opcoes.push({ atividade: opcoe.text , preco: opcoe.id});
+         });
+
+
+            $('#loading').fadeIn();
 
             $.ajax({
                 type: 'POST',
-                url: '/adddadoscomple/'+ user.id,  // Substitua '/sua-rota-no-laravel' pela sua rota Laravel
-                data: formData,
+                url: '/pacoteperso/criarpacotepersonalizado',
+                data: { _token: '{{ csrf_token() }}', formData },
                 success: function (response) {
 
-                    console.log(response);
-                    $('#mensagemAlerta').text(response);
-                    $('#alerta').fadeIn();
+                    $('#loading').fadeOut();
 
-                    // Feche o modal após o envio
-                    $("#meuModal").fadeOut();
+                    window.location.href = response;
+
+
                 },
                 error: function (error) {
                     // Lógica para tratar erros (se necessário)
                     console.log(error);
                 }
 
+                });
             });
-        }); */
+
+
+    });
+
+
 
 
   function displayStep(stepNumber) {
@@ -252,6 +296,13 @@
   <style>
 
 
+        #comunidade-page{
+            color: white;
+        }
+        #atividade-page{
+            color: white;
+        }
+
         #respostas{
             padding: 20px;
             border: 1px solid black;
@@ -274,6 +325,20 @@
         position: relative;
         text-align: center;
         transform: translateY(-43%);
+        }
+
+        #loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
         }
 
         .step-circle {

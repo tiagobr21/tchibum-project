@@ -94,6 +94,7 @@ Route::middleware([
 
     // Pacotes Personalizados
 
+    Route::post('/pacoteperso/criarpacotepersonalizado', [PacksCustomControllers::class, 'createPacotePerso']);
     Route::get('/pacoteperso/enviarsolicitacao/{pacotepersonalizado}', [PacksCustomControllers::class, 'enviarSolicitacao']);
 
     Route::middleware(['admin'])->group(function(){

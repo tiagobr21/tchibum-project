@@ -22,22 +22,26 @@
    <div class="container">
      <div class="row d-flex">
 
+
+
         @foreach ($opcoes as $opcoe)
 
 
-        <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry">
-        <a href="blog-single.html" class="block-20" style="background-image: url('{{ asset('/storage/' . $opcoe->imagem) }}');">
-        </a>
+        <div  class="col-md-4 d-flex ftco-animate">
+                <div class="blog-entry justify-content-end">
+                  <img class="block-20" src="{{asset('/storage/'. $opcoe->imagem)}}">
 
-        <h3 class="heading"><a href="#">{{ $opcoe->nome }}</a></h3>
-        <p>{{ $opcoe->titulo }}</p>
-        <p><a href="/atividade-{{ $opcoe->id }}" class="btn btn-primary">Ler mais</a></p>
-        </div>
-        </div>
+                  <div class="text">
+                  <div class="d-flex align-items-center mb-4 top">
+                </div>
+                <h3 class="heading">{{ $opcoe->nome }}</h3>
+                <p>{{ $opcoe->titulo }}</p>
+                <p><a href="/atividade-{{ $opcoe->id }}" class="btn btn-primary">Ler mais</a></p>
+              </div>
+            </div>
         </div>
 
-        @endforeach
+      @endforeach
 
     </div>
 

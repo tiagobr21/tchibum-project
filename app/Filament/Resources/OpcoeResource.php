@@ -11,6 +11,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use App\Models\Comunidade;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class OpcoeResource extends Resource
@@ -18,6 +19,8 @@ class OpcoeResource extends Resource
     protected static ?string $model = Opcoe::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?string $navigationLabel = 'Atividades';
 
     public static function form(Form $form): Form
     {
@@ -38,6 +41,11 @@ class OpcoeResource extends Resource
             Forms\Components\TextInput::make('preco')
                 ->required()
                 ->numeric(10,2),
+            Forms\Components\Select::make('comunidade_id')
+                ->label('Comunidade')
+                ->options(Comunidade::all()->pluck('nome', 'id'))
+                ->searchable()
+                ->required(),
 
             ]);
     }
@@ -48,14 +56,14 @@ class OpcoeResource extends Resource
             ->columns([
             Tables\Columns\TextColumn::make('nome')
                 ->searchable(),
-            Tables\Columns\TextColumn::make('titulo')
-                ->label('Título')
-                ->numeric()
-                ->sortable(),
+            Tables\Columns\TextColumn::make('comunidade.nome')
+                ->sortable()
+                ->searchable(),
             Tables\Columns\TextColumn::make('preco')
                 ->label('Preço')
                 ->numeric(2)
                 ->sortable(),
+
             Tables\Columns\TextColumn::make('created_at')
                 ->dateTime()
                 ->label('Organizar por Criação')

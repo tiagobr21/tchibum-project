@@ -22,6 +22,10 @@ class PacotePersoUsuarioResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'Pacotes Personalizados';
+
+    protected static ?string $navigationLabel = 'Compras';
+
     public static function form(Form $form): Form
     {
         return $form
