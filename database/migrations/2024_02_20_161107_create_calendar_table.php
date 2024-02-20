@@ -13,10 +13,16 @@ return new class extends Migration
     {
         Schema::create('calendar', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->unsignedBigInteger('comunidade_id')->unsigned();
             $table->string('start_date');
             $table->string('end_date');
             $table->string('color');
+
+            $table->foreign("comunidade_id")
+            ->references("id")
+            ->on("comunidades")
+            ->onDelete("cascade");
+
             $table->timestamps();
         });
     }

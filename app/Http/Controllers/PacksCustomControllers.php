@@ -36,7 +36,6 @@ class PacksCustomControllers extends Controller
             array_push($opcoes , Opcoe::where('nome',$value['atividade'])->get());
         }
 
-
         $user = auth()->user();
 
         // Criar Pacote Personalizado
@@ -52,6 +51,7 @@ class PacksCustomControllers extends Controller
 
         // Criar Atividades Inclusas
 
+
         foreach ($opcoes as $key => $value) {
 
             $pacotepersoopcoe = PacotePersoOpcoe::create([
@@ -59,6 +59,7 @@ class PacksCustomControllers extends Controller
                 'opcaoperso_id' =>  $value[0]->id,
             ]);
         }
+
 
         $this->enviarSolicitacao($pacotepersonalizado->id);
 
@@ -109,6 +110,16 @@ class PacksCustomControllers extends Controller
 
         $pacotepersonalizado->status = 'APROVADO';
         $pacotepersonalizado->save();
+
+        $user = auth()->user();
+
+        //Criar Compras
+
+        $pacotepersousuario = PacotePersoUsuario::create([
+            'pacoteperso_id' =>  $pacotepersonalizado->id,
+            'user_id' => $user->id ,
+            'data' => date('Y-m-d H:i:s')
+        ]);
 
         return redirect('/admin/pacote-personalizados');
      }
