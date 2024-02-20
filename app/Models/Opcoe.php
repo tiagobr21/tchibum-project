@@ -13,6 +13,10 @@ class Opcoe extends Model
     protected $table = 'opcoes';
     protected $fillable = ['nome','titulo','descricao','imagem','preco','comunidade_id'];
 
+    protected $casts = [
+        'por_pessoa' => 'boolean',
+    ];
+
     public function comunidade()
     {
         return $this->belongsTo(Comunidade::class);

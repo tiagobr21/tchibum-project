@@ -41,6 +41,8 @@ class OpcoeResource extends Resource
             Forms\Components\TextInput::make('preco')
                 ->required()
                 ->numeric(10,2),
+            Forms\Components\Toggle::make('por_pessoa')
+                ->required(),
             Forms\Components\Select::make('comunidade_id')
                 ->label('Comunidade')
                 ->options(Comunidade::all()->pluck('nome', 'id'))

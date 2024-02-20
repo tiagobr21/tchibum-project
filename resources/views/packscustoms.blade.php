@@ -111,6 +111,9 @@
     let opcoes = @json($opcoes);
     let comunidade_escolhida = 0;
     let opcoes_comunidade =  [];
+    let option = '';
+    let opcao_preco = null;
+
 
 
     $(document).ready(function() {
@@ -120,6 +123,7 @@
         let soma = 0;
         var valoresUnicos = new Set();
         $('#loading').fadeOut();
+
 
 
         $('#comunidade').on('change', function() {
@@ -143,7 +147,10 @@
 
             opcoes_comunidade.forEach(function(opcao) {
 
-                let option = $('<option></option>').attr('value', JSON.stringify(opcao.preco)).text(opcao.nome);
+
+                    option = $('<option></option>').attr('value', JSON.stringify(opcao.preco)).attr('title', JSON.stringify(opcao.por_pessoa)).text(opcao.nome);
+
+
 
                 $('#opcoes_comunidade').append(option);
             });
@@ -169,6 +176,7 @@
         $('#opcoes_comunidade').select2();
 
         $('#opcoes_comunidade').on('change', function() {
+
             dados.opcoes = $('#opcoes_comunidade').select2('data');
 
 
@@ -193,34 +201,55 @@
 
             let pessoas = '<i class="fa fa-users" aria-hidden="true"> <strong> Quantidade de Pessoas: </strong>' + dados.pessoas + '<br><br>';
 
-            let numeroAleatorio = parseFloat((Math.random() * (0.50 - 0.10) + 0.10).toFixed(2));
+
 
             dados.opcoes.forEach(function(opcao) {
-                var opcao_preco = parseFloat(opcao.id);
 
-                resultado = opcao_preco + numeroAleatorio;
 
-                valoresUnicos.add(resultado);
+                if (opcao.title == "true") {
+                    opcao_preco = parseFloat(opcao.id);
+                    opcao_preco = opcao_preco * dados.pessoas;
+
+                }else{
+                    opcao_preco = parseFloat(opcao.id) ;
+                }
+
+                console.log(opcao_preco);
+
+                valoresUnicos.add(opcao_preco );
 
             });
+
 
             let arrayValoresUnicos = Array.from(valoresUnicos);
 
             let soma = arrayValoresUnicos.reduce(function(acc, valor) {
-                    return acc + valor;
+
+                return acc + valor ;
+
             }, 0);
 
 
-            dados.precototal = Math.floor(soma);
+            function arredondarParaMultiploDe5(numero) {
+                    return Math.round(numero / 5) * 5;
+                }
+
+            dados.precototal = arredondarParaMultiploDe5(soma);
+
 
 
             let precototal = '<i class="fa fa-money-bill" aria-hidden="true"> <strong> Preço Total: </strong> ' + 'R$' + Math.floor(soma)
 
             resultado = comunidade + data + dias + pessoas + '<strong> Opções selecionadas: </strong> <br>';
 
-            dados.opcoes.forEach(function(opcao) {
 
-                resultado += opcao.text + ' R$' + opcao.id + '<br>';
+            dados.opcoes.forEach(function(opcao) {
+                if (opcao.title == "true") {
+                    resultado += opcao.text + ' R$' + Math.floor( opcao.id  * dados.pessoas ) + '<br>';
+                }else{
+                    resultado += opcao.text + ' R$' + Math.floor(opcao.id)+ '<br>';
+                }
+
             });
 
             resultado += '<br>'+ precototal;
@@ -250,6 +279,8 @@
 
             formData.opcoes.push({ atividade: opcoe.text , preco: opcoe.id});
          });
+
+         console.log(formData);
 
 
             $('#loading').fadeIn();
