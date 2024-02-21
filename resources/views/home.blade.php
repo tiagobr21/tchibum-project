@@ -158,7 +158,7 @@
 
                 <div class="col-md-4 ftco-animate">
                     <div class="project-wrap">
-                        <a class="img" style="background-image: url(images/vitoria-regia.png);">
+                        <a class="img" style="background-image: url(images/vitoria-regia.webp);">
                             <span class="price">550/Pessoa</span>
                         </a>
                         <div class="text p-4">
