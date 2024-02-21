@@ -80,6 +80,8 @@ Route::get('/pacote-{pacote}', [PacksController::class, 'pack']);
 Route::get('/pacotes_personalizados', [PacksCustomControllers::class, 'index']);
 
 
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -91,6 +93,11 @@ Route::middleware([
     Route::post('/adddadoscomple/{user}', [PacksController::class, 'addDadosComple'])->name('adddadoscomple');
     Route::post('/solicitacaocompra/{pacote}', [PacksController::class, 'solicitacaoCompra']);
     Route::get('/pacote/enviarsolicitacao/{pacote}', [PacksController::class, 'enviarSolicitacao']);
+
+    // Calendar
+
+     Route::get('/pacote/verificardata', [PacksCustomControllers::class, 'enviarSolicitacao']);
+
 
     // Pacotes Personalizados
 

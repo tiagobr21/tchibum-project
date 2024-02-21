@@ -14,6 +14,13 @@
             </div>
 
 
+            <div id="message-data">
+                <div class="alert alert-danger" role="alert">
+                    A simple danger alert—check it out!
+                  </div>
+            </div>
+
+
 
             <!-- partial:index.partial.html -->
             <div id="container" class="container mt-5">
@@ -123,7 +130,7 @@
         let soma = 0;
         var valoresUnicos = new Set();
         $('#loading').fadeOut();
-
+        $('#message-data').fadeOut();
 
 
         $('#comunidade').on('change', function() {
@@ -159,7 +166,9 @@
 
         $('#data').on('input', function() {
             dados.data = $(this).val();
+            // $('#message-data').fadeIn();
 
+            console.log(dados.data);
         });
 
 
@@ -257,6 +266,29 @@
             exibirResultado();
         });
 
+
+    function verificarData() {
+
+        $.ajax({
+                type: 'POST',
+                url: '/pacoteperso/criarpacotepersonalizado',
+                data: { _token: '{{ csrf_token() }}', formData },
+                success: function (response) {
+
+                    $('#loading').fadeOut();
+
+                    window.location.href = response;
+
+
+                },
+                error: function (error) {
+                    // Lógica para tratar erros (se necessário)
+                    console.log(error);
+                }
+
+                });
+
+    }
 
       function exibirResultado() {
 

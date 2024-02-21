@@ -25,6 +25,11 @@ class PacksCustomControllers extends Controller
     }
 
 
+    public function verificarData(Request $request){
+       dd($request);
+    }
+
+
     public function createPacotePerso(Request $request){
 
         $response = $request->formData;
@@ -88,6 +93,7 @@ class PacksCustomControllers extends Controller
         return $linkWhatsApp;
 
     }
+
 
 
     protected function enviarSolicitacao($pacotepersonalizado){
