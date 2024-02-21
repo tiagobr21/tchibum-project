@@ -180,7 +180,7 @@
         </div>
     </section>
 
-    <section class="ftco-section" style="background-image: url(images/bg_3.jpg);">
+    <section class="ftco-section" style="background-image: url(images/bg_3.webp);">
         <div class="container">
             <div class="row d-flex text-center">
                 <div class="col-md-12 heading-section text-center ftco-animate">
@@ -265,7 +265,7 @@
 
     {{-- Atividades --}}
 
-    <section class="ftco-section img ftco-select-destination" style="background-image: url(images/bg_3.jpg);">
+    <section class="ftco-section img ftco-select-destination" style="background-image: url(images/bg_3.webp);">
         <div class="container">
             <div class="row justify-content-center pb-4">
                 <div class="col-md-6 heading-section text-center ftco-animate">
@@ -344,7 +344,7 @@
         </div>
     </section>
 
-    <section class="ftco-section testimony-section bg-bottom" style="background-image: url(images/bg_feedback.jpg);">
+    <section class="ftco-section testimony-section bg-bottom" style="background-image: url(images/bg_feedback.webp);">
         <div class="overlay"></div>
         <div class="container">
             <div class="row justify-content-center pb-4">

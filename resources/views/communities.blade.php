@@ -93,7 +93,7 @@ Generic layout (demo looks)
   *::after {
       box-sizing: border-box;
   } */
-/* 
+/*
   body {
       margin: 0;
       padding: 48px 0;
@@ -157,7 +157,7 @@ Generic layout (demo looks)
       width: 1px;
   }
 </style>
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_comunidade.jpg');">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_comunidade.webp');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
