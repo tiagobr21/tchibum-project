@@ -51,7 +51,7 @@
                                                 <a href="/pacotes">
                                                     <div id="pacotes">
                                                         <div id="pacote-fixo">
-                                                            <img id="pacote-fixo-img" src="/images/pacote-fechado.webp">
+                                                            <img id="pacote-fixo-img" src="{{asset('/storage/pacote-fechado.webp')}}">
                                                         </div>
                                                         <p id="pacote-fixo-nome">Pacotes Fechados</p>
                                                     </div>
@@ -59,7 +59,7 @@
                                                 <a href="/pacotes_personalizados">
                                                 <div id="pacotes">
                                                     <div id="pacote-comunidade">
-                                                        <img id="pacote-comunidade-img" src="/images/pacote-personalizado.webp">
+                                                        <img id="pacote-comunidade-img" src="{{asset('/storage/pacote-personalizado.webp')}}">
                                                     </div>
                                                     <p id="pacote-comunidade-nome">Pacotes Personalizados</p>
                                                 </div>
