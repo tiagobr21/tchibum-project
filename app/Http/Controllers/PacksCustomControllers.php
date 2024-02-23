@@ -12,6 +12,8 @@ use App\Models\Contato;
 use App\Models\PacotePersoOpcoe;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PacotePersonalizados;
+use App\Models\Calendar;
+use Carbon\Carbon;
 
 class PacksCustomControllers extends Controller
 {
@@ -26,7 +28,25 @@ class PacksCustomControllers extends Controller
 
 
     public function verificarData(Request $request){
-       dd($request);
+         $calendar = Calendar::all();
+
+        
+         foreach ($calendar as $key => $value) {
+            $requestData = Carbon::parse($request->formData['data']);
+            $startDate = Carbon::parse($value->start_date);
+            $endDate = Carbon::parse($value->end_date);
+
+            // Verificar se a data é igual a start_date ou end_date
+            if ($requestData->eq($startDate) || $requestData->eq($endDate)) {
+                $response = false;
+            }else if ($requestData->between($startDate, $endDate)) {
+                $response = false;
+            }else{
+                $response = true;
+            }
+
+            return $response;
+         } 
     }
 
 

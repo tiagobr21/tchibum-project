@@ -114,7 +114,7 @@
 
 
 
-    <footer class="ftco-footer bg-bottom ftco-no-pt" style="background-image: url(images/bg_footer.webp);">
+    <footer class="ftco-footer bg-bottom ftco-no-pt" style="background-image: url('{{ asset('/storage/bg_footer.webp') }}');">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md pt-5">

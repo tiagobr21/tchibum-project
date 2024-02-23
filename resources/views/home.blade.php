@@ -30,7 +30,7 @@
         </div>
     </div>
 
-
+   
 
     <section class="ftco-section ftco-no-pb ftco-no-pt">
         <div class="container">
@@ -76,6 +76,8 @@
             </div>
     </section>
 
+    
+
     <section class="ftco-section services-section">
         <div class="container">
             <div class="row d-flex">
@@ -91,8 +93,8 @@
                         <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
                             <div class="services services-1 color-1 d-block img"
                                 style="background-image: url('{{ asset('/storage/' . $home->imagem_atividade_comunidade1) }}');">
-                                <div class="icon d-flex align-items-center justify-content-center"><span
-                                        class="flaticon-paragliding"></span></div>
+                                {{-- <div class="icon d-flex align-items-center justify-content-center">
+                                    <span class="flaticon-paragliding"></span></div> --}}
                                 <div class="media-body">
                                     <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade1 }}</h3>
                                     <p class="descricao_atividade_comunidade">
@@ -103,8 +105,8 @@
                         <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
                             <div class="services services-1 color-2 d-block img"
                                 style="background-image: url('{{ asset('/storage/' . $home->imagem_atividade_comunidade2) }}');">
-                                <div class="icon d-flex align-items-center justify-content-center"><span
-                                        class="flaticon-route"></span></div>
+                              {{--   <div class="icon d-flex align-items-center justify-content-center"><span
+                                        class="flaticon-route"></span></div> --}}
                                 <div class="media-body">
                                     <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade2 }}</h3>
                                     <p class="descricao_atividade_comunidade">
@@ -115,8 +117,8 @@
                         <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
                             <div class="services services-1 color-3 d-block img"
                                 style="background-image: url('{{ asset('/storage/' . $home->imagem_atividade_comunidade3) }}');">
-                                <div class="icon d-flex align-items-center justify-content-center"><span
-                                        class="flaticon-tour-guide"></span></div>
+                               {{--  <div class="icon d-flex align-items-center justify-content-center"><span
+                                        class="flaticon-tour-guide"></span></div> --}}
                                 <div class="media-body">
                                     <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade3 }}</h3>
                                     <p class="descricao_atividade_comunidade">
@@ -127,8 +129,8 @@
                         <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
                             <div class="services services-1 color-4 d-block img"
                                 style="background-image: url('{{ asset('/storage/' . $home->imagem_atividade_comunidade4) }}');">
-                                <div class="icon d-flex align-items-center justify-content-center"><span
-                                        class="flaticon-map"></span></div>
+                                {{-- <div class="icon d-flex align-items-center justify-content-center"><span
+                                        class="flaticon-map"></span></div> --}}
                                 <div class="media-body">
                                     <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade4 }}</h3>
                                     <p class="descricao_atividade_comunidade">
@@ -158,7 +160,7 @@
 
                 <div class="col-md-4 ftco-animate">
                     <div class="project-wrap">
-                        <a class="img" style="background-image: url(images/vitoria-regia.webp);">
+                        <a class="img" style="'{{ asset('/storage/vitoria-regia.webp') }}'">
                             <span class="price">550/Pessoa</span>
                         </a>
                         <div class="text p-4">
@@ -180,7 +182,7 @@
         </div>
     </section>
 
-    <section class="ftco-section" style="background-image: url(images/bg_3.webp);">
+    <section class="ftco-section" style="{{ asset('/storage/bg_3.webp') }}">
         <div class="container">
             <div class="row d-flex text-center">
                 <div class="col-md-12 heading-section text-center ftco-animate">
@@ -265,7 +267,7 @@
 
     {{-- Atividades --}}
 
-    <section class="ftco-section img ftco-select-destination" style="background-image: url(images/bg_3.webp);">
+    <section class="ftco-section img ftco-select-destination" style="background-image: url('{{ asset('/storage/bg_3.webp') }}');">
         <div class="container">
             <div class="row justify-content-center pb-4">
                 <div class="col-md-6 heading-section text-center ftco-animate">
@@ -344,7 +346,7 @@
         </div>
     </section>
 
-    <section class="ftco-section testimony-section bg-bottom" style="background-image: url(images/bg_feedback.webp);">
+    <section class="ftco-section testimony-section bg-bottom" style="background-image: url('{{ asset('/storage/bg_feedback.webp') }}');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row justify-content-center pb-4">

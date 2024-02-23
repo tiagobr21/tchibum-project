@@ -3,7 +3,7 @@
 @section('content')
 
 
-<section id="posts" class="ftco-section" style="background-image:url('images/32.jpg');">
+<section id="posts" class="ftco-section" style="background-image:url('{{ asset('/storage/32.webp') }}');">
     <div class="container">
         <div class="row d-flex">
 
@@ -44,48 +44,49 @@
                 </div>
             </div>
 
-            <div class="infos">
-                <div class="product-details">
+<div class="infos">
+    <div class="product-details">
+        <div class="row">
+            <div id="flex" class="col-md-12">
+                <h5><i class="fa fa-calendar" aria-hidden="true"></i> Data: {{ date('d/m/Y',strtotime($pacote->data)) }}</h5>
+                <h5><i class="fa fa-users" aria-hidden="true"></i> Quantidade de pessoas: {{ $pacote->pessoas }} </h5>
+                <h5><i class="fa fa-bed" aria-hidden="true"></i> Quantidade de dias: {{ $pacote->dias }} </h5>
+                <h5><i class="fa fa-home" aria-hidden="true"></i> Comunidade: {{ $pacote->comunidade->nome }} </h5>
+            </div>
+        </div>
 
-                <div class="col-md-12 d-flex">
-                    <h5><i class="fa fa-calendar" aria-hidden="true"></i> Data: {{ date('d/m/Y',strtotime($pacote->data)) }}</h5>
-                    <h5><i class="fa fa-users" aria-hidden="true"></i>  Quantidade de pessoas: {{ $pacote->pessoas}} </h5>
-                    <h5><i class="fa fa-bed" aria-hidden="true"></i>  Quantidade de dias:  {{ $pacote->dias}} </h5>
-                    <h5><i class="fa fa-home" aria-hidden="true"></i>  Comunidade:  {{ $pacote->comunidade->nome}} </h5>
-                </div>
-                <br>
-                <h5 class="col-md-12 d-flex">Atividades</h5>
-                <div class="col-md-12 d-flex">
-
-                    <table class="table">
-                        <thead>
-                          <tr>
+        <div class="row">
+            <div class="col-md-12">
+                <h5>Atividades</h5>
+                <table class="table">
+                    <thead>
+                        <tr>
                             <th scope="col">Nome</th>
                             <th scope="col">Preço</th>
-                          </tr>
-                        </thead>
+                        </tr>
+                    </thead>
+                    <tbody>
                         @foreach ($pacote->opcoes as $opcao)
-                            <tbody>
-                            <tr>
-                                <td>{{ $opcao->nome }}</td>
-                                <td>R$ {{ $opcao->preco }}</td>
-                            </tr>
-                            </tbody>
+                        <tr>
+                            <td>{{ $opcao->nome }}</td>
+                            <td>R$ {{ $opcao->preco }}</td>
+                        </tr>
                         @endforeach
-                      </table>
-                </div>
-
-                    <br>
-
-                    <h2>Informações </h2>
-
-                    <p class="product-description">
-
-                        {{ $pacote->infos }}
-                    </p>
-
-                </div>
+                    </tbody>
+                </table>
             </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Informações </h2>
+                <p class="product-description">
+                    {{ $pacote->infos }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -393,6 +394,10 @@
         cursor: pointer;
     }
 
+    #flex{
+      display: flex;
+    }
+
     .product-details {
         flex-grow: 1;
     }
@@ -429,24 +434,45 @@
         }
 
     /* Media queries for responsive design */
+    
+    /* Media queries for responsive design */
     @media (max-width: 768px) {
-        .product-container {
-            flex-direction: column;
-        }
-
-        .image-thumbnails{
-            margin: 0 auto; width: 50%;
-        }
-
-        .product-image {
-            max-width: 100%;
-            margin: 0;
-        }
-
-        .infos {
-            margin-top: 20px;
-        }
+    .product-container {
+        flex-direction: column;
+        align-items: center;
     }
+
+    .product-image {
+        display: none;
+    }
+
+    .infos {
+        margin-top: 20px;
+    }
+
+    .image-thumbnails {
+        margin: 0 auto;
+
+    }
+
+    #flex{
+      display: block;
+    }
+
+
+    .thumbnail{
+       max-width: 100%;
+    }
+
+    .infos {
+        flex-direction: column;
+    }
+
+    .product-details {
+        max-width: 100%;
+    }
+}
+
 
 </style>
 

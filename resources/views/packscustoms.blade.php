@@ -3,7 +3,7 @@
 @section('content')
 
 
-<section id="posts" class="ftco-section" style="background-image:url('images/18.jpg');">
+<section id="posts" class="ftco-section" style="background-image:url('{{ asset('/storage/18.webp') }}');">
     <div class="container">
         <div class="row d-flex">
 
@@ -14,11 +14,27 @@
             </div>
 
 
-            <div id="message-data">
-                <div class="alert alert-danger" role="alert">
-                    A simple danger alert—check it out!
-                  </div>
+            <div  class="container mt-4">
+                <!-- Alerta Bootstrap -->
+                <div id="message-data-ocupado" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Já existe agendamento para essa data
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+            
+            <div  class="container mt-4">
+                <!-- Alerta Bootstrap -->
+                <div id="message-data-disponivel" class="alert alert-success alert-dismissible fade show" role="alert">
+                    A data está disponível
+                <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            
+        
+
 
 
 
@@ -130,7 +146,8 @@
         let soma = 0;
         var valoresUnicos = new Set();
         $('#loading').fadeOut();
-        $('#message-data').fadeOut();
+        $('#message-data-ocupado').fadeOut();
+        $('#message-data-disponivel').fadeOut();
 
 
         $('#comunidade').on('change', function() {
@@ -166,9 +183,16 @@
 
         $('#data').on('input', function() {
             dados.data = $(this).val();
-            // $('#message-data').fadeIn();
 
-            console.log(dados.data);
+            let formData = {
+               
+                data: dados.data,
+             };
+
+
+             verificarData(formData);
+       
+       
         });
 
 
@@ -267,22 +291,32 @@
         });
 
 
-    function verificarData() {
+    function verificarData(formData) {
+       
+        $('#loading').fadeIn();
+
 
         $.ajax({
                 type: 'POST',
-                url: '/pacoteperso/criarpacotepersonalizado',
+                url: '/pacoteperso/verificardata',
                 data: { _token: '{{ csrf_token() }}', formData },
                 success: function (response) {
 
                     $('#loading').fadeOut();
-
-                    window.location.href = response;
+                   
+        
+                    if (response) {
+                        
+                        $('#message-data-disponivel').fadeIn();
+                    }else{
+                  
+                        $('#message-data-ocupado').fadeIn();
+                    }
 
 
                 },
                 error: function (error) {
-                    // Lógica para tratar erros (se necessário)
+                 
                     console.log(error);
                 }
 

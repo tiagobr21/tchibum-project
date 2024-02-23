@@ -2,7 +2,7 @@
 @section('title','posts')
 @section('content')
 
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_posts.webp');">
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{ asset('/storage/bg_posts.webp') }}');">
     <div class="overlay"></div>
     <div class="container">
       <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">

@@ -77,10 +77,6 @@ Route::get('/pacotes', [PacksController::class, 'index']);
 Route::get('/pacote-{pacote}', [PacksController::class, 'pack']);
 
 
-Route::get('/pacotes_personalizados', [PacksCustomControllers::class, 'index']);
-
-
-
 
 Route::middleware([
     'auth:sanctum',
@@ -94,12 +90,10 @@ Route::middleware([
     Route::post('/solicitacaocompra/{pacote}', [PacksController::class, 'solicitacaoCompra']);
     Route::get('/pacote/enviarsolicitacao/{pacote}', [PacksController::class, 'enviarSolicitacao']);
 
-    // Calendar
-
-     Route::get('/pacote/verificardata', [PacksCustomControllers::class, 'enviarSolicitacao']);
-
 
     // Pacotes Personalizados
+
+    Route::get('/pacotes_personalizados', [PacksCustomControllers::class, 'index']);
 
     Route::post('/pacoteperso/criarpacotepersonalizado', [PacksCustomControllers::class, 'createPacotePerso']);
     Route::get('/pacoteperso/enviarsolicitacao/{pacotepersonalizado}', [PacksCustomControllers::class, 'enviarSolicitacao']);
@@ -108,5 +102,9 @@ Route::middleware([
         Route::get('/pacoteperso/aprovarsolicitacao/{pacotepersonalizado}', [PacksCustomControllers::class, 'AprovarSolicitacao']);
         Route::get('/pacoteperso/reprovarsolicitacao/{pacotepersonalizado}', [PacksCustomControllers::class, 'ReprovarSolicitacao']);
     });
+
+    // Calendar
+
+    Route::post('/pacoteperso/verificardata', [PacksCustomControllers::class, 'verificarData']);
 });
 

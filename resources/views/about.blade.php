@@ -4,7 +4,7 @@
 
 
 
-  <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url(images/27.jpg);
+  <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({{ asset('/storage/27.webp') }});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -35,7 +35,7 @@
       <div class="row">
        <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
          <div class="services services-1 color-1 d-block img" style="background-image: url('{{ asset('/storage/' . $sobre->imagem_atividade_comunidade1) }}');">
-           <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-paragliding"></span></div>
+           {{-- <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-paragliding"></span></div> --}}
            <div class="media-body">
              <h3 class="heading mb-3">{{ $sobre->nome_atividade_comunidade1 }}</h3>
              <p class="descricao_atividade_comunidade">{{ $sobre->descricao_atividade_comunidade1 }}</p>
@@ -44,7 +44,7 @@
        </div>
        <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
          <div class="services services-1 color-2 d-block img" style="background-image: url('{{ asset('/storage/' . $sobre->imagem_atividade_comunidade2) }}');">
-           <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
+           {{-- <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div> --}}
            <div class="media-body">
              <h3 class="heading mb-3">{{ $sobre->nome_atividade_comunidade2 }}</h3>
              <p class="descricao_atividade_comunidade">{{ $sobre->descricao_atividade_comunidade2 }}</p>
@@ -53,7 +53,7 @@
        </div>
        <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
          <div class="services services-1 color-3 d-block img" style="background-image: url('{{ asset('/storage/' . $sobre->imagem_atividade_comunidade3) }}');">
-           <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-tour-guide"></span></div>
+           {{-- <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-tour-guide"></span></div> --}}
            <div class="media-body">
              <h3 class="heading mb-3">{{ $sobre->nome_atividade_comunidade3 }}</h3>
              <p class="descricao_atividade_comunidade">{{ $sobre->descricao_atividade_comunidade3 }}</p>
@@ -62,7 +62,7 @@
        </div>
        <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
          <div class="services services-1 color-4 d-block img" style="background-image: url('{{ asset('/storage/' . $sobre->imagem_atividade_comunidade4) }}');">
-           <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-map"></span></div>
+           {{-- <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-map"></span></div> --}}
            <div class="media-body">
              <h3 class="heading mb-3">{{ $sobre->nome_atividade_comunidade4 }}</h3>
              <p class="descricao_atividade_comunidade">{{ $sobre->descricao_atividade_comunidade4 }}</p>
@@ -87,7 +87,7 @@
   <div class="container py-md-5">
     <div class="row py-md-5">
       <div class="col-md d-flex align-items-center justify-content-center">
-        <a href="http://195.35.17.151/storage/{{ $sobre->video_principal }}"
+        <a href="http://tchibumnaamazonia.com:8000/storage/{{ $sobre->video_principal }}"
           class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
           <span class="fa fa-play"></span>
         </a>
