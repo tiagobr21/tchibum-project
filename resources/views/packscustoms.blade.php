@@ -71,7 +71,7 @@
                         <!-- data e dias-->
                         <div class="mb-3">
                             <label   for="data" class="form-label">Data:</label>
-                            <input type="date" class="form-control" id="data" name="data">
+                            <input type="date" class="form-control" id="data" name="data" disabled>
                         </div>
                         <div id="calendar-modal" class="form-text">Verifique a disponibidade no calendário <a href="#">clique aqui</a></div><br>
 
@@ -90,20 +90,18 @@
 
                       <!-- Corpo do Modal -->
                       <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
-                            <h6>Datas agendadas</h6>
-        
+                            <h6 style="color:#f4bc08">Datas agendadas</h6>
+                            @foreach ($datas as $data)
+                                
+               
                             <div class="calendar">
                                 <ul>
-                                    <li>2024-02-25 - 2024-02-27</li>
+                                    <li>{{ $data['comunidade']}}: {{$data['data_inicial']}} - {{$data['data_final']}}</li>
                               
                                 </ul>
                             </div>
-                      </div>
 
-                      <!-- Rodapé do Modal -->
-                      <div class="modal-footer">
-                        <button id="enviardadoscomple" type="submit" class="btn btn-success" data-dismiss="modal">Enviar</button>
-
+                            @endforeach
                       </div>
 
                    </div>
@@ -187,10 +185,13 @@
 
         $('#calendar-modal').click(function(){
             $("#meuModal").fadeIn();
-            
-            viewCalendar();
 
         });
+
+        $('#comunidade').change(function() {
+         // Habilitar o campo de data se uma comunidade for selecionada
+          $('#data').prop('disabled', false);
+       });
 
                 
         $("#fechar").click(function () {
@@ -236,6 +237,7 @@
             let formData = {
                
                 data: dados.data,
+                comunidade: dados.comunidade
              };
 
 
@@ -247,6 +249,17 @@
 
         $('#dias').on('input', function() {
             dados.dias = $(this).val();
+
+            let formData = {
+               
+               data: dados.data,
+               comunidade: dados.comunidade,
+               dias: dados.dias
+            };
+
+
+            // verificarData(formData);
+      
 
         });
 
@@ -340,25 +353,6 @@
         });
 
     
-    function viewCalendar() {
-
-       $.ajax({
-               type: 'GET',
-               url: '/pacoteperso/viewcalendar',
-               success: function (response) {
-                   
-                console.log(response);
-
-               },
-               error: function (error) {
-                
-                   console.log(error);
-               }
-
-               });
-
-   }
-
 
     function verificarData(formData) {
        

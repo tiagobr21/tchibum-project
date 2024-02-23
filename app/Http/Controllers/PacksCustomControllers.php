@@ -23,52 +23,69 @@ class PacksCustomControllers extends Controller
         $opcoes = Opcoe::all();
         $user = auth()->user();
 
-        return view('packscustoms',compact('comunidades','opcoes','user'));
-    }
-
-    public function viewCalendar(Request $request){
         $calendar = Calendar::all();
+        $datas = [];
 
         
          foreach ($calendar as $key => $value) {
 
           
-            $startDate = Carbon::parse($value->start_date);
+            $startDate = Carbon::parse( $value->start_date);
             $endDate = Carbon::parse($value->end_date);
 
-
-            $response = [
-                'Comunidade'=> $value->title,
-                'Data Inicial'=> $startDate,
-                'Data Final'=> $endDate,
+            $data = [
+                'comunidade'=> $value->title,
+                'data_inicial'=> (date("d/m/y", strtotime($startDate))),
+                'data_final'=> (date("d/m/y", strtotime( $endDate))),
             ];
 
+            array_push($datas,$data);
 
-            return $response;
+        
          } 
+
+
+        return view('packscustoms',compact('comunidades','opcoes','user','datas'));
+    }
+
+    public function viewCalendar(Request $request){
+   
     }
 
 
     public function verificarData(Request $request){
          $calendar = Calendar::all();
-
         
-         foreach ($calendar as $key => $value) {
-            $requestData = Carbon::parse($request->formData['data']);
-            $startDate = Carbon::parse($value->start_date);
-            $endDate = Carbon::parse($value->end_date);
 
-            // Verificar se a data é igual a start_date ou end_date
-            if ($requestData->eq($startDate) || $requestData->eq($endDate)) {
-                $response = false;
-            }else if ($requestData->between($startDate, $endDate)) {
-                $response = false;
-            }else{
-                $response = true;
+         foreach ($calendar as $key => $value) {
+           
+            if( $request->formData['comunidade'] == $value->title ){
+
+                $requestData = Carbon::parse($request->formData['data']);
+                $startDate = Carbon::parse($value->start_date);
+                $endDate = Carbon::parse($value->end_date);
+
+                // Verificar se a data é igual a start_date ou end_date
+                if ($requestData->eq($startDate) || $requestData->eq($endDate)) {
+                    $response = false;
+                }else if ($requestData->between($startDate, $endDate)) {
+                    $response = false;
+                }else{
+                    $response = true;
+                }
+
+                return $response;
+            } else {
+            
+                return true;
             }
 
-            return $response;
-         } 
+               
+        }
+    }
+
+    public function verificarDias(Request $request){
+        
     }
 
 
