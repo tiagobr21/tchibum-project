@@ -26,6 +26,28 @@ class PacksCustomControllers extends Controller
         return view('packscustoms',compact('comunidades','opcoes','user'));
     }
 
+    public function viewCalendar(Request $request){
+        $calendar = Calendar::all();
+
+        
+         foreach ($calendar as $key => $value) {
+
+          
+            $startDate = Carbon::parse($value->start_date);
+            $endDate = Carbon::parse($value->end_date);
+
+
+            $response = [
+                'Comunidade'=> $value->title,
+                'Data Inicial'=> $startDate,
+                'Data Final'=> $endDate,
+            ];
+
+
+            return $response;
+         } 
+    }
+
 
     public function verificarData(Request $request){
          $calendar = Calendar::all();

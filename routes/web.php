@@ -106,5 +106,6 @@ Route::middleware([
     // Calendar
 
     Route::post('/pacoteperso/verificardata', [PacksCustomControllers::class, 'verificarData']);
+    Route::get('/pacoteperso/viewcalendar', [PacksCustomControllers::class, 'viewCalendar']);
 });
 

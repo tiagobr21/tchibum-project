@@ -24,13 +24,6 @@
     <div class="row d-flex">
       <div class="col-md-12 about-intro">
         <div class="row">
-            <div class="col-md-6 d-flex">
-                <div id="img-post" class="col-md-12 d-flex align-items-stretch">
-                    <div class="img w-100 align-items-center justify-content-center"
-                        style="background-image:url(http://195.35.17.151/storage/{{ $post->imagem_principal }});">
-                    </div>
-                </div>
-            </div>
           <div id="conteudo" class="col-md-6 pl-md-5 py-5">
             <div class="row justify-content-start pb-3">
               <div class="col-md-12 heading-section ftco-animate">
@@ -41,6 +34,16 @@
               </div>
             </div>
           </div>
+            <div class="col-md-6 d-flex">
+                <div id="img-post" class="col-md-12 d-flex align-items-stretch">
+                    <div class="img w-100 align-items-center justify-content-center"
+                        style="background-image:url('{{ asset('/storage/' . $post->imagem_principal) }}');">
+                    </div>
+                </div>
+            </div>
+
+    
+
         </div>
       </div>
     </div>

@@ -73,6 +73,43 @@
                             <label   for="data" class="form-label">Data:</label>
                             <input type="date" class="form-control" id="data" name="data">
                         </div>
+                        <div id="calendar-modal" class="form-text">Verifique a disponibidade no calendário <a href="#">clique aqui</a></div><br>
+
+
+                        
+            <div class="modal" id="meuModal">
+                <div class="modal-dialog">
+                   <div class="modal-content">
+
+                      <!-- Cabeçalho do Modal -->
+                      <div class="modal-header">
+                         <h4 class="modal-title">Calendário das Comunidades</h4>
+                         <button type="button" id="fechar" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+
+
+                      <!-- Corpo do Modal -->
+                      <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
+                            <h6>Datas agendadas</h6>
+        
+                            <div class="calendar">
+                                <ul>
+                                    <li>2024-02-25 - 2024-02-27</li>
+                              
+                                </ul>
+                            </div>
+                      </div>
+
+                      <!-- Rodapé do Modal -->
+                      <div class="modal-footer">
+                        <button id="enviardadoscomple" type="submit" class="btn btn-success" data-dismiss="modal">Enviar</button>
+
+                      </div>
+
+                   </div>
+                </div>
+             </div>
+
 
 
                         <div class="mb-3">
@@ -138,7 +175,6 @@
     let opcao_preco = null;
 
 
-
     $(document).ready(function() {
 
         let dados = {};
@@ -149,6 +185,19 @@
         $('#message-data-ocupado').fadeOut();
         $('#message-data-disponivel').fadeOut();
 
+        $('#calendar-modal').click(function(){
+            $("#meuModal").fadeIn();
+            
+            viewCalendar();
+
+        });
+
+                
+        $("#fechar").click(function () {
+
+            $("#meuModal").fadeOut();
+
+        });
 
         $('#comunidade').on('change', function() {
             dados.comunidade = $(this).val();
@@ -290,6 +339,26 @@
             exibirResultado();
         });
 
+    
+    function viewCalendar() {
+
+       $.ajax({
+               type: 'GET',
+               url: '/pacoteperso/viewcalendar',
+               success: function (response) {
+                   
+                console.log(response);
+
+               },
+               error: function (error) {
+                
+                   console.log(error);
+               }
+
+               });
+
+   }
+
 
     function verificarData(formData) {
        
@@ -429,6 +498,42 @@
         #atividade-page{
             color: white;
         }
+
+        #calendar-modal{
+            color: white;
+        }
+
+        a{
+            color:#f4bc08;
+
+        }
+
+        /* calendar */
+
+        .calendar {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        /*  */
 
         #respostas{
             padding: 20px;

@@ -44,58 +44,53 @@
                 </div>
             </div>
 
-<div class="infos">
-    <div class="product-details">
-        <div class="row">
-            <div id="flex" class="col-md-12">
-                <h5><i class="fa fa-calendar" aria-hidden="true"></i> Data: {{ date('d/m/Y',strtotime($pacote->data)) }}</h5>
-                <h5><i class="fa fa-users" aria-hidden="true"></i> Quantidade de pessoas: {{ $pacote->pessoas }} </h5>
-                <h5><i class="fa fa-bed" aria-hidden="true"></i> Quantidade de dias: {{ $pacote->dias }} </h5>
-                <h5><i class="fa fa-home" aria-hidden="true"></i> Comunidade: {{ $pacote->comunidade->nome }} </h5>
+            <div class="infos">
+                <div class="product-details">
+                    <div class="row">
+                        <div id="flex" class="col-md-12">
+                            <h5><i class="fa fa-calendar" aria-hidden="true"></i> Data: {{ date('d/m/Y',strtotime($pacote->data)) }}</h5>
+                            <h5><i class="fa fa-users" aria-hidden="true"></i> Quantidade de pessoas: {{ $pacote->pessoas }} </h5>
+                            <h5><i class="fa fa-bed" aria-hidden="true"></i> Quantidade de dias: {{ $pacote->dias }} </h5>
+                            <h5><i class="fa fa-home" aria-hidden="true"></i> Comunidade: {{ $pacote->comunidade->nome }} </h5>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5>Atividades</h5>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nome</th>
+                                        <th scope="col">Preço</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($pacote->opcoes as $opcao)
+                                    <tr>
+                                        <td>{{ $opcao->nome }}</td>
+                                        <td>R$ {{ $opcao->preco }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>Informações </h2>
+                            <p class="product-description">
+                                {{ $pacote->infos }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <h5>Atividades</h5>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Preço</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($pacote->opcoes as $opcao)
-                        <tr>
-                            <td>{{ $opcao->nome }}</td>
-                            <td>R$ {{ $opcao->preco }}</td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Informações </h2>
-                <p class="product-description">
-                    {{ $pacote->infos }}
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
 
             <div class="modal" id="meuModal">
                 <div class="modal-dialog">
                    <div class="modal-content">
-
-
 
                       <!-- Cabeçalho do Modal -->
                       <div class="modal-header">
@@ -456,7 +451,7 @@
     }
 
     #flex{
-      display: block;
+      display: block ;
     }
 
 
