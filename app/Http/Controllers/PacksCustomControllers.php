@@ -56,10 +56,13 @@ class PacksCustomControllers extends Controller
     public function verificarData(Request $request){
          $calendar = Calendar::all();
         
+      
 
          foreach ($calendar as $key => $value) {
            
             if( $request->formData['comunidade'] == $value->title ){
+
+              
 
                 $requestData = Carbon::parse($request->formData['data']);
                 $startDate = Carbon::parse($value->start_date);
@@ -75,17 +78,64 @@ class PacksCustomControllers extends Controller
                 }
 
                 return $response;
-            } else {
-            
-                return true;
             }
-
                
         }
     }
 
     public function verificarDias(Request $request){
+
+        $dataString = $request->formData['data'];
+
+        // Desmembrar a string em ano, mês e dia
+        list($ano, $mes, $dia) = explode('-', $dataString);
         
+        // Converter para inteiros se necessário
+        $ano = (int)$ano;
+        $mes = (int)$mes;
+        $dia = (int)$dia;
+
+        // Data inicial
+        $dataInicial = Carbon::create($ano, $mes, $dia);
+
+        // Número de dias a serem adicionados
+        $diasASomar = 2;
+
+        // Adiciona os dias à data inicial
+        $dataFinal = $dataInicial->addDays($diasASomar);
+
+
+        $calendar = Calendar::all();
+
+
+        foreach ($calendar as $key => $value) {
+           
+            if( $request->formData['comunidade'] == $value->title ){
+
+                // dd($dataFinal,$value->start_date);
+
+                // exit;
+
+                $startDate = Carbon::parse($value->start_date);
+                $endDate = Carbon::parse($value->end_date);
+            
+        
+                if ($dataFinal->eq($startDate) || $dataFinal->eq($endDate)) {
+                    $response = false;
+                } else if ($dataFinal->between($startDate, $endDate)) {
+                    $response = false;
+                }else{
+                    $response = true;
+                }
+
+                return $response;
+
+            } 
+
+               
+        }
+
+
     }
 
 

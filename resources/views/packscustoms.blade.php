@@ -34,8 +34,23 @@
             </div>
             
         
+            <div  class="container mt-4">
+                <!-- Alerta Bootstrap -->
+                <div id="message-dias-ocupado" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Os dias colidem com com outro agendamento
+                <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
 
-
+            <div  class="container mt-4">
+                <!-- Alerta Bootstrap -->
+                <div id="message-dias-disponivel" class="alert alert-success alert-dismissible fade show" role="alert">
+                    Os dias estão em coformidade 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
 
 
             <!-- partial:index.partial.html -->
@@ -112,10 +127,10 @@
 
                         <div class="mb-3">
                             <label for="dias" class="form-label">Dias:</label>
-                            <input type="number" class="form-control" id="dias" name="dias">
+                            <input type="number" class="form-control" id="dias" name="dias" >
                         </div>
 
-                        <button type="button" class="btn btn-primary next-step">Continuar</button>
+                        <button type="button" id="next1" class="btn btn-primary next-step">Continuar</button >
 
                     </div>
 
@@ -182,6 +197,8 @@
         $('#loading').fadeOut();
         $('#message-data-ocupado').fadeOut();
         $('#message-data-disponivel').fadeOut();
+        $('#message-dias-ocupado').fadeOut();
+        $('#message-dias-disponivel').fadeOut();
 
         $('#calendar-modal').click(function(){
             $("#meuModal").fadeIn();
@@ -193,6 +210,17 @@
           $('#data').prop('disabled', false);
        });
 
+/*        $('#data').change(function() {
+         // Habilitar o campo de data se uma comunidade for selecionada
+          $('#dias').prop('disabled', false);
+       });
+
+       $('#dias').change(function() {
+         // Habilitar o campo de data se uma comunidade for selecionada
+          $('#next1').prop('disabled', false);
+       });
+ */
+
                 
         $("#fechar").click(function () {
 
@@ -202,6 +230,9 @@
 
         $('#comunidade').on('change', function() {
             dados.comunidade = $(this).val();
+
+            console.log(dados.comunidade);
+            console.log(dados);
 
             comunidades.map(function(comunidade){
                if(comunidade.nome ==  dados.comunidade ){
@@ -258,7 +289,7 @@
             };
 
 
-            // verificarData(formData);
+            verificarDias(formData);
       
 
         });
@@ -385,6 +416,39 @@
 
                 });
 
+    }
+
+    function verificarDias(formData){
+        $('#loading').fadeIn();
+
+
+        $.ajax({
+                type: 'POST',
+                url: '/pacoteperso/verificardias',
+                data: { _token: '{{ csrf_token() }}', formData },
+                success: function (response) {
+
+                    $('#loading').fadeOut();
+
+            
+                   
+        
+                    if (response) {
+                        
+                        $('#message-dias-disponivel').fadeIn();
+                    }else{
+                  
+                        $('#message-dias-ocupado').fadeIn();
+                    } 
+
+
+                },
+                error: function (error) {
+                 
+                    console.log(error);
+                }
+
+                });
     }
 
       function exibirResultado() {
