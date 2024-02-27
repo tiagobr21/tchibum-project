@@ -62,8 +62,7 @@ class PacksCustomControllers extends Controller
            
             if( $request->formData['comunidade'] == $value->title ){
 
-              
-
+        
                 $requestData = Carbon::parse($request->formData['data']);
                 $startDate = Carbon::parse($value->start_date);
                 $endDate = Carbon::parse($value->end_date);
@@ -77,10 +76,12 @@ class PacksCustomControllers extends Controller
                     $response = true;
                 }
 
-                return $response;
+                
             }
                
         }
+
+        return $response;
     }
 
     public function verificarDias(Request $request){
@@ -99,7 +100,7 @@ class PacksCustomControllers extends Controller
         $dataInicial = Carbon::create($ano, $mes, $dia);
 
         // Número de dias a serem adicionados
-        $diasASomar = 2;
+        $diasASomar = $request->formData['dias'];
 
         // Adiciona os dias à data inicial
         $dataFinal = $dataInicial->addDays($diasASomar);
@@ -128,12 +129,15 @@ class PacksCustomControllers extends Controller
                     $response = true;
                 }
 
-                return $response;
+           
 
             } 
 
                
         }
+
+
+        return $response;
 
 
     }
@@ -142,6 +146,7 @@ class PacksCustomControllers extends Controller
     public function createPacotePerso(Request $request){
 
         $response = $request->formData;
+
         $opcoes = [];
 
         $comunidade = Comunidade::where('nome',$response['comunidade'])->get();
@@ -164,7 +169,7 @@ class PacksCustomControllers extends Controller
         ]);
 
         // Criar Atividades Inclusas
-
+    
 
         foreach ($opcoes as $key => $value) {
 
@@ -172,7 +177,44 @@ class PacksCustomControllers extends Controller
                 'pacoteperso_id' =>  $pacotepersonalizado->id,
                 'opcaoperso_id' =>  $value[0]->id,
             ]);
-        }
+        } 
+
+
+
+        // Criar data do Calendário
+
+       
+        $dataString = $response['data'];
+
+        // Desmembrar a string em ano, mês e dia
+        list($ano, $mes, $dia) = explode('-', $dataString);
+        
+        // Converter para inteiros se necessário
+        $ano = (int)$ano;
+        $mes = (int)$mes;
+        $dia = (int)$dia;
+
+        // Data inicial
+        $dataInicial = Carbon::create($ano, $mes, $dia);
+
+        // Número de dias a serem adicionados
+        $diasASomar = $response['dias'];
+
+        // Adiciona os dias à data inicial
+        $dataFinal = $dataInicial->addDays($diasASomar);
+    
+        $dataFinal = $dataFinal->addSeconds(01);
+
+
+        $dataInicial = Carbon::create($ano, $mes, $dia);
+         
+         $calendar = Calendar::create([
+            'title' => $comunidade[0]->nome,
+            'comunidade_id' => $comunidade[0]->id,
+            'start_date' => $dataInicial,
+            'end_date' =>  $dataFinal,
+            'color' => '#7a7a7a'
+        ]); 
 
 
         $this->enviarSolicitacao($pacotepersonalizado->id);

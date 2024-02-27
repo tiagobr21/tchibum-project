@@ -14,7 +14,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\ActivitiesController;
 use App\Http\Controllers\PacksCustomControllers;
-
+use App\Http\Controllers\Shopping;
 
 
 
@@ -108,5 +108,10 @@ Route::middleware([
     Route::post('/pacoteperso/verificardata', [PacksCustomControllers::class, 'verificarData']);
     Route::post('/pacoteperso/verificardias', [PacksCustomControllers::class, 'verificarDias']);
     Route::get('/pacoteperso/viewcalendar', [PacksCustomControllers::class, 'viewCalendar']);
+
+    // Shopping
+   
+    Route::get('/compras-{id}', [Shopping::class, 'index']);
+
 });
 

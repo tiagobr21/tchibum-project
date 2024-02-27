@@ -53,6 +53,13 @@
                     @if (auth()->user()?->role == 'admin')
                         <li class="nav-item"><a href="/admin" class="nav-link">ADMIN</a></li>
                     @endif
+                 
+                    @auth
+                 
+                    <li class="nav-item"><a href="/compras-{{auth()->user()->id}}" class="nav-link">COMPRAS</a></li>
+
+                    @endauth
+
                     <li class="nav-item"><a href="/sobre" class="nav-link">QUEM SOMOS</a></li>
 
                     <li class="nav-item">
@@ -62,7 +69,6 @@
                                 MAIS
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                {{-- <a class="dropdown-item" href="/depoimentos" class="nav-link">DEPOIMENTOS</a> --}}
                                 <a class="dropdown-item" href="/posts">POSTS</a>
                                 <a class="dropdown-item" href="/comunidades">COMUNIDADES</a>
                                 <a class="dropdown-item" href="/atividades">ATIVIDADES</a>

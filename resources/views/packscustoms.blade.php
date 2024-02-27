@@ -127,7 +127,7 @@
 
                         <div class="mb-3">
                             <label for="dias" class="form-label">Dias:</label>
-                            <input type="number" class="form-control" id="dias" name="dias" >
+                            <input type="number" class="form-control" id="dias" name="dias" disabled>
                         </div>
 
                         <button type="button" id="next1" class="btn btn-primary next-step">Continuar</button >
@@ -210,16 +210,10 @@
           $('#data').prop('disabled', false);
        });
 
-/*        $('#data').change(function() {
+        $('#data').change(function() {
          // Habilitar o campo de data se uma comunidade for selecionada
           $('#dias').prop('disabled', false);
        });
-
-       $('#dias').change(function() {
-         // Habilitar o campo de data se uma comunidade for selecionada
-          $('#next1').prop('disabled', false);
-       });
- */
 
                 
         $("#fechar").click(function () {
@@ -476,7 +470,7 @@
          console.log(formData);
 
 
-            $('#loading').fadeIn();
+          //   $('#loading').fadeIn();
 
             $.ajax({
                 type: 'POST',
@@ -484,7 +478,7 @@
                 data: { _token: '{{ csrf_token() }}', formData },
                 success: function (response) {
 
-                    $('#loading').fadeOut();
+                  //  $('#loading').fadeOut();
 
                     window.location.href = response;
 
