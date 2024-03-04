@@ -9,8 +9,8 @@
     <div class="container">
       <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
         <div class="col-md-9 ftco-animate pb-5 text-center">
-         <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Fale Conosco <i class="fa fa-chevron-right"></i></span></p>
-         <h1 class="mb-0 bread">Fale Conosco</h1>
+         <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>{{ trans('messages.fale_conosco') }} <i class="fa fa-chevron-right"></i></span></p>
+         <h1 class="mb-0 bread">{{ trans('messages.fale_conosco') }}</h1>
          <a href="#fale_conosco"> <i  class="fa fa-angle-double-down fa-lg" style="color: white" aria-hidden="true"></i></a>
        </div>
      </div>
@@ -24,7 +24,7 @@
 
         <div class="col-md-12 d-flex">
             <div class="info box2 p-4 text-center">
-               <p > Precisa de orientação ou tirar alguma <br> dúvida? Estamos à disposição </p>
+               <p > {{ trans('messages.orientacao1') }} <br> {{ trans('messages.orientacao2') }} </p>
             </div>
         </div>
 
@@ -42,7 +42,7 @@
         <div id="gerarLink" class="icon d-flex align-items-center justify-content-center">
          <span class="fa fa-whatsapp"></span>
        </div>
-       <h3 class="mb-2"><a id="gerarLink" >CLIQUE PARA FALAR CONOSCO</a></h3>
+       <h3 class="mb-2"><a id="gerarLink"> {{ trans('messages.whatsapp') }}</a></h3>
      </div>
    </div>
    <div  class="col-md-6 d-flex">
@@ -50,8 +50,8 @@
       <div class="icon d-flex align-items-center justify-content-center">
        <span class="fa fa-paper-plane"></span>
      </div>
-     <h3 class="mb-2">CONTATE-NOS PELO</h3>
-     <p><a href="mailto:info@yoursite.com">{{ $contato->email }}</a></p>
+     <h3 class="mb-2"> {{ trans('messages.email') }}</h3>
+     <p><a href="#">{{ $contato->email }}</a></p>
    </div>
   </div>
 
@@ -66,7 +66,7 @@
 
             <div class="col-md-12 d-flex">
                 <div class="info2 box2 p-4 text-center">
-                <p> Ou deixe aqui sua mensagem</p>
+                <p> {{ trans('messages.mensagem') }} </p>
                 </div>
             </div>
 
@@ -87,16 +87,20 @@
           <form  action="/faleconosco/mensagem" method="POST" class="bg-light p-5 contact-form" >
             @csrf
             <div class="form-group">
-              <input name="nome_cliente" type="text" class="form-control" placeholder="Seu Nome">
+              <label>{{ trans('messages.nome_cliente') }}</label>
+              <input name="nome_cliente" type="text" class="form-control">
             </div>
             <div class="form-group">
-              <input  name="email_cliente"  type="text" class="form-control" placeholder="Seu Email">
+              <label>{{ trans('messages.email_cliente') }}</label>
+              <input name="email_cliente"  type="text" class="form-control">
             </div>
             <div class="form-group">
-              <input  name="assunto_cliente"  type="text" class="form-control" placeholder="Assunto">
+              <label>{{ trans('messages.assunto_cliente') }}</label>
+              <input name="assunto_cliente"  type="text" class="form-control">
             </div>
             <div class="form-group">
-              <textarea name="mensagem_cliente" id="" cols="30" rows="7" class="form-control" placeholder="Mensagem"></textarea>
+              <label>{{ trans('messages.mensagem_cliente')}}</label>
+              <textarea name="mensagem_cliente" id="" cols="30" rows="7" class="form-control" ></textarea>
             </div>
             <div class="form-group">
               <input type="submit" value="Enviar" class="btn btn-primary py-3 px-5">

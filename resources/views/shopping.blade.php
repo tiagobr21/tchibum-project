@@ -11,16 +11,20 @@
             <div class="product-container">
                 <div class="infos">
                     <div class="product-details">
-                        <div class="row">
-                            <div id="flex">
-                                <button type="button" class="btn btn-success">Pacotes Fechados</button>
-                                <button type="button" class="btn btn-secondary">Pacotes Personalizados</button>
-                            </div>
+                        <div class="row">    
+                          <div class="col text-center">  
+                              <h5>{{ trans('messages.opcoes') }}</h5>                   
+                              <div id="flex">
+                                  <button type="button" id="pacote-fechado" class="btn btn-success">{{ trans('messages.pacote_fechado') }}</button>
+                                  <button type="button" id="pacote-perso" class="btn btn-secondary">{{ trans('messages.pacote_personalizado') }}</button>
+                              </div>
+                          </div>
                         </div>
                     </div>
                 </div>
    
             </div>
+
  
             <div class="pacoteusuario-container">
                 
@@ -57,21 +61,34 @@
                     <thead>
                       <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Pacote</th>
                         <th scope="col">Usuário</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">Status (Aprovação)</th>
+                        <th scope="col">Status (Pagamento)</th>
                       </tr>
                     </thead>
 
-                    @foreach ( $pacotesusuario as $pacoteusuario )
+                    @foreach ( $pacotespersosusuario as $pacotepersosusuario )
                         
             
                     <tbody>
                       <tr>
-                        <th scope="row">{{ $pacoteusuario->id }}</th>
-                        <td> {{$pacoteusuario->pacote->nome}}</td>
-                        <td> {{ $pacoteusuario->user->name }}</td>
-                        <td> {{$pacoteusuario->status}}</td>
+                        <th scope="row">{{ $pacotepersosusuario->pacoteperso_id }}</th>
+                        <td> {{ $pacotepersosusuario->user->name }}</td>
+                        <td> {{$pacotepersosusuario->pacoteperso->status}}</td>
+                     
+                        @if ($pacotepersosusuario->status == 'PENDENTE' )
+                          
+                        <td style="color: #fff ; background-color: yellow;"> {{$pacotepersosusuario->status}}</td>
+
+                        @elseif ($pacotepersosusuario->status == 'PAGO')
+                        
+                        <td style="color: #fff ; background-color: green;"> {{$pacotepersosusuario->status}}</td>
+
+                        @elseif ($pacotepersosusuario->status == 'NAO_PAGO')
+
+                        <td style="color: #fff ; background-color: red;"> NÃO PAGO</td>
+
+                        @endif
                       </tr>
             
                     </tbody>
@@ -80,8 +97,8 @@
                   </table>
             </div>
 
-
-            <div class="row mt-5">
+            
+            <div id="navagation" class="row mt-5">
                 <div class="col text-center">
           
                       <div class="d-flex">
@@ -101,6 +118,30 @@
 
   </section>
 
+  <script>
+    $(document).ready(function () {
+      // Hide both containers initially
+      $(".pacoteusuario-container").hide();
+      $(".pacotepersousuario-container").hide();
+      $("#navagation").hide();
+  
+      // Click event handler for "Pacotes Fechados" button
+      $("#pacote-fechado").click(function () {
+        // Show pacoteusuario-container and hide pacotepersousuario-container
+        $(".pacoteusuario-container").show();
+        $("#navagation").show();
+        $(".pacotepersousuario-container").hide();
+      });
+  
+      // Click event handler for "Pacotes Personalizados" button
+      $("#pacote-perso").click(function () {
+        // Show pacotepersousuario-container and hide pacoteusuario-container
+        $(".pacotepersousuario-container").show();
+        $("#navagation").hide();
+        $(".pacoteusuario-container").hide();
+      });
+    });
+  </script>
  
 
 
@@ -111,7 +152,8 @@
     }
 
     #comprar{
-        color: #fff
+        color: #fff;
+       
     }
 
     .container {

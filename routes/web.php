@@ -78,6 +78,7 @@ Route::get('/pacote-{pacote}', [PacksController::class, 'pack']);
 
 
 
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

@@ -46,7 +46,7 @@ class Users extends BaseWidget
 
         return [
           Stat::make('Total de Usuários',$users->where('role','user')->count()),
-          Stat::make('Total de Usuários',$countOnlineUsers)
+          Stat::make('Usuários Online',$countOnlineUsers)
 
         ];
     }

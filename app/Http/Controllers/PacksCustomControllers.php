@@ -55,33 +55,25 @@ class PacksCustomControllers extends Controller
 
     public function verificarData(Request $request){
          $calendar = Calendar::all();
-        
       
 
+         $result = true;
+
          foreach ($calendar as $key => $value) {
-           
-            if( $request->formData['comunidade'] == $value->title ){
-
-        
-                $requestData = Carbon::parse($request->formData['data']);
-                $startDate = Carbon::parse($value->start_date);
-                $endDate = Carbon::parse($value->end_date);
-
-                // Verificar se a data é igual a start_date ou end_date
-                if ($requestData->eq($startDate) || $requestData->eq($endDate)) {
-                    $response = false;
-                }else if ($requestData->between($startDate, $endDate)) {
-                    $response = false;
-                }else{
-                    $response = true;
-                }
-
-                
-            }
-               
-        }
-
-        return $response;
+             if ($request->formData['comunidade'] == $value->title) {
+                 $requestData = Carbon::parse($request->formData['data']);
+                 $startDate = Carbon::parse($value->start_date);
+                 $endDate = Carbon::parse($value->end_date);
+         
+                 // Verificar se a data é igual a start_date ou end_date
+                 if ($requestData->eq($startDate) || $requestData->eq($endDate) || $requestData->between($startDate, $endDate)) {
+                     $result = false;
+                     break; // Se uma correspondência for encontrada, podemos sair do loop imediatamente
+                 }
+             }
+         }
+         
+         return $result;
     }
 
     public function verificarDias(Request $request){
@@ -108,36 +100,27 @@ class PacksCustomControllers extends Controller
 
         $calendar = Calendar::all();
 
+        $result = true;
+
+  
 
         foreach ($calendar as $key => $value) {
-           
-            if( $request->formData['comunidade'] == $value->title ){
-
-                // dd($dataFinal,$value->start_date);
-
-                // exit;
-
+            if ($request->formData['comunidade'] == $value->title) {
+             
                 $startDate = Carbon::parse($value->start_date);
                 $endDate = Carbon::parse($value->end_date);
-            
         
-                if ($dataFinal->eq($startDate) || $dataFinal->eq($endDate)) {
-                    $response = false;
-                } else if ($dataFinal->between($startDate, $endDate)) {
-                    $response = false;
-                }else{
-                    $response = true;
+                // Verificar se a data é igual a start_date ou end_date
+                if ($dataFinal->eq($startDate) || $dataFinal->eq($endDate) ||  $dataFinal->between($startDate, $endDate)) {
+                    
+                    $result = false;
+                    break; // Se uma correspondência for encontrada, podemos sair do loop imediatamente
                 }
-
-           
-
-            } 
-
-               
+            }
         }
 
-
-        return $response;
+        
+        return $result;
 
 
     }

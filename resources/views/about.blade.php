@@ -37,8 +37,8 @@
          <div class="services services-1 color-1 d-block img" style="background-image: url('{{ asset('/storage/' . $sobre->imagem_atividade_comunidade1) }}');">
            {{-- <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-paragliding"></span></div> --}}
            <div class="media-body">
-             <h3 class="heading mb-3">{{ $sobre->nome_atividade_comunidade1 }}</h3>
-             <p class="descricao_atividade_comunidade">{{ $sobre->descricao_atividade_comunidade1 }}</p>
+             <h3 class="heading mb-3">{{ trans('messages.sobre_nome_atividade_comunidade1') }}</h3>
+             <p class="descricao_atividade_comunidade">{{ trans('messages.sobre_descricao_atividade_comunidade1') }}</p>
            </div>
          </div>
        </div>
@@ -46,8 +46,8 @@
          <div class="services services-1 color-2 d-block img" style="background-image: url('{{ asset('/storage/' . $sobre->imagem_atividade_comunidade2) }}');">
            {{-- <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div> --}}
            <div class="media-body">
-             <h3 class="heading mb-3">{{ $sobre->nome_atividade_comunidade2 }}</h3>
-             <p class="descricao_atividade_comunidade">{{ $sobre->descricao_atividade_comunidade2 }}</p>
+             <h3 class="heading mb-3">{{ trans('messages.sobre_nome_atividade_comunidade2') }}</h3>
+             <p class="descricao_atividade_comunidade">{{ trans('messages.sobre_descricao_atividade_comunidade2') }}</p>
            </div>
          </div>
        </div>
@@ -55,8 +55,8 @@
          <div class="services services-1 color-3 d-block img" style="background-image: url('{{ asset('/storage/' . $sobre->imagem_atividade_comunidade3) }}');">
            {{-- <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-tour-guide"></span></div> --}}
            <div class="media-body">
-             <h3 class="heading mb-3">{{ $sobre->nome_atividade_comunidade3 }}</h3>
-             <p class="descricao_atividade_comunidade">{{ $sobre->descricao_atividade_comunidade3 }}</p>
+             <h3 class="heading mb-3">{{ trans('messages.sobre_nome_atividade_comunidade3') }}</h3>
+             <p class="descricao_atividade_comunidade">{{ trans('messages.sobre_descricao_atividade_comunidade3') }}</p>
            </div>
          </div>
        </div>
@@ -64,8 +64,8 @@
          <div class="services services-1 color-4 d-block img" style="background-image: url('{{ asset('/storage/' . $sobre->imagem_atividade_comunidade4) }}');">
            {{-- <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-map"></span></div> --}}
            <div class="media-body">
-             <h3 class="heading mb-3">{{ $sobre->nome_atividade_comunidade4 }}</h3>
-             <p class="descricao_atividade_comunidade">{{ $sobre->descricao_atividade_comunidade4 }}</p>
+             <h3 class="heading mb-3">{{ trans('messages.sobre_nome_atividade_comunidade4') }}</h3>
+             <p class="descricao_atividade_comunidade">{{ trans('messages.sobre_descricao_atividade_comunidade4') }}</p>
            </div>
          </div>
        </div>

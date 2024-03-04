@@ -55,11 +55,11 @@
     </div>
     <p>Atenciosamente,<br>Seu Nome<br>Seu Cargo<br>Nome da Sua Empresa</p>
     @if (auth()->user()->role == 'admin')
-    <a href="http://localhost:8000/pacoteperso/aprovarsolicitacao/{{$pacotepersonalizado->id}}" class="btn btn-success">Aprovar Solicitação</a>
-    <a href="http://localhost:8000/pacoteperso/reprovarsolicitacao/{{$pacotepersonalizado->id}}" class="btn btn-danger">Recusar Solicitação</a>
-    <a href="https://www.exemplo.com" class="btn btn-primary">Acompanhar a Compra</a>
+    <a href="http://tchibumnaamazonia.com/pacoteperso/aprovarsolicitacao/{{$pacotepersonalizado->id}}" class="btn btn-success">Aprovar Solicitação</a>
+    <a href="http://tchibumnaamazonia.com/pacoteperso/reprovarsolicitacao/{{$pacotepersonalizado->id}}" class="btn btn-danger">Recusar Solicitação</a>
+    <a href="http://tchibumnaamazonia.com/compras-{{$pacotepersonalizado->user->id}}" class="btn btn-primary">Acompanhar a Compra</a>
     @elseif (auth()->user()->role == 'user')
-    <a href="https://www.exemplo.com" class="btn btn-primary">Acompanhe sua Compra</a>
+    <a href="http://tchibumnaamazonia.com/compras-{{$pacotepersonalizado->user->id}}" class="btn btn-primary">Acompanhe sua Compra</a>
     @endif
   </div>
 

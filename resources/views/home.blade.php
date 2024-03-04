@@ -20,6 +20,7 @@
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
+              
                 <div class="col-md-7 ftco-animate">
 
                     <h1 class="mb-4">{{ trans('messages.titulo_principal') }}</h1>
@@ -53,7 +54,7 @@
                                                         <div id="pacote-fixo">
                                                             <img id="pacote-fixo-img" src="{{asset('/storage/pacote-fechado.webp')}}">
                                                         </div>
-                                                        <p id="pacote-fixo-nome">Pacotes Fechados</p>
+                                                        <p id="pacote-fixo-nome">{{ trans('messages.pacote_fechado') }}</p>
                                                     </div>
                                                 </a>
                                                 <a href="/pacotes_personalizados">
@@ -61,7 +62,7 @@
                                                     <div id="pacote-comunidade">
                                                         <img id="pacote-comunidade-img" src="{{asset('/storage/pacote-personalizado.webp')}}">
                                                     </div>
-                                                    <p id="pacote-comunidade-nome">Pacotes Personalizados</p>
+                                                    <p id="pacote-comunidade-nome">{{ trans('messages.pacote_personalizado') }}</p>
                                                 </div>
                                                 </a>
                                             </div>
@@ -83,7 +84,7 @@
             <div class="row d-flex">
                 <div class="col-md-6 order-md-last heading-section pl-md-5 ftco-animate d-flex align-items-center">
                     <div class="w-100">
-                        <h2 class="mb-4">{{ $home->titulo_bem_vindo }}</h2>
+                        <h2 class="mb-4">{{ trans('messages.titulo_bem_vindo') }}</h2>
                         <div class="paragrafo"> {!! nl2br(e(trans('messages.descricao_bem_vindo'))) !!}</div>
                         <!-- <p><a href="#" class="btn btn-primary py-3 px-4">Search Destination</a></p> -->
                     </div>
@@ -96,7 +97,7 @@
                                 {{-- <div class="icon d-flex align-items-center justify-content-center">
                                     <span class="flaticon-paragliding"></span></div> --}}
                                 <div class="media-body">
-                                    <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade1 }}</h3>
+                                    <h3 class="heading mb-3">{{ trans('messages.home_nome_atividade_comunidade1') }}</h3>
                                     <p class="descricao_atividade_comunidade">
                                         {{ trans('messages.home_descricao_atividade_comunidade1') }}</p>
                                 </div>
@@ -108,7 +109,7 @@
                               {{--   <div class="icon d-flex align-items-center justify-content-center"><span
                                         class="flaticon-route"></span></div> --}}
                                 <div class="media-body">
-                                    <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade2 }}</h3>
+                                    <h3 class="heading mb-3">{{ trans('messages.home_nome_atividade_comunidade2') }}</h3>
                                     <p class="descricao_atividade_comunidade">
                                         {{ trans('messages.home_descricao_atividade_comunidade2') }}</p>
                                 </div>
@@ -120,7 +121,7 @@
                                {{--  <div class="icon d-flex align-items-center justify-content-center"><span
                                         class="flaticon-tour-guide"></span></div> --}}
                                 <div class="media-body">
-                                    <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade3 }}</h3>
+                                    <h3 class="heading mb-3">{{ trans('messages.home_nome_atividade_comunidade3') }}</h3>
                                     <p class="descricao_atividade_comunidade">
                                         {{ trans('messages.home_descricao_atividade_comunidade3') }}</p>
                                 </div>
@@ -132,7 +133,7 @@
                                 {{-- <div class="icon d-flex align-items-center justify-content-center"><span
                                         class="flaticon-map"></span></div> --}}
                                 <div class="media-body">
-                                    <h3 class="heading mb-3">{{ $home->nome_atividade_comunidade4 }}</h3>
+                                    <h3 class="heading mb-3">{{ trans('messages.home_nome_atividade_comunidade4') }}</h3>
                                     <p class="descricao_atividade_comunidade">
                                         {{ trans('messages.home_descricao_atividade_comunidade4') }}</p>
                                 </div>
@@ -155,28 +156,29 @@
 
             <div class="row">
 
-
-
+               
+                @foreach ( $pacotes as $pacote)
+                    
 
                 <div class="col-md-4 ftco-animate">
                     <div class="project-wrap">
-                        <a class="img" style="'{{ asset('/storage/vitoria-regia.webp') }}'">
-                            <span class="price">550/Pessoa</span>
+                        <a class="img" style="background-image: url('{{ asset('/storage/'. $pacote->imagem_principal) }}')">
+                            <span class="price">R$ {{$pacote->preco}} </span>
                         </a>
                         <div class="text p-4">
-                            <span class="days">1 Dia tour</span>
-                            <h3><a>Nome Pacote 1</a></h3>
-                            <p class="location"><span class="fa fa-map-marker"></span> Manaus</p>
+                            <span class="days">{{$pacote->dias}} Dias de Tour</span>
+                            <h3><a>{{$pacote->nome}}</a></h3>
+                            <p class="location"><span class="fa fa-map-marker"></span> {{$pacote->comunidade->nome}}</p>
                             <ul>
-                                <li><span class="flaticon-shower"></span>2</li>
-                                <li><span class="flaticon-king-size"></span>3</li>
-                                <li><span class="flaticon-mountains"></span>Near Mountain</li>
+                                <li><i class="fa fa-users"></i> 2</li>
+                                <li><span style="color: #999999" class="fa fa-calendar"></span>{{ date('d/m/y', strtotime($pacote->data))}}</li>
+                       
                             </ul>
                         </div>
                     </div>
                 </div>
 
-
+                @endforeach
 
             </div>
         </div>

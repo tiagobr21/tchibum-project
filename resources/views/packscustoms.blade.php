@@ -17,7 +17,7 @@
             <div  class="container mt-4">
                 <!-- Alerta Bootstrap -->
                 <div id="message-data-ocupado" class="alert alert-danger alert-dismissible fade show" role="alert">
-                    Já existe agendamento para essa data
+                    {{ trans('messages.ja_existe_agendamento') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -27,7 +27,7 @@
             <div  class="container mt-4">
                 <!-- Alerta Bootstrap -->
                 <div id="message-data-disponivel" class="alert alert-success alert-dismissible fade show" role="alert">
-                    A data está disponível
+                    {{ trans('messages.data_esta_disponivel') }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -37,7 +37,7 @@
             <div  class="container mt-4">
                 <!-- Alerta Bootstrap -->
                 <div id="message-dias-ocupado" class="alert alert-danger alert-dismissible fade show" role="alert">
-                    Os dias colidem com com outro agendamento
+                    {{ trans('messages.colidem') }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -46,7 +46,7 @@
             <div  class="container mt-4">
                 <!-- Alerta Bootstrap -->
                 <div id="message-dias-disponivel" class="alert alert-success alert-dismissible fade show" role="alert">
-                    Os dias estão em coformidade 
+                    {{ trans('messages.conformidade') }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -168,6 +168,7 @@
                          <br>
 
                         <button type="button" class="btn btn-primary prev-step">Anterior</button>
+                        <button type="button" id="dadosCompl" class="btn btn-success">Preencha o dados complementares</button>
                         <button type="button" id="enviarDados" class="btn btn-success">Enviar</button>
                     </div>
                 </form>
@@ -186,6 +187,7 @@
     let opcoes_comunidade =  [];
     let option = '';
     let opcao_preco = null;
+    let user = @json(auth()->user());
 
 
     $(document).ready(function() {
@@ -451,6 +453,12 @@
         $('#respostas').html(resultado);
       }
 
+      
+
+      $('#dadosCompl').click(function () {
+         
+      })
+
       $('#enviarDados').click(function () {
 
         let formData = {
@@ -490,8 +498,8 @@
                 }
 
                 });
-            });
 
+        });
 
     });
 

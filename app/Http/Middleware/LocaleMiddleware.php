@@ -9,6 +9,7 @@ class LocaleMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
+    
 
         if ($request->session()->has('locale')) {
             app()->setLocale($request->session()->get('locale'));

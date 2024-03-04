@@ -38,7 +38,7 @@
                     </p>
                     <p class="product-price">R$ {{ $pacote->preco }}</p>
 
-                    <a  id="comprar" class="btn btn-success">Comprar</a>
+                    <a  id="comprar" class="btn btn-success">{{ trans('messages.comprar') }}</a>
 
                     {{-- href="/solicitacaocompra/{{ $pacote->id }}" --}}
                 </div>
@@ -48,10 +48,10 @@
                 <div class="product-details">
                     <div class="row">
                         <div id="flex" class="col-md-12">
-                            <h5><i class="fa fa-calendar" aria-hidden="true"></i> Data: {{ date('d/m/Y',strtotime($pacote->data)) }}</h5>
-                            <h5><i class="fa fa-users" aria-hidden="true"></i> Quantidade de pessoas: {{ $pacote->pessoas }} </h5>
-                            <h5><i class="fa fa-bed" aria-hidden="true"></i> Quantidade de dias: {{ $pacote->dias }} </h5>
-                            <h5><i class="fa fa-home" aria-hidden="true"></i> Comunidade: {{ $pacote->comunidade->nome }} </h5>
+                            <h5><i class="fa fa-calendar" aria-hidden="true"></i> {{ trans('messages.data') }}: {{ date('d/m/Y',strtotime($pacote->data)) }}</h5>
+                            <h5><i class="fa fa-users" aria-hidden="true"></i> {{ trans('messages.qauntidade_de_pessoas') }}: {{ $pacote->pessoas }} </h5>
+                            <h5><i class="fa fa-bed" aria-hidden="true"></i> {{ trans('messages.qauntidade_de_dias') }}: {{ $pacote->dias }} </h5>
+                            <h5><i class="fa fa-home" aria-hidden="true"></i> {{ trans('messages.comunidade') }}: {{ $pacote->comunidade->nome }} </h5>
                         </div>
                     </div>
 
@@ -61,8 +61,8 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Nome</th>
-                                        <th scope="col">Preço</th>
+                                        <th scope="col">{{ trans('messages.nome') }}</th>
+                                        <th scope="col">{{ trans('messages.preco') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -79,7 +79,7 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <h2>Informações </h2>
+                            <h2>{{ trans('messages.informacao') }}</h2>
                             <p class="product-description">
                                 {{ $pacote->infos }}
                             </p>
@@ -94,7 +94,7 @@
 
                       <!-- Cabeçalho do Modal -->
                       <div class="modal-header">
-                         <h4 class="modal-title">Informações Adicionais</h4>
+                         <h4 class="modal-title">{{ trans('messages.informacao_adicional') }}</h4>
                          <button type="button" id="fechar" class="close" data-dismiss="modal">&times;</button>
                       </div>
 
@@ -106,7 +106,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="estrangeiro">
                                 <label class="form-check-label" for="flexRadioDefault1" >
-                                   Você é estrangeiro?
+                                    {{ trans('messages.e_estrangeiro') }}
                                 </label>
                               </div>
 
@@ -121,7 +121,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Endereço</label>
+                                <label for="exampleInputPassword1" class="form-label">{{ trans('messages.endereco') }}</label>
                                 <input type="text" id="endereco" name="endereco" class="form-control" >
                             </div>
                             <div class="mb-3">
@@ -129,24 +129,24 @@
                                 <input type="text" id="cep" name="cep" class="form-control" >
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Cidade</label>
+                                <label for="exampleInputPassword1" class="form-label">{{ trans('messages.cidade') }}</label>
                                 <input type="text" id="cidade" name="cidade" class="form-control" >
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Identificação ( Se for Estrangeiro)</label>
+                                <label for="exampleInputPassword1" class="form-label">{{ trans('messages.identificacao') }}</label>
                                 <input type="text" id="identificacao" name="identificacao" class="form-control" >
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Profissão</label>
+                                <label for="exampleInputPassword1" class="form-label">{{ trans('messages.proficao') }}</label>
                                 <input type="text" id="proficao" name="proficao" class="form-control" >
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Nacionalidade</label>
+                                <label for="exampleInputPassword1" class="form-label">{{ trans('messages.nacionalidade') }}</label>
                                 <input type="text" id="nacionalidade" name="nacionalidade" class="form-control" >
                             </div>
 
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Estado</label>
+                                <label for="exampleInputPassword1" class="form-label">{{ trans('messages.estado') }}</label>
                                 <input type="text" id="estado" name="estado" class="form-control" >
                             </div>
 
@@ -156,7 +156,7 @@
 
                       <!-- Rodapé do Modal -->
                       <div class="modal-footer">
-                        <button id="enviardadoscomple" type="submit" class="btn btn-success" data-dismiss="modal">Enviar</button>
+                        <button id="enviardadoscomple" type="submit" class="btn btn-success" data-dismiss="modal">{{ trans('messages.enviar') }}</button>
 
                       </div>
 
@@ -242,8 +242,6 @@
             window.location.href = '/register';
 
         }else{
-
-
 
             if(user.endereco == null &&
             user.cep == null &&

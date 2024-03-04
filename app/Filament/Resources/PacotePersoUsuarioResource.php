@@ -45,7 +45,6 @@ class PacotePersoUsuarioResource extends Resource
                 Forms\Components\Select::make('status')
                 ->required()
                 ->options([ 'PENDENTE' => 'PENDENTE',
-                        'AGUARDANDO'=> 'AGUARDANDO',
                         'NAO_PAGO'=>'NÃO PAGO',
                         'PAGO'=>'PAGO'])
                 ->default('PENDENTE'),
