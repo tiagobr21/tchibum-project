@@ -84,13 +84,30 @@ return [
     'estado' => 'Estado', PHP_EOL,
     'enviar' => 'Mandar', PHP_EOL,
 
-    // pacote fechado
+    // pacote personalizado
 
     'ja_existe_agendamento' => 'Ya hay agenda para esa fecha', PHP_EOL,
     'data_esta_disponivel'=> 'La fecha esta disponible', PHP_EOL,
     'colidem' => 'Los días chocan con otro horario', PHP_EOL,
     'conformidade' => 'Los días están conformes', PHP_EOL,
 
+    'selecionar_comunidade' => 'Selecciona la comunidad', PHP_EOL,
+    'localidade_e_datas' => 'Ubicación y fechas', PHP_EOL,
+    'escolha_opcao' => 'Elige una opcion', PHP_EOL,
+    'conhecer_comunidade' => '¿Quieres saber más sobre las comunidades?', PHP_EOL,
+    'verificar_disponibilidade'=> 'Consulta disponibilidad en el calendario', PHP_EOL,
+    'clique_aqui' => 'Haga clic aquí', PHP_EOL,
+    'calendario_comunidade' => 'Calendario de comunidades', PHP_EOL,
+    'datas_agendadas'=> 'Fechas programadas', PHP_EOL,
+    'dias' => 'Días', PHP_EOL,
+    'pessoas_e_atividades' => 'Personas y actividades', PHP_EOL,
+    'quantidade_de_pessoas'=> 'Cantidad de personas', PHP_EOL,
+    'selecione_as_atividades' => 'Seleccionar actividades', PHP_EOL,
+    'clique_no_campo' => 'haga clic en el campo', PHP_EOL,
+    'quer_conhecer_mais_as_atividades' => '¿Quieres saber más sobre las actividades?', PHP_EOL,
+    'anterior'=> 'Anterior', PHP_EOL,
+    'continuar' => 'Continuar', PHP_EOL,
+    'preencha_o_dados_complementares' => 'Complete los datos adicionales', PHP_EOL,
 
 
 ];

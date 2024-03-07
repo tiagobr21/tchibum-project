@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
+    <link rel="icon" href="{{asset('/storage/logo.webp')}}"/>
+
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
@@ -60,11 +62,11 @@
                  
                     @auth
                  
-                    <li class="nav-item"><a href="/compras-{{auth()->user()->id}}" class="nav-link">COMPRAS</a></li>
+                    <li class="nav-item"><a href="/compras-{{auth()->user()->id}}" class="nav-link">{{ trans('messages.compras') }}</a></li>
 
                     @endauth
 
-                    <li class="nav-item"><a href="/sobre" class="nav-link">QUEM SOMOS</a></li>
+                    <li class="nav-item"><a href="/sobre" class="nav-link">{{ trans('messages.quem_somos') }}</a></li>
 
                     <li class="nav-item">
                         <div class="nav-link dropdown">
@@ -74,27 +76,27 @@
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="/posts">POSTS</a>
-                                <a class="dropdown-item" href="/comunidades">COMUNIDADES</a>
-                                <a class="dropdown-item" href="/atividades">ATIVIDADES</a>
+                                <a class="dropdown-item" href="/comunidades">{{ trans('messages.comunidades') }}</a>
+                                <a class="dropdown-item" href="/atividades">{{ trans('messages.atividades') }}</a>
                             </div>
                         </div>
                     </li>
 
-                    <li class="nav-item"><a href="/faleconosco" class="nav-link">FALE CONOSOCO</a></li>
+                    <li class="nav-item"><a href="/faleconosco" class="nav-link">{{ trans('messages.fale_conosco_layout') }}</a></li>
 
                     <li class="nav-item">
                         <div class="nav-link dropdown">
                             <button class="nav-link btn dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                IDIOMAS
+                                {{ trans('messages.idiomas') }}
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item"
-                                    href="{{ route('change.language', ['locale' => 'pt']) }}">Português</a>
+                                    href="{{ route('change.language', ['locale' => 'pt']) }}">{{ trans('messages.portugues') }}</a>
                                 <a class="dropdown-item"
-                                    href="{{ route('change.language', ['locale' => 'en']) }}">English</a>
+                                    href="{{ route('change.language', ['locale' => 'en']) }}">{{ trans('messages.ingles') }}</a>
                                 <a class="dropdown-item"
-                                    href="{{ route('change.language', ['locale' => 'es']) }}">Espanhol</a>
+                                    href="{{ route('change.language', ['locale' => 'es']) }}">{{ trans('messages.espanhol') }}</a>
                             </div>
                         </div>
                     </li> 
@@ -102,8 +104,8 @@
 
 
                     @guest
-                        <li class="nav-item"><a href="/login" class="nav-link">ENTRAR</a></li>
-                        <li class="nav-item"><a href="/register" class="nav-link">CADASTRAR</a></li>
+                        <li class="nav-item"><a href="/login" class="nav-link">{{ trans('messages.entrar') }}</a></li>
+                        <li class="nav-item"><a href="/register" class="nav-link">{{ trans('messages.cadastrar') }}</a></li>
                     @endguest
 
                     @auth
@@ -129,10 +131,10 @@
             <div class="row mb-5">
                 <div class="col-md pt-5">
                     <div class="ftco-footer-widget pt-md-5 mb-4">
-                        <h2 class="ftco-heading-2">Que somos?</h2>
-                        <p>Descubra a Amazônia com a Tchibum, nascida do amor pela região.
-                            Oferecemos pacotes de turismo que proporcionam uma imersão na riqueza da fauna e flora
-                            amazônica, garantindo conforto e segurança aos exploradores.</p>
+                        <h2 class="ftco-heading-2">{{ trans('messages.quem_somos') }}?</h2>
+                        <p>{{ trans('messages.text1') }}.
+                            {{ trans('messages.text2') }}
+                            {{ trans('messages.text3') }}.</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
                             <li class="ftco-animate"><a href="https://api.whatsapp.com/send/?phone=559292197150&text=Ol%C3%A1%2C+gostaria+de+tirar+algumas+d%C3%BAvidas&type=phone_number&app_absent=0"><span class="fa fa-whatsapp"></span></a></li>
                             <li class="ftco-animate"><a href="https://www.instagram.com/tchibumnaamazonia/"><span class="fa fa-facebook"></span></a></li>
@@ -142,20 +144,20 @@
                 </div>
                 <div class="col-md pt-5 border-left">
                     <div class="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
-                        <h2 class="ftco-heading-2">Informações</h2>
+                        <h2 class="ftco-heading-2">{{ trans('messages.informacoes') }}</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="py-2 d-block">Regulamento Geral</a></li>
-                            <li><a href="#" class="py-2 d-block">Condições de Reserva</a></li>
-                            <li><a href="#" class="py-2 d-block">Política de Privacidade</a></li>
-                            <li><a href="#" class="py-2 d-block">Política de Reembolso</a></li>
+                            <li><a href="#" class="py-2 d-block">{{ trans('messages.regulamento_geral') }}</a></li>
+                            <li><a href="#" class="py-2 d-block">{{ trans('messages.condicoes_de_reserva') }}</a></li>
+                            <li><a href="#" class="py-2 d-block">{{ trans('messages.politica_de_privacidade') }}</a></li>
+                            <li><a href="#" class="py-2 d-block">{{ trans('messages.politica_de_reembolso') }}</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md pt-5 border-left">
                     <div class="ftco-footer-widget pt-md-5 mb-4">
-                        <h2 class="ftco-heading-2">Experiência</h2>
+                        <h2 class="ftco-heading-2">{{ trans('messages.experiencia') }}</h2>
                         <ul class="list-unstyled">
-                            <li><a class="py-2 d-block">Aventura</a></li>
+                            <li><a class="py-2 d-block">{{ trans('messages.aventura') }}</a></li>
                             <li><a class="py-2 d-block">Hotel e Restaurantes</a></li>
                             <li><a class="py-2 d-block">Praias</a></li>
                             <li><a class="py-2 d-block">Natureza</a></li>

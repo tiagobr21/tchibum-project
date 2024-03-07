@@ -92,12 +92,43 @@ return [
      'estado' => 'State', PHP_EOL,
      'enviar' => 'Submit', PHP_EOL,
 
-    // pacote fechado
+    // pacote personalizado
 
     'ja_existe_agendamento' => 'There is already a schedule for that date', PHP_EOL,
     'data_esta_disponivel'=> 'The date is available', PHP_EOL,
     'colidem' => 'Days collide with another schedule', PHP_EOL,
     'conformidade' => 'The days are in conformity', PHP_EOL,
+    'selecionar_comunidade' => 'Select the community', PHP_EOL,
+    'localidade_e_datas' => 'Location and Dates', PHP_EOL,
+    'escolha_opcao' => 'Choose an option', PHP_EOL,
+    'conhecer_comunidade' => 'Do you want to know more about the communities?', PHP_EOL,
+    'verificar_disponibilidade'=> 'Check availability on the calendar', PHP_EOL,
+    'clique_aqui' => 'Click here', PHP_EOL,
+    'calendario_comunidade' => 'Communities Calendar', PHP_EOL,
+    'datas_agendadas'=> 'Scheduled dates', PHP_EOL,
+    'dias' => 'Days', PHP_EOL,
+    'continuar' => 'Continue', PHP_EOL,
+    'pessoas_e_atividades' => 'People and Activities', PHP_EOL,
+    'quantidade_de_pessoas'=> 'Amount of people', PHP_EOL,
+    'selecione_as_atividades' => 'Select Activities', PHP_EOL,
+    'clique_no_campo' => 'click on the field', PHP_EOL,
+    'quer_conhecer_mais_as_atividades' => 'Want to know more about the activities', PHP_EOL,
+    'anterior'=> 'Previous', PHP_EOL,
+    'preencha_o_dados_complementares' => 'Fill in the additional data', PHP_EOL,
+
+    // layout 
+    'quem_somos' => 'ABOUT US', PHP_EOL,
+    'comunidades' => 'COMMUNITIES', PHP_EOL,
+    'atividades' => 'ACTIVITIES', PHP_EOL,
+    'compras' => 'COMPRAS',
+    'fale_conosco_layout' => 'CONTACT US', PHP_EOL,
+    'idiomas' => 'LANGUAGES', PHP_EOL,
+    'portugues' => 'PORTUGUESE', PHP_EOL,
+    'ingles' => 'ENGLISH', PHP_EOL,
+    'espanhol' => 'SPANISH', PHP_EOL,
+    'entrar' => 'LOGIN', PHP_EOL,
+    'cadastrar' => 'REGISTER', PHP_EOL,
+
 
 ];
 
