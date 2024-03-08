@@ -57,14 +57,14 @@
                                                         <p id="pacote-fixo-nome">{{ trans('messages.pacote_fechado') }}</p>
                                                     </div>
                                                 </a>
-                                                <a href="/pacotes_personalizados">
+                                            
                                                 <div id="pacotes">
                                                     <div id="pacote-comunidade">
                                                         <img id="pacote-comunidade-img" src="{{asset('/storage/pacote-personalizado.webp')}}">
                                                     </div>
                                                     <p id="pacote-comunidade-nome">{{ trans('messages.pacote_personalizado') }}</p>
                                                 </div>
-                                                </a>
+                                          
                                             </div>
                                         </div>
                                     </form>
@@ -77,7 +77,82 @@
             </div>
     </section>
 
-    
+    <div class="modal" id="meuModal">
+        <div class="modal-dialog">
+           <div class="modal-content">
+
+              <!-- Cabeçalho do Modal -->
+              <div class="modal-header">
+                 <h4 class="modal-title">{{ trans('messages.informacao_adicional') }}</h4>
+                 <button type="button" id="fechar" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+
+              <!-- Corpo do Modal -->
+              <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
+                <form id="form">
+                   @csrf
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="estrangeiro">
+                        <label class="form-check-label" for="flexRadioDefault1" >
+                            {{ trans('messages.e_estrangeiro') }}
+                        </label>
+                      </div>
+
+                    <div class="mb-3" id="cpf-container">
+                        <label for="cpf"  class="form-label">CPF</label>
+                        <input type="text" id="cpf" name="cpf" class="form-control" placeholder="Digite seu CPF">
+                    </div>
+
+                      <div class="mb-3" id="uf-container">
+                        <label for="uf" class="form-label">UF</label>
+                        <input type="text" id="uf" name="uf" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">{{ trans('messages.endereco') }}</label>
+                        <input type="text" id="endereco" name="endereco" class="form-control" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Cep</label>
+                        <input type="text" id="cep" name="cep" class="form-control" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">{{ trans('messages.cidade') }}</label>
+                        <input type="text" id="cidade" name="cidade" class="form-control" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">{{ trans('messages.identificacao') }}</label>
+                        <input type="text" id="identificacao" name="identificacao" class="form-control" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">{{ trans('messages.proficao') }}</label>
+                        <input type="text" id="proficao" name="proficao" class="form-control" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">{{ trans('messages.nacionalidade') }}</label>
+                        <input type="text" id="nacionalidade" name="nacionalidade" class="form-control" >
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">{{ trans('messages.estado') }}</label>
+                        <input type="text" id="estado" name="estado" class="form-control" >
+                    </div>
+
+                  </form>
+
+              </div>
+
+              <!-- Rodapé do Modal -->
+              <div class="modal-footer">
+                <button id="enviardadoscomple" type="submit" class="btn btn-success" data-dismiss="modal">{{ trans('messages.enviar') }}</button>
+
+              </div>
+
+           </div>
+        </div>
+     </div>
+
 
     <section class="ftco-section services-section">
         <div class="container">
@@ -488,6 +563,7 @@
 
     <script>
         let depoimentos = @json($depoimentos);
+        let user = @json(auth()->user());
 
 
         let avaliacoes = depoimentos.map((element) => {
@@ -505,9 +581,94 @@
             }
 
         }
+
+        $("#pacote-comunidade-img").click(function () {
+            if(user == null){
+
+                window.location.href = '/register';
+
+            }else{
+
+            
+           
+                    if(user.endereco == null &&
+                    user.cep == null &&
+                    user.cidade == null &&
+                    user.proficao == null &&
+                    user.nacionalidade == null &&
+                    user.estado == null ){
+                       
+
+                        $("#meuModal").fadeIn();
+
+                    }else{
+
+                        window.location.href = '/pacotes_personalizados';
+
+                    }
+            }
+        });
+
+        $('#enviardadoscomple').click(function () {
+            let formData = $('#form').serialize();
+
+
+            $.ajax({
+                type: 'POST',
+                url: '/adddadoscomple/'+ user.id,  // Substitua '/sua-rota-no-laravel' pela sua rota Laravel
+                data: formData,
+                success: function (response) {
+
+                    location.reload();
+
+                    $.ajax({
+                    type: 'POST',
+                    url: '/solicitacaocompra/'+ pacote.id,
+                    data: { _token: '{{ csrf_token() }}' },
+                    success: function (response) {
+
+                        $("#loading").hide();
+                        window.location.href = '/pacotes_personalizados';
+
+
+                    },
+                    error: function (error) {
+                        // Lógica para tratar erros (se necessário)
+                        $("#loading").hide();
+                        console.log(error);
+                    }
+                });
+
+                },
+                error: function (error) {
+                    // Lógica para tratar erros (se necessário)
+                    console.log(error);
+                }
+
+            });
+        });
+
+    $("#fechar").click(function () {
+
+      $("#meuModal").fadeOut();
+
+   });
+
+
+        
     </script>
     <script>
         $(document).ready(function() {
+
+            $('#estrangeiro').change(function () {
+            // Se o checkbox estiver marcado (pessoa estrangeira), oculte os campos "UF" e "CPF"
+            if ($(this).prop('checked')) {
+                $('#uf, #cpf').hide();
+            } else {
+                // Se o checkbox estiver desmarcado (pessoa não estrangeira), exiba os campos "UF" e "CPF"
+                $('#uf, #cpf').show();
+            }
+        });
 
             // window.location.reload();
 

@@ -42,6 +42,16 @@ class UserResource extends Resource
                     ->minLength(8),
                 Forms\Components\FileUpload::make('profile_photo_path')
                     ->label('Foto de perfil'),
+                Forms\Components\TextInput::make('cpf')
+                    ->label('CPF'),
+                Forms\Components\TextInput::make('uf')
+                    ->label('UF')
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('endereco')
+                    ->label('Endereço')
+                    ->maxLength(255),
+    
+                 
             ]);
     }
 

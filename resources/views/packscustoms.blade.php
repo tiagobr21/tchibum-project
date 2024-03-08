@@ -67,12 +67,12 @@
                 <form id="multi-step-form">
                     <div class="step step-1">
                         <!-- Step 1 form fields here -->
-                        <h3 >Localidade e Datas!</h3>
+                        <h3 > {{ trans('messages.localidade_e_datas') }}</h3>
                         <div class="mb-3">
-                            <label  for="comunidade" class="form-label">Selecione a comunidade:</label>
+                            <label  for="comunidade" class="form-label">{{ trans('messages.selecionar_comunidade') }}:</label>
                             <select class="form-select" id="comunidade" name="field1">
 
-                                <option selected>Escolha uma opção</option>
+                                <option selected>{{ trans('messages.escolha_opcao') }}</option>
 
                                 @foreach ($comunidades as $comunidade)
 
@@ -80,7 +80,7 @@
 
                                 @endforeach
                             </select>
-                            <div id="comunidade-page" class="form-text">Quer conhecer mais as comuniades? <a href="/comunidades">clique aqui</a></div>
+                            <div id="comunidade-page" class="form-text">{{ trans('messages.conhecer_comunidade') }} <a href="/comunidades">{{ trans('messages.clique_aqui') }}</a></div>
 
                         </div>
                         <!-- data e dias-->
@@ -88,8 +88,37 @@
                             <label   for="data" class="form-label">Data:</label>
                             <input type="date" class="form-control" id="data" name="data" disabled>
                         </div>
-                        <div id="calendar-modal" class="form-text">Verifique a disponibidade no calendário <a href="#">clique aqui</a></div><br>
+                        <div id="calendar-modal" class="form-text">{{ trans('messages.verificar_disponibilidade') }} <a href="#">{{ trans('messages.clique_aqui') }}</a></div><br>
 
+
+                        {{-- INFORMAÇÕES ADICIONAIS --}}
+
+                      <div class="modal" id="modal-infos">
+                            <div class="modal-dialog">
+                               <div class="modal-content">
+            
+                                  <!-- Cabeçalho do Modal -->
+                                  <div class="modal-header">
+                                     <h4 class="modal-title">{{ trans('messages.informacao_adicional') }}</h4>
+                                     <button type="button" id="fechar" class="close" data-dismiss="modal">&times;</button>
+                                  </div>
+            
+            
+                                  <!-- Corpo do Modal -->
+                                  <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
+                       
+            
+                                  </div>
+            
+                                  <!-- Rodapé do Modal -->
+                                  <div class="modal-footer">
+                                    <button id="enviardadoscomple" type="submit" class="btn btn-success" data-dismiss="modal">{{ trans('messages.enviar') }}</button>
+            
+                                  </div>
+            
+                               </div>
+                            </div>
+                         </div> 
 
                         
             <div class="modal" id="meuModal">
@@ -98,14 +127,14 @@
 
                       <!-- Cabeçalho do Modal -->
                       <div class="modal-header">
-                         <h4 class="modal-title">Calendário das Comunidades</h4>
+                         <h4 class="modal-title">{{ trans('messages.calendario_comunidade') }}</h4>
                          <button type="button" id="fechar" class="close" data-dismiss="modal">&times;</button>
                       </div>
 
 
                       <!-- Corpo do Modal -->
                       <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
-                            <h6 style="color:#f4bc08">Datas agendadas</h6>
+                            <h6 style="color:#f4bc08">{{ trans('messages.datas_agendadas') }}</h6>
                             @foreach ($datas as $data)
                                 
                
@@ -126,22 +155,22 @@
 
 
                         <div class="mb-3">
-                            <label for="dias" class="form-label">Dias:</label>
+                            <label for="dias" class="form-label">{{ trans('messages.dias') }}:</label>
                             <input type="number" class="form-control" id="dias" name="dias" disabled>
                         </div>
 
-                        <button type="button" id="next1" class="btn btn-primary next-step">Continuar</button >
+                        <button type="button" id="next1" class="btn btn-primary next-step">{{ trans('messages.continuar') }}</button >
 
                     </div>
 
                     <div class="step step-2">
                         <!-- Step 2 form fields here -->
-                        <h3>Pessoas e Atividades</h3>
+                        <h3>{{ trans('messages.pessoas_e_atividades') }}</h3>
                         <div class="mb-3">
-                        <label for="pessoas" class="form-label">Quantidade de pessoas:</label>
+                        <label for="pessoas" class="form-label">{{ trans('messages.quantidade_de_pessoas') }}:</label>
                         <input type="number" id="pessoas" class="form-control" name="pessoas">
                         </div>
-                        <label for="field2" class="form-label">Selecione as Atividades: (clique no campo)</label>
+                        <label for="field2" class="form-label">{{ trans('messages.selecione_as_atividades') }}: ({{ trans('messages.clique_no_campo') }})</label>
 
                         <div class="mb-3 select-container">
                             <div class="col-lg-4 d-flex justify-content-center align-items-center">
@@ -152,10 +181,10 @@
 
                         </div>
 
-                        <div id="atividade-page" class="form-text">Quer conhecer mais as atividades? <a href="/atividades">clique aqui</a></div><br>
+                        <div id="atividade-page" class="form-text">{{ trans('messages.quer_conhecer_mais_as_atividades') }}? <a href="/atividades">{{ trans('messages.clique_aqui') }}</a></div><br>
 
-                        <button type="button" class="btn btn-primary prev-step">Anterior</button>
-                        <button type="button" id="continuar-resultado" class="btn btn-primary next-step">Continuar</button>
+                        <button type="button" class="btn btn-primary prev-step">{{ trans('messages.anterior') }}</button>
+                        <button type="button" id="continuar-resultado" class="btn btn-primary next-step">{{ trans('messages.continuar') }}</button>
                     </div>
 
                     <div class="step step-3">
@@ -167,9 +196,9 @@
                          </div>
                          <br>
 
-                        <button type="button" class="btn btn-primary prev-step">Anterior</button>
-                        <button type="button" id="dadosCompl" class="btn btn-success">Preencha o dados complementares</button>
-                        <button type="button" id="enviarDados" class="btn btn-success">Enviar</button>
+                        <button type="button" class="btn btn-primary prev-step">{{ trans('messages.anterior') }}</button>
+                        <button type="button" id="dadosCompl" class="btn btn-success">{{ trans('messages.preencha_o_dados_complementares') }}</button>
+                        <button type="button" id="enviarDados" class="btn btn-success">{{ trans('messages.enviar') }}</button>
                     </div>
                 </form>
             </div>
@@ -223,6 +252,44 @@
             $("#meuModal").fadeOut();
 
         });
+
+        $("#comprar").click(function () {
+
+    
+            if(user.endereco == null &&
+            user.cep == null &&
+            user.cidade == null &&
+            user.proficao == null &&
+            user.nacionalidade == null &&
+            user.estado == null ){
+
+                $("#meuModal").fadeIn();
+
+            }else{
+
+                $("#loading").show();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/solicitacaocompra/'+ pacote.id,
+                    data: { _token: '{{ csrf_token() }}' },
+                    success: function (response) {
+
+                        $("#loading").hide();
+                        window.location.href = response;
+
+
+                    },
+                    error: function (error) {
+                        // Lógica para tratar erros (se necessário)
+                        $("#loading").hide();
+                        console.log(error);
+                    }
+                });
+            }
+        
+        });
+
 
         $('#comunidade').on('change', function() {
             dados.comunidade = $(this).val();

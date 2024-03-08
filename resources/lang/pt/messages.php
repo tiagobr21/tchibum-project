@@ -15,7 +15,7 @@ $posts = Posts::all();
     
 return [
 
-     // home
+    // home
 
     'titulo_principal' => $home->titulo_principal, PHP_EOL,
     'pacote_fechado' => 'Pacotes Fechados', PHP_EOL,
@@ -93,12 +93,60 @@ return [
     'estado' => 'Estado', PHP_EOL,
     'enviar' => 'Enviar', PHP_EOL,
 
-    // pacote fechado
+    // pacote personalizado
 
     'ja_existe_agendamento' => 'Já existe agendamento para essa data', PHP_EOL,
     'data_esta_disponivel'=> ' A data está disponível', PHP_EOL,
     'colidem' => ' Os dias colidem com com outro agendamento', PHP_EOL,
     'conformidade' => 'Os dias estão em coformidade', PHP_EOL,
+    'selecionar_comunidade' => 'Selecione a comunidade', PHP_EOL,
+    'localidade_e_datas' => 'Localidade e Datas', PHP_EOL,
+    'escolha_opcao' => 'Escolha uma opção', PHP_EOL,
+    'conhecer_comunidade' => 'Quer conhecer mais as comuniades?', PHP_EOL,
+    'verificar_disponibilidade'=> 'Verifique a disponibidade no calendário', PHP_EOL,
+    'clique_aqui' => 'Clique Aqui', PHP_EOL,
+    'calendario_comunidade' => 'Calendário das Comunidades', PHP_EOL,
+    'datas_agendadas'=> 'Datas agendadas', PHP_EOL,
+    'dias' => 'Dias', PHP_EOL,
+    'pessoas_e_atividades' => 'Pessoas e Atividades', PHP_EOL,
+    'quantidade_de_pessoas'=> 'Quantidade de pessoas', PHP_EOL,
+    'selecione_as_atividades' => 'Selecione as Atividades', PHP_EOL,
+    'clique_no_campo' => 'clique no campo', PHP_EOL,
+    'quer_conhecer_mais_as_atividades' => 'Quer conhecer mais as atividades', PHP_EOL,
+    'anterior'=> 'Anterior', PHP_EOL,
+    'continuar' => 'Continuar', PHP_EOL,
+    'preencha_o_dados_complementares' => 'Preencha o dados complementares', PHP_EOL,
+
+    // layout 
+    'quem_somos' => 'QUEM SOMOS', PHP_EOL,
+    'comunidades' => 'COMUNIDADES', PHP_EOL,
+    'atividades' => 'ATIVIDADES', PHP_EOL,
+    'compras' => 'COMPRAS',
+    'fale_conosco_layout' => 'FALE CONOSCO', PHP_EOL,
+    'idiomas' => 'IDIOMAS', PHP_EOL,
+    'portugues' => 'PORTUGUÊS', PHP_EOL,
+    'ingles' => 'INGLÊS', PHP_EOL,
+    'espanhol' => 'ESPANHOL', PHP_EOL,
+    'entrar' => 'ENTRAR', PHP_EOL,
+    'cadastrar' => 'CADASTRAR', PHP_EOL,
+
+    //footer
+    'quem_somos_footer'=> 'Quem somos', PHP_EOL,
+    'text1' => 'Descubra a Amazônia com a Tchibum, nascida do amor pela região', PHP_EOL,
+    'text2' => 'Oferecemos pacotes de turismo que proporcionam uma imersão na riqueza da fauna e flora', PHP_EOL,
+    'text3' => 'amazônica, garantindo conforto e segurança aos exploradores', PHP_EOL,
+    'informacoes' => 'Informações', PHP_EOL,
+    'regulamento_geral' => 'Regulamento Geral', PHP_EOL,
+    'condicoes_de_reserva' => 'Condições de Reserva', PHP_EOL,
+    'politica_de_privacidade' => 'Política de Privacidade', PHP_EOL,
+    'politica_de_reembolso' => 'Política de Privacidade', PHP_EOL,
+    'experiencia' => 'Experiência', PHP_EOL,
+    'aventura' => 'Aventura', PHP_EOL,
+    'hotel_e_restaurantes' => 'Hotel e Restaurantes', PHP_EOL,
+    'praias' => 'Praias', PHP_EOL,
+    'natureza' => 'Praias', PHP_EOL,
+    'acampamentos' => 'Acampamentos', PHP_EOL,
+    'festas_regionais' => 'Festas Regionais', PHP_EOL,
 
 ];
 

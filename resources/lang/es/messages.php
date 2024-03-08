@@ -84,13 +84,62 @@ return [
     'estado' => 'Estado', PHP_EOL,
     'enviar' => 'Mandar', PHP_EOL,
 
-    // pacote fechado
+    // pacote personalizado
 
     'ja_existe_agendamento' => 'Ya hay agenda para esa fecha', PHP_EOL,
     'data_esta_disponivel'=> 'La fecha esta disponible', PHP_EOL,
     'colidem' => 'Los días chocan con otro horario', PHP_EOL,
     'conformidade' => 'Los días están conformes', PHP_EOL,
 
+    'selecionar_comunidade' => 'Selecciona la comunidad', PHP_EOL,
+    'localidade_e_datas' => 'Ubicación y fechas', PHP_EOL,
+    'escolha_opcao' => 'Elige una opcion', PHP_EOL,
+    'conhecer_comunidade' => '¿Quieres saber más sobre las comunidades?', PHP_EOL,
+    'verificar_disponibilidade'=> 'Consulta disponibilidad en el calendario', PHP_EOL,
+    'clique_aqui' => 'Haga clic aquí', PHP_EOL,
+    'calendario_comunidade' => 'Calendario de comunidades', PHP_EOL,
+    'datas_agendadas'=> 'Fechas programadas', PHP_EOL,
+    'dias' => 'Días', PHP_EOL,
+    'pessoas_e_atividades' => 'Personas y actividades', PHP_EOL,
+    'quantidade_de_pessoas'=> 'Cantidad de personas', PHP_EOL,
+    'selecione_as_atividades' => 'Seleccionar actividades', PHP_EOL,
+    'clique_no_campo' => 'haga clic en el campo', PHP_EOL,
+    'quer_conhecer_mais_as_atividades' => '¿Quieres saber más sobre las actividades?', PHP_EOL,
+    'anterior'=> 'Anterior', PHP_EOL,
+    'continuar' => 'Continuar', PHP_EOL,
+    'preencha_o_dados_complementares' => 'Complete los datos adicionales', PHP_EOL,
+
+        // layout 
+        'quem_somos' => 'SOBRE NOSOTRAS', PHP_EOL,
+        'comunidades' => 'COMUNIDADES', PHP_EOL,
+        'atividades' => 'ACTIVIDADES', PHP_EOL,
+        'compras' => 'COMPRAS',
+        'fale_conosco_layout' => 'CONTÁCTENOS', PHP_EOL,
+        'idiomas' => 'IDIOMAS', PHP_EOL,
+        'portugues' => 'PORTUGUESA', PHP_EOL,
+        'ingles' => 'INGLESA', PHP_EOL,
+        'espanhol' => 'ESPAÑOLA', PHP_EOL,
+        'entrar' => 'ACCESO', PHP_EOL,
+        'cadastrar' => 'REGISTRO', PHP_EOL,
+    
+    
+         //footer
+         'quem_somos_footer'=> 'Quienes somos', PHP_EOL,
+         'text1' => 'Descubre el Amazonas con Tchibum, nacido del amor por la región', PHP_EOL,
+         'text2' => 'Ofrecemos paquetes turísticos que brindan una inmersión en la riqueza de fauna y flora', PHP_EOL,
+         'text3' => 'Amazon, garantizando comodidad y seguridad a los exploradores', PHP_EOL,
+         'informacoes' => 'Información', PHP_EOL,
+         'regulamento_geral' => 'Reglamento General', PHP_EOL,
+         'condicoes_de_reserva' => 'Condiciones de reserva', PHP_EOL,
+         'politica_de_privacidade' => 'Política de privacidad', PHP_EOL,
+         'politica_de_reembolso' => 'Politica de reembolso', PHP_EOL,
+         'experiencia' => 'Experiencia', PHP_EOL,
+         'aventura' => 'Aventura', PHP_EOL,
+         'hotel_e_restaurantes' => 'Hoteles y Restaurantes', PHP_EOL,
+         'praias' => 'Playas', PHP_EOL,
+         'natureza' => 'Naturaleza', PHP_EOL,
+         'acampamentos' => 'Campamentos', PHP_EOL,
+         'festas_regionais' => 'Festivales Regionales', PHP_EOL,
 
 
 ];
