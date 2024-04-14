@@ -50,6 +50,24 @@ class UserResource extends Resource
                 Forms\Components\TextInput::make('endereco')
                     ->label('Endereço')
                     ->maxLength(255),
+                Forms\Components\TextInput::make('cep')
+                    ->label('Cep')
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('cidade')
+                    ->label('Cep')
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('identificacao')
+                    ->label('Identificação')
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('proficao')
+                    ->label('Profissão')
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('nacionalidade')
+                    ->label('Nacionalidade')
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('estado')
+                    ->label('Estado')
+                    ->maxLength(255),
     
                  
             ]);

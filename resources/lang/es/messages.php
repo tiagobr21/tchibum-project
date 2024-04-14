@@ -35,9 +35,9 @@ return [
 
     // sobre
     'sobre_nos' => 'Sobre nosotros' . PHP_EOL,
-    'sobre_titulo' => $sobre->titulo_principal . PHP_EOL,
-    'sobre_texto' => $sobre->sobre . PHP_EOL,
-    'sobre' => 'Acerca de' . PHP_EOL,
+    'sobre_titulo' => $sobre->titulo_principal , PHP_EOL,
+    'sobre_texto' => $sobre->sobre , PHP_EOL,
+    'sobre' => 'Acerca de' , PHP_EOL,
     'sobre_descricao_atividade_comunidade1' => $sobre->descricao_atividade_comunidade1 . PHP_EOL,
     'sobre_descricao_atividade_comunidade2' => $sobre->descricao_atividade_comunidade2 . PHP_EOL,
     'sobre_nome_atividade_comunidade1'=> $sobre->nome_atividade_comunidade1, PHP_EOL,
@@ -140,6 +140,7 @@ return [
          'natureza' => 'Naturaleza', PHP_EOL,
          'acampamentos' => 'Campamentos', PHP_EOL,
          'festas_regionais' => 'Festivales Regionales', PHP_EOL,
+         'duvidas' => 'Doubts', PHP_EOL,
 
 
 ];

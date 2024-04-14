@@ -168,7 +168,7 @@
                 </div>
                 <div class="col-md pt-5 border-left">
                     <div class="ftco-footer-widget pt-md-5 mb-4">
-                        <h2 class="ftco-heading-2">Dúvidas?</h2>
+                        <h2 class="ftco-heading-2">{{ trans('messages.duvidas') }}?</h2>
                         <div class="block-23 mb-3">
                             <ul>
                                 <li><span class="icon fa fa-map-marker"></span><span class="text">Rua Coronel Salgado, 529, Aparecida, 69010450, Manaus – AM.</span></li>

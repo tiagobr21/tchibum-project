@@ -20,15 +20,16 @@ class PacksController extends Controller
     }
 
     public function pack(Pacote $pacote){
-        $pacote = $pacote->with('comunidade','opcoes')->find( $pacote->comunidade_id);
+
+        $pacote = $pacote::with('comunidade','opcoes')->find( $pacote->id);
+    
 
         return view('pack',compact('pacote'));
     }
 
     public function solicitacaoCompra(Pacote $pacote){
 
-        $pacote = $pacote->with('comunidade','opcoes')->find( $pacote->comunidade_id);
-
+        $pacote = $pacote::with('comunidade','opcoes')->find( $pacote->id);
 
         $pacote_usuario = PacoteUsuario::create([
             'pacote_id' => $pacote->id,
@@ -63,14 +64,15 @@ class PacksController extends Controller
            // Montar o link do WhatsApp
         $linkWhatsApp = "https://wa.me/" . $contato->whatsapp. "/?text=" . rawurlencode($mensagem);
 
-           // Redirecionar para o link do WhatsApp
+           // Redirecionar para o link do WhatsAp
+
         return $linkWhatsApp;
 
     }
 
     protected function enviarSolicitacao($pacote){
-
-
+         
+   
         $pacote = Pacote::with('comunidade','opcoes')->find($pacote);
 
         $user = auth()->user();

@@ -48,16 +48,15 @@ class PacksCustomControllers extends Controller
         return view('packscustoms',compact('comunidades','opcoes','user','datas'));
     }
 
-    public function viewCalendar(Request $request){
-   
-    }
-
 
     public function verificarData(Request $request){
+
          $calendar = Calendar::all();
       
 
          $result = true;
+
+   
 
          foreach ($calendar as $key => $value) {
              if ($request->formData['comunidade'] == $value->title) {
@@ -65,6 +64,7 @@ class PacksCustomControllers extends Controller
                  $startDate = Carbon::parse($value->start_date);
                  $endDate = Carbon::parse($value->end_date);
          
+               
                  // Verificar se a data é igual a start_date ou end_date
                  if ($requestData->eq($startDate) || $requestData->eq($endDate) || $requestData->between($startDate, $endDate)) {
                      $result = false;
@@ -128,15 +128,20 @@ class PacksCustomControllers extends Controller
 
     public function createPacotePerso(Request $request){
 
+
+
         $response = $request->formData;
 
         $opcoes = [];
 
         $comunidade = Comunidade::where('nome',$response['comunidade'])->get();
 
+       
+
         foreach ($response['opcoes'] as $key => $value) {
             array_push($opcoes , Opcoe::where('nome',$value['atividade'])->get());
         }
+
 
         $user = auth()->user();
 
@@ -151,6 +156,8 @@ class PacksCustomControllers extends Controller
             'user_id' => $user->id,
         ]);
 
+        
+
         // Criar Atividades Inclusas
     
 
@@ -161,7 +168,6 @@ class PacksCustomControllers extends Controller
                 'opcaoperso_id' =>  $value[0]->id,
             ]);
         } 
-
 
 
         // Criar data do Calendário
@@ -199,9 +205,11 @@ class PacksCustomControllers extends Controller
             'color' => '#7a7a7a'
         ]); 
 
+      
 
         $this->enviarSolicitacao($pacotepersonalizado->id);
 
+       
         $contato = Contato::find(1);
         $dataFormatada = date("d/m/y", strtotime($pacotepersonalizado->data));
 
@@ -234,6 +242,7 @@ class PacksCustomControllers extends Controller
 
 
        $pacote = PacotePersonalizado::with('comunidade','opcoes')->find($pacotepersonalizado);
+ 
 
        $user = auth()->user();
 

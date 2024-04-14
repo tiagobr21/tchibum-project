@@ -8,9 +8,8 @@
         <div class="row d-flex">
 
             <div id="loading">
-                <div  class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                  </div>
+                <div id="spinner" class="spinner-border" role="status"></div>
+                <div><span >Estamos verificando, aguarde por favor...</span></div>
             </div>
 
 
@@ -197,7 +196,7 @@
                          <br>
 
                         <button type="button" class="btn btn-primary prev-step">{{ trans('messages.anterior') }}</button>
-                        <button type="button" id="dadosCompl" class="btn btn-success">{{ trans('messages.preencha_o_dados_complementares') }}</button>
+                        {{-- <button type="button" id="dadosCompl" class="btn btn-success">{{ trans('messages.preencha_o_dados_complementares') }}</button> --}}
                         <button type="button" id="enviarDados" class="btn btn-success">{{ trans('messages.enviar') }}</button>
                     </div>
                 </form>
@@ -218,6 +217,9 @@
     let opcao_preco = null;
     let user = @json(auth()->user());
 
+  
+
+     console.log(opcoes);
 
     $(document).ready(function() {
 
@@ -230,6 +232,99 @@
         $('#message-data-disponivel').fadeOut();
         $('#message-dias-ocupado').fadeOut();
         $('#message-dias-disponivel').fadeOut();
+     
+
+        setTimeout(function() {
+              $("#meuModal").fadeOut();
+            }, 10000);
+        
+        $("#fechar").click(function () {
+
+           $("#meuModal").fadeOut();
+
+        });
+   
+        
+
+        podeClicar = localStorage.getItem('podeClicar');
+
+        if(podeClicar == null){
+            localStorage.setItem('podeClicar', 'true');
+        }
+       
+        function ativarBotao() {
+            console.log('ativar botão');
+            localStorage.setItem('podeClicar', 'true');
+        }
+
+        $('#enviarDados').on('click', function() {
+            // if (podeClicar == 'true') {
+
+
+                
+                let formData = {
+                    comunidade: dados.comunidade,
+                    data: dados.data,
+                    dias: dados.dias,
+                    pessoas: dados.dias,
+                    opcoes:  [],
+                    precototal: dados.precototal
+                };
+
+                dados.opcoes.map(function(opcoe){
+
+                    formData.opcoes.push({ atividade: opcoe.text , preco: opcoe.id});
+                });
+
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/pacoteperso/criarpacotepersonalizado',
+                    data: { _token: '{{ csrf_token() }}', formData },
+                    success: function (response) {
+
+                        console.log(response);
+                        window.location.href = response;
+
+                    },
+                    error: function (error) {
+                  
+                            console.log(error);
+                    }
+
+                });
+
+                // Desativa o botão
+                // podeClicar = false;
+                localStorage.setItem('podeClicar', 'false');
+
+                
+
+                // Configura um temporizador para reativar o botão após 1 hora
+                //3600000
+                
+            
+
+            // } else {
+            //    setTimeout(ativarBotao, 3600000); // reativar o botão de comprar
+            //    alert('Aguarde 1 hora antes de clicar novamente.');
+            // }
+        });
+
+        // Verifica se o temporizador deve ser reiniciado ao carregar a página
+        if (podeClicar == 'false') {
+            var tempoRestante = localStorage.getItem('tempoRestante');
+            if (tempoRestante) {
+                setTimeout(ativarBotao, Math.max(0, tempoRestante - Date.now()));
+            }
+        }
+
+        // Adiciona um evento para salvar o tempo restante ao fechar a página
+        $(window).on('beforeunload', function() {
+            if (podeClicar == 'false') {
+                localStorage.setItem('tempoRestante', Date.now() + 3600000);
+            }
+        });
 
         $('#calendar-modal').click(function(){
             $("#meuModal").fadeIn();
@@ -247,55 +342,13 @@
        });
 
                 
-        $("#fechar").click(function () {
+     
 
-            $("#meuModal").fadeOut();
-
-        });
-
-        $("#comprar").click(function () {
-
-    
-            if(user.endereco == null &&
-            user.cep == null &&
-            user.cidade == null &&
-            user.proficao == null &&
-            user.nacionalidade == null &&
-            user.estado == null ){
-
-                $("#meuModal").fadeIn();
-
-            }else{
-
-                $("#loading").show();
-
-                $.ajax({
-                    type: 'POST',
-                    url: '/solicitacaocompra/'+ pacote.id,
-                    data: { _token: '{{ csrf_token() }}' },
-                    success: function (response) {
-
-                        $("#loading").hide();
-                        window.location.href = response;
-
-
-                    },
-                    error: function (error) {
-                        // Lógica para tratar erros (se necessário)
-                        $("#loading").hide();
-                        console.log(error);
-                    }
-                });
-            }
-        
-        });
+       
 
 
         $('#comunidade').on('change', function() {
             dados.comunidade = $(this).val();
-
-            console.log(dados.comunidade);
-            console.log(dados);
 
             comunidades.map(function(comunidade){
                if(comunidade.nome ==  dados.comunidade ){
@@ -403,7 +456,7 @@
                     opcao_preco = parseFloat(opcao.id) ;
                 }
 
-                console.log(opcao_preco);
+              
 
                 valoresUnicos.add(opcao_preco );
 
@@ -520,51 +573,9 @@
         $('#respostas').html(resultado);
       }
 
-      
-
-      $('#dadosCompl').click(function () {
-         
-      })
-
+    
       $('#enviarDados').click(function () {
 
-        let formData = {
-            comunidade: dados.comunidade,
-            data: dados.data,
-            dias: dados.dias,
-            pessoas: dados.dias,
-            opcoes:  [],
-            precototal: dados.precototal
-        };
-
-        dados.opcoes.map(function(opcoe){
-
-            formData.opcoes.push({ atividade: opcoe.text , preco: opcoe.id});
-         });
-
-         console.log(formData);
-
-
-          //   $('#loading').fadeIn();
-
-            $.ajax({
-                type: 'POST',
-                url: '/pacoteperso/criarpacotepersonalizado',
-                data: { _token: '{{ csrf_token() }}', formData },
-                success: function (response) {
-
-                  //  $('#loading').fadeOut();
-
-                    window.location.href = response;
-
-
-                },
-                error: function (error) {
-                    // Lógica para tratar erros (se necessário)
-                    console.log(error);
-                }
-
-                });
 
         });
 
@@ -617,7 +628,7 @@
   </script>
 
   <style>
-
+        
 
         #comunidade-page{
             color: white;
@@ -687,7 +698,7 @@
         }
 
         #loading {
-            display: none;
+            display: flex;
             position: fixed;
             top: 0;
             left: 0;
@@ -698,6 +709,11 @@
             align-items: center;
             justify-content: center;
             z-index: 9999;
+        }
+        
+        #spinner{
+          margin-right: 20px;
+
         }
 
         .step-circle {

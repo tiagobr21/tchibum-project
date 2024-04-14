@@ -33,7 +33,9 @@ class PacotePersonalizados extends Mailable
     public function build()
     {
         $pacotepersonalizado = $this->pacotepersonalizado;
+
         $user = $this->user;
+
         return $this->view('mail.pacotepersonalizados',compact('pacotepersonalizado','user'))
                     ->subject('Solicitação de Compra de Pacote');
 

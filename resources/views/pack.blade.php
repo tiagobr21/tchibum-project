@@ -263,6 +263,7 @@
                     success: function (response) {
 
                         $("#loading").hide();
+                        console.log(response);
                         window.location.href = response;
 
 

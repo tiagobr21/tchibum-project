@@ -44,7 +44,7 @@ return [
     
     'sobre_nos' => 'Sobre nós', PHP_EOL,
     'sobre_titulo' => $sobre->titulo_principal, PHP_EOL,
-    'sobre_texto' => $sobre->sobre, PHP_EOL,
+    'sobre_texto' => $sobre->sobre , PHP_EOL,
     'sobre' => 'Sobre', PHP_EOL,
     'sobre_descricao_atividade_comunidade1' => $sobre->descricao_atividade_comunidade1, PHP_EOL,
     'sobre_descricao_atividade_comunidade2' => $sobre->descricao_atividade_comunidade2, PHP_EOL,
@@ -147,6 +147,7 @@ return [
     'natureza' => 'Praias', PHP_EOL,
     'acampamentos' => 'Acampamentos', PHP_EOL,
     'festas_regionais' => 'Festas Regionais', PHP_EOL,
+    'duvidas' => 'Dudas', PHP_EOL,
 
 ];
 

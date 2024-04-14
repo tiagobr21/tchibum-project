@@ -6,6 +6,7 @@ services:
             args:
                 WWWGROUP: '${WWWGROUP}'
         image: sail-8.2/app
+        restart: always
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
@@ -32,6 +33,7 @@ services:
         image: 'mysql/mysql-server:8.0'
         ports:
             - '${FORWARD_DB_PORT:-3306}:3306'
+        restart: always
         environment:
             MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
             MYSQL_ROOT_HOST: '%'
@@ -54,6 +56,7 @@ services:
             timeout: 5s
     redis:
         image: 'redis:alpine'
+        restart: always
         ports:
             - '${FORWARD_REDIS_PORT:-6379}:6379'
         volumes:
@@ -69,6 +72,7 @@ services:
             timeout: 5s
     meilisearch:
         image: 'getmeili/meilisearch:latest'
+        restart: always
         ports:
             - '${FORWARD_MEILISEARCH_PORT:-7700}:7700'
         environment:
@@ -88,6 +92,7 @@ services:
             timeout: 5s
     mailpit:
         image: 'axllent/mailpit:latest'
+        restart: always
         ports:
             - '${FORWARD_MAILPIT_PORT:-1025}:1025'
             - '${FORWARD_MAILPIT_DASHBOARD_PORT:-8025}:8025'
