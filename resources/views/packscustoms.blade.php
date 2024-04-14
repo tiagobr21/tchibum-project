@@ -196,7 +196,7 @@
                          <br>
 
                         <button type="button" class="btn btn-primary prev-step">{{ trans('messages.anterior') }}</button>
-                        {{-- <button type="button" id="dadosCompl" class="btn btn-success">{{ trans('messages.preencha_o_dados_complementares') }}</button> --}}
+                        <button type="button" id="dadosCompl" class="btn btn-success">{{ trans('messages.preencha_o_dados_complementares') }}</button>
                         <button type="button" id="enviarDados" class="btn btn-success">{{ trans('messages.enviar') }}</button>
                     </div>
                 </form>
