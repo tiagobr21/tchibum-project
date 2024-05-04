@@ -54,11 +54,29 @@
             </button>
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
+                   
                     <li class="nav-item"><a href="/" class="nav-link">HOME</a></li>
 
                     @if (auth()->user()?->role == 'admin')
                         <li class="nav-item"><a href="/admin" class="nav-link">ADMIN</a></li>
                     @endif
+
+                    <li class="nav-item"><a href="/sobre" class="nav-link">{{ trans('messages.quem_somos') }}</a></li>
+
+                    <li class="nav-item"><a href="/posts" class="nav-link">{{ trans('messages.noticias') }}</a></li>
+
+                    <li class="nav-item">
+                        <div class="nav-link dropdown">
+                            <button class="nav-link btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                PACOTES
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/pacotes">{{ trans('messages.pacote_fechado') }}</a>
+                                <a class="dropdown-item" id="modalInfoComple" >{{ trans('messages.comunidade') }}</a>
+                            </div>
+                        </div>
+                    </li>
                  
                     @auth
                  
@@ -66,21 +84,6 @@
 
                     @endauth
 
-                    <li class="nav-item"><a href="/sobre" class="nav-link">{{ trans('messages.quem_somos') }}</a></li>
-
-                    <li class="nav-item">
-                        <div class="nav-link dropdown">
-                            <button class="nav-link btn dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                MAIS
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="/posts">POSTS</a>
-                                <a class="dropdown-item" href="/comunidades">{{ trans('messages.comunidades') }}</a>
-                                <a class="dropdown-item" href="/atividades">{{ trans('messages.atividades') }}</a>
-                            </div>
-                        </div>
-                    </li>
 
                     <li class="nav-item"><a href="/faleconosco" class="nav-link">{{ trans('messages.fale_conosco_layout') }}</a></li>
 
@@ -123,6 +126,78 @@
             </div>
         </div>
     </nav>
+
+
+    <div class="modal" id="meuModal">
+        <div class="modal-dialog">
+           <div class="modal-content">
+
+              <!-- Cabeçalho do Modal -->
+              <div class="modal-header">
+                 <h4 class="modal-title">{{ trans('messages.informacao_adicional') }}</h4>
+                 <button type="button" id="fechar" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+
+              <!-- Corpo do Modal -->
+              <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
+                <form id="form">
+                   @csrf
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="estrangeiro">
+                        <label class="form-check-label" for="flexRadioDefault1" >
+                            {{ trans('messages.e_estrangeiro') }}
+                        </label>
+                      </div>
+
+                    <div class="mb-3" id="cpf-container">
+                        <label for="cpf"  class="form-label">CPF</label>
+                        <input type="text" id="cpf" name="cpf" class="form-control" >
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">{{ trans('messages.endereco') }}</label>
+                        <input type="text" id="endereco" name="endereco" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Cep</label>
+                        <input type="text" id="cep" name="cep" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">{{ trans('messages.cidade') }}</label>
+                        <input type="text" id="cidade" name="cidade" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">{{ trans('messages.identificacao') }}</label>
+                        <input type="text" id="identificacao" name="identificacao" class="form-control" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">{{ trans('messages.proficao') }}</label>
+                        <input type="text" id="proficao" name="proficao" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">{{ trans('messages.nacionalidade') }}</label>
+                        <input type="text" id="nacionalidade" name="nacionalidade" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">{{ trans('messages.estado') }}</label>
+                        <input type="text" id="estado" name="estado" class="form-control" required>
+                    </div>
+
+                  </form>
+
+              </div>
+
+              <!-- Rodapé do Modal -->
+              <div class="modal-footer">
+                <button id="enviardadoscomple" type="submit" class="btn btn-success" data-dismiss="modal">{{ trans('messages.enviar') }}</button>
+
+              </div>
+
+           </div>
+        </div>
+     </div>
 
 
 
@@ -197,6 +272,71 @@
         </div>
     </footer>
 
+    <style>
+
+        #modalInfoComple{
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+
+       
+
+        $("#modalInfoComple").click(function () {
+
+
+                    if(user == null){
+
+                        window.location.href = '/login';
+
+                    }else{
+
+                    
+                
+                            if(user.endereco == null &&
+                            user.cep == null &&
+                            user.cidade == null &&
+                            user.proficao == null &&
+                            user.nacionalidade == null &&
+                            user.estado == null ){
+                            
+
+                                $("#meuModal").fadeIn();
+
+                            }else{
+
+                                window.location.href = '/pacotes_personalizados';
+
+                            }
+                    }
+                });
+
+                // enviardadoscomple
+
+                $('#enviardadoscomple').click(function () {
+                    let formData = $('#form').serialize();
+
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/adddadoscomple/'+ user.id,  // Substitua '/sua-rota-no-laravel' pela sua rota Laravel
+                        data: formData,
+                        success: function (response) {
+
+                            window.location.href = '/pacotes_personalizados';
+
+                        },
+                        error: function (error) {
+                            // Lógica para tratar erros (se necessário)
+                            console.log(error);
+                        }
+
+                    });
+                });
+        
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.14/dist/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
     <script src="{{ asset('multiselect-05/js/main.js') }}"></script>
@@ -215,6 +355,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="{{ asset('js/google-map.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    
 
 </body>
 </html>

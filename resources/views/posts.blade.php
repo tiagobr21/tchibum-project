@@ -38,7 +38,7 @@
 
             <div  class="col-md-4 d-flex ftco-animate">
                     <div class="blog-entry justify-content-end">
-                      <img class="block-20" src="{{asset('/storage/'. $post->imagem_principal)}}">
+                      <img class="block-20" src="{{secure_asset('/storage/'. $post->imagem_principal)}}">
 
                       <div class="text">
                       <div class="d-flex align-items-center mb-4 topp">

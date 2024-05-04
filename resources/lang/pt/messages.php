@@ -84,14 +84,16 @@ return [
     'preco' => 'Preço', PHP_EOL,
     'informacao' => 'Informações', PHP_EOL,
     'informacao_adicional' => 'Informações Adicionais', PHP_EOL,
-    'e_estrangeiro'=> 'Você é Estrangeiro?', PHP_EOL,
-    'endereco'=> 'Você é Estrangeiro?', PHP_EOL,
+    'formas_pagamentos' => 'Finalize sua compra', PHP_EOL,
+    'e_estrangeiro'=> 'Sou estrangeiro', PHP_EOL,
+    'endereco'=> 'Endereço', PHP_EOL,
     'cidade'=> 'Cidade', PHP_EOL,
-    'identificacao' => 'Identificação ( Se for Estrangeiro)', PHP_EOL,
+    'identificacao' => 'Identificação', PHP_EOL,
     'proficao' => 'Profissão', PHP_EOL,
     'nacionalidade' => 'Nacionalidade', PHP_EOL,
     'estado' => 'Estado', PHP_EOL,
     'enviar' => 'Enviar', PHP_EOL,
+    
 
     // pacote personalizado
 
@@ -114,11 +116,13 @@ return [
     'clique_no_campo' => 'clique no campo', PHP_EOL,
     'quer_conhecer_mais_as_atividades' => 'Quer conhecer mais as atividades', PHP_EOL,
     'anterior'=> 'Anterior', PHP_EOL,
-    'continuar' => 'Continuar', PHP_EOL,
+    'continuar' => 'Continue', PHP_EOL,
     'preencha_o_dados_complementares' => 'Preencha o dados complementares', PHP_EOL,
+    'compra_com_tchibum' => 'Realizar a compra com o time da Tchibum', PHP_EOL,
 
     // layout 
     'quem_somos' => 'QUEM SOMOS', PHP_EOL,
+    'noticias' => 'NOTÍCIAS', PHP_EOL,
     'comunidades' => 'COMUNIDADES', PHP_EOL,
     'atividades' => 'ATIVIDADES', PHP_EOL,
     'compras' => 'COMPRAS',

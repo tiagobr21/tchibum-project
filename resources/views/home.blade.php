@@ -101,25 +101,20 @@
 
                     <div class="mb-3" id="cpf-container">
                         <label for="cpf"  class="form-label">CPF</label>
-                        <input type="text" id="cpf" name="cpf" class="form-control" placeholder="Digite seu CPF">
-                    </div>
-
-                      <div class="mb-3" id="uf-container">
-                        <label for="uf" class="form-label">UF</label>
-                        <input type="text" id="uf" name="uf" class="form-control">
+                        <input type="text" id="cpf" name="cpf" class="form-control" >
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">{{ trans('messages.endereco') }}</label>
-                        <input type="text" id="endereco" name="endereco" class="form-control" >
+                        <input type="text" id="endereco" name="endereco" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Cep</label>
-                        <input type="text" id="cep" name="cep" class="form-control" >
+                        <input type="text" id="cep" name="cep" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">{{ trans('messages.cidade') }}</label>
-                        <input type="text" id="cidade" name="cidade" class="form-control" >
+                        <input type="text" id="cidade" name="cidade" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">{{ trans('messages.identificacao') }}</label>
@@ -127,16 +122,16 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">{{ trans('messages.proficao') }}</label>
-                        <input type="text" id="proficao" name="proficao" class="form-control" >
+                        <input type="text" id="proficao" name="proficao" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">{{ trans('messages.nacionalidade') }}</label>
-                        <input type="text" id="nacionalidade" name="nacionalidade" class="form-control" >
+                        <input type="text" id="nacionalidade" name="nacionalidade" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">{{ trans('messages.estado') }}</label>
-                        <input type="text" id="estado" name="estado" class="form-control" >
+                        <input type="text" id="estado" name="estado" class="form-control" required>
                     </div>
 
                   </form>
@@ -561,10 +556,18 @@
         }
     </style>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
     <script>
         let depoimentos = @json($depoimentos);
         let user = @json(auth()->user());
 
+
+        jQuery(document).ready(function ($) {
+            // Aplicar a máscara para o CPF
+            $('#cpf').mask('000.000.000-00', { reverse: true });
+        });
+  
 
         let avaliacoes = depoimentos.map((element) => {
             return element.avaliação
@@ -581,6 +584,8 @@
             }
 
         }
+
+        // verificar se usuário tem as informações complementares
 
         $("#pacote-comunidade-img").click(function () {
             if(user == null){
@@ -609,6 +614,8 @@
             }
         });
 
+        // enviardadoscomple
+
         $('#enviardadoscomple').click(function () {
             let formData = $('#form').serialize();
 
@@ -619,25 +626,7 @@
                 data: formData,
                 success: function (response) {
 
-                    location.reload();
-
-                    $.ajax({
-                    type: 'POST',
-                    url: '/solicitacaocompra/'+ pacote.id,
-                    data: { _token: '{{ csrf_token() }}' },
-                    success: function (response) {
-
-                        $("#loading").hide();
-                        window.location.href = '/pacotes_personalizados';
-
-
-                    },
-                    error: function (error) {
-                        // Lógica para tratar erros (se necessário)
-                        $("#loading").hide();
-                        console.log(error);
-                    }
-                });
+                    window.location.href = '/pacotes_personalizados';
 
                 },
                 error: function (error) {
@@ -660,13 +649,18 @@
     <script>
         $(document).ready(function() {
 
+            $('#cpf').show();
+            $('#identificacao').hide();
+
             $('#estrangeiro').change(function () {
-            // Se o checkbox estiver marcado (pessoa estrangeira), oculte os campos "UF" e "CPF"
+            // Se o checkbox estiver marcado (pessoa estrangeira), oculte os campos "UF" e "identificacao"
             if ($(this).prop('checked')) {
-                $('#uf, #cpf').hide();
+                $('#cpf').hide();
+                $('#identificacao').show();
             } else {
-                // Se o checkbox estiver desmarcado (pessoa não estrangeira), exiba os campos "UF" e "CPF"
-                $('#uf, #cpf').show();
+                // Se o checkbox estiver desmarcado (pessoa não estrangeira), exiba os campos "UF" e "identificacao"
+                $('#cpf').show();
+                $('#identificacao').hide();
             }
         });
 

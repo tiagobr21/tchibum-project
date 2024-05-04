@@ -75,10 +75,11 @@ return [
     'preco' => 'Precio', PHP_EOL,
     'informacao' => 'Información', PHP_EOL,
     'informacao_adicional' => 'Informaciones adicionales', PHP_EOL,
-    'e_estrangeiro'=> '¿Eres extranjero?', PHP_EOL,
+    'formas_pagamentos' => 'Completa tu compra', PHP_EOL,
+    'e_estrangeiro'=> 'Soy extranjero', PHP_EOL,
     'endereco'=> 'Dirección', PHP_EOL,
     'cidade'=> 'Ciudad', PHP_EOL,
-    'identificacao' => 'Identificación (Si eres Extranjero)', PHP_EOL,
+    'identificacao' => 'Identificación', PHP_EOL,
     'proficao' => 'Profesión', PHP_EOL,
     'nacionalidade' => 'Nacionalidad', PHP_EOL,
     'estado' => 'Estado', PHP_EOL,
@@ -108,19 +109,22 @@ return [
     'anterior'=> 'Anterior', PHP_EOL,
     'continuar' => 'Continuar', PHP_EOL,
     'preencha_o_dados_complementares' => 'Complete los datos adicionales', PHP_EOL,
+    'compra_com_tchibum' => "Realiza la compra con el tiempo de Tchibum.", PHP_EOL,
 
-        // layout 
-        'quem_somos' => 'SOBRE NOSOTRAS', PHP_EOL,
-        'comunidades' => 'COMUNIDADES', PHP_EOL,
-        'atividades' => 'ACTIVIDADES', PHP_EOL,
-        'compras' => 'COMPRAS',
-        'fale_conosco_layout' => 'CONTÁCTENOS', PHP_EOL,
-        'idiomas' => 'IDIOMAS', PHP_EOL,
-        'portugues' => 'PORTUGUESA', PHP_EOL,
-        'ingles' => 'INGLESA', PHP_EOL,
-        'espanhol' => 'ESPAÑOLA', PHP_EOL,
-        'entrar' => 'ACCESO', PHP_EOL,
-        'cadastrar' => 'REGISTRO', PHP_EOL,
+    
+    // layout 
+    'quem_somos' => 'SOBRE NOSOTRAS', PHP_EOL,
+    'noticias' => 'Noticias', PHP_EOL,
+    'comunidades' => 'COMUNIDADES', PHP_EOL,
+    'atividades' => 'ACTIVIDADES', PHP_EOL,
+    'compras' => 'COMPRAS',
+    'fale_conosco_layout' => 'CONTÁCTENOS', PHP_EOL,
+    'idiomas' => 'IDIOMAS', PHP_EOL,
+    'portugues' => 'PORTUGUESA', PHP_EOL,
+    'ingles' => 'INGLESA', PHP_EOL,
+    'espanhol' => 'ESPAÑOLA', PHP_EOL,
+    'entrar' => 'ACCESO', PHP_EOL,
+    'cadastrar' => 'REGISTRO', PHP_EOL,
     
     
          //footer

@@ -87,7 +87,7 @@
   <div class="container py-md-5">
     <div class="row py-md-5">
       <div class="col-md d-flex align-items-center justify-content-center">
-        <a href="http://tchibumnaamazonia.com:8000/storage/{{ $sobre->video_principal }}"
+        <a href="{{asset('/storage/'. $sobre->video_principal)}}"
           class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
           <span class="fa fa-play"></span>
         </a>

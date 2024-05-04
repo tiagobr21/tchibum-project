@@ -61,10 +61,12 @@
                 <div class="step-circle" onclick="displayStep(1)">1</div>
                 <div class="step-circle" onclick="displayStep(2)">2</div>
                 <div class="step-circle" onclick="displayStep(3)">3</div>
+                
                 </div>
 
                 <form id="multi-step-form">
                     <div class="step step-1">
+
                         <!-- Step 1 form fields here -->
                         <h3 > {{ trans('messages.localidade_e_datas') }}</h3>
                         <div class="mb-3">
@@ -79,84 +81,10 @@
 
                                 @endforeach
                             </select>
-                            <div id="comunidade-page" class="form-text">{{ trans('messages.conhecer_comunidade') }} <a href="/comunidades">{{ trans('messages.clique_aqui') }}</a></div>
 
                         </div>
-                        <!-- data e dias-->
-                        <div class="mb-3">
-                            <label   for="data" class="form-label">Data:</label>
-                            <input type="date" class="form-control" id="data" name="data" disabled>
-                        </div>
-                        <div id="calendar-modal" class="form-text">{{ trans('messages.verificar_disponibilidade') }} <a href="#">{{ trans('messages.clique_aqui') }}</a></div><br>
 
-
-                        {{-- INFORMAÇÕES ADICIONAIS --}}
-
-                      <div class="modal" id="modal-infos">
-                            <div class="modal-dialog">
-                               <div class="modal-content">
-            
-                                  <!-- Cabeçalho do Modal -->
-                                  <div class="modal-header">
-                                     <h4 class="modal-title">{{ trans('messages.informacao_adicional') }}</h4>
-                                     <button type="button" id="fechar" class="close" data-dismiss="modal">&times;</button>
-                                  </div>
-            
-            
-                                  <!-- Corpo do Modal -->
-                                  <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
-                       
-            
-                                  </div>
-            
-                                  <!-- Rodapé do Modal -->
-                                  <div class="modal-footer">
-                                    <button id="enviardadoscomple" type="submit" class="btn btn-success" data-dismiss="modal">{{ trans('messages.enviar') }}</button>
-            
-                                  </div>
-            
-                               </div>
-                            </div>
-                         </div> 
-
-                        
-            <div class="modal" id="meuModal">
-                <div class="modal-dialog">
-                   <div class="modal-content">
-
-                      <!-- Cabeçalho do Modal -->
-                      <div class="modal-header">
-                         <h4 class="modal-title">{{ trans('messages.calendario_comunidade') }}</h4>
-                         <button type="button" id="fechar" class="close" data-dismiss="modal">&times;</button>
-                      </div>
-
-
-                      <!-- Corpo do Modal -->
-                      <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
-                            <h6 style="color:#f4bc08">{{ trans('messages.datas_agendadas') }}</h6>
-                            @foreach ($datas as $data)
-                                
-               
-                            <div class="calendar">
-                                <ul>
-                                    <li>{{ $data['comunidade']}}: {{$data['data_inicial']}} - {{$data['data_final']}}</li>
-                              
-                                </ul>
-                            </div>
-
-                            @endforeach
-                      </div>
-
-                   </div>
-                </div>
-             </div>
-
-
-
-                        <div class="mb-3">
-                            <label for="dias" class="form-label">{{ trans('messages.dias') }}:</label>
-                            <input type="number" class="form-control" id="dias" name="dias" disabled>
-                        </div>
+                  
 
                         <button type="button" id="next1" class="btn btn-primary next-step">{{ trans('messages.continuar') }}</button >
 
@@ -164,30 +92,64 @@
 
                     <div class="step step-2">
                         <!-- Step 2 form fields here -->
-                        <h3>{{ trans('messages.pessoas_e_atividades') }}</h3>
-                        <div class="mb-3">
-                        <label for="pessoas" class="form-label">{{ trans('messages.quantidade_de_pessoas') }}:</label>
-                        <input type="number" id="pessoas" class="form-control" name="pessoas">
+
+                        <h3>INFORMAÇÕES DA COMUNIDADE</h3>
+               
+                        <div id="info-comunidade">
+
+                            
                         </div>
-                        <label for="field2" class="form-label">{{ trans('messages.selecione_as_atividades') }}: ({{ trans('messages.clique_no_campo') }})</label>
-
-                        <div class="mb-3 select-container">
-                            <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                                <select class="js-select2 select-dd" id="opcoes_comunidade" name="atividades[]" multiple="multiple" >
-
-                                </select>
-                        </div>
-
-                        </div>
-
-                        <div id="atividade-page" class="form-text">{{ trans('messages.quer_conhecer_mais_as_atividades') }}? <a href="/atividades">{{ trans('messages.clique_aqui') }}</a></div><br>
-
+    
                         <button type="button" class="btn btn-primary prev-step">{{ trans('messages.anterior') }}</button>
                         <button type="button" id="continuar-resultado" class="btn btn-primary next-step">{{ trans('messages.continuar') }}</button>
                     </div>
 
+
+                    <!-- Step 3 form fields here -->
+                    
                     <div class="step step-3">
-                        <!-- Step 3 form fields here -->
+                      
+
+                        <h3>{{ trans('messages.pessoas_e_atividades') }}</h3>
+
+                        <div class="row">
+                            <!-- Pessoas -->
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="pessoas" class="form-label">{{ trans('messages.quantidade_de_pessoas') }}:</label>
+                                    <input type="number" id="pessoas" class="form-control" name="pessoas">
+                                </div>
+                            </div>
+                        
+                            <!-- Data -->
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="data" class="form-label">{{ trans('messages.data') }}:</label>
+                                    <input type="date" class="form-control" id="data" name="data" disabled>
+                                </div>
+                            </div>
+                        
+                            <!-- Dias -->
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="dias" class="form-label">{{ trans('messages.dias') }}:</label>
+                                    <input type="number" class="form-control" id="dias" name="dias" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        
+                     
+                       <h3> Selecionar Atividades </h3>
+                       <div class="mb-3 select-container">
+                           <div class="col-lg-4 d-flex justify-content-center align-items-center">
+                               <select class="js-select2 select-dd" id="opcoes_comunidade" name="atividades[]" multiple="multiple" >
+
+                               </select>
+                            </div>
+
+                       </div>
+
+
                         <h3>Seu Pacote</h3>
 
                          <div id="respostas">
@@ -196,8 +158,7 @@
                          <br>
 
                         <button type="button" class="btn btn-primary prev-step">{{ trans('messages.anterior') }}</button>
-                        <button type="button" id="dadosCompl" class="btn btn-success">{{ trans('messages.preencha_o_dados_complementares') }}</button>
-                        <button type="button" id="enviarDados" class="btn btn-success">{{ trans('messages.enviar') }}</button>
+                        <button type="button" id="enviarDados" class="btn btn-success">{{ trans('messages.compra_com_tchibum') }}</button>
                     </div>
                 </form>
             </div>
@@ -217,9 +178,7 @@
     let opcao_preco = null;
     let user = @json(auth()->user());
 
-  
 
-     console.log(opcoes);
 
     $(document).ready(function() {
 
@@ -331,7 +290,7 @@
 
         });
 
-        $('#comunidade').change(function() {
+        $('#pessoas').change(function() {
          // Habilitar o campo de data se uma comunidade for selecionada
           $('#data').prop('disabled', false);
        });
@@ -339,12 +298,8 @@
         $('#data').change(function() {
          // Habilitar o campo de data se uma comunidade for selecionada
           $('#dias').prop('disabled', false);
+          $('#enviarDados').prop('disabled', false);
        });
-
-                
-     
-
-       
 
 
         $('#comunidade').on('change', function() {
@@ -352,10 +307,23 @@
 
             comunidades.map(function(comunidade){
                if(comunidade.nome ==  dados.comunidade ){
+                    
                     comunidade_escolhida = comunidade.id;
 
-               }
-            });
+                    console.log(comunidade);
+
+                    var imgSrc = "{{ asset('/storage/') }}" + '/' + comunidade.imagem_principal;
+                    $('#info-comunidade').html('<div style="background-color: white; padding: 10px; border-radius: 10px; margin-bottom: 10px;">' +
+                        '<h4 class="text-center">' + comunidade.nome + '</h4>' +
+                        '<p> ' + comunidade.descricao + '</p>' +
+                        '<img class="img-fluid" src="' + imgSrc + '" alt="Imagem da Comunidade" style="width: 100%; border-radius: 10px; margin-top: 10px;">' +
+                    '</div>');
+
+            }
+        });
+
+            
+
 
             opcoes.map(function(opcoe){
 
@@ -629,6 +597,10 @@
 
   <style>
         
+        #posts{
+            background-repeat: no-repeat;
+            background-color: black;
+        }
 
         #comunidade-page{
             color: white;
@@ -688,7 +660,7 @@
             color: #fff
         }
         #container {
-        max-width: 628px;
+        max-width: 700px;
         }
 
         .step-container {

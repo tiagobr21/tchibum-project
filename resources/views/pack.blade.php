@@ -46,15 +46,23 @@
 
             <div class="infos">
                 <div class="product-details">
-                    <div class="row">
-                        <div id="flex" class="col-md-12">
-                            <h5><i class="fa fa-calendar" aria-hidden="true"></i> {{ trans('messages.data') }}: {{ date('d/m/Y',strtotime($pacote->data)) }}</h5>
-                            <h5><i class="fa fa-users" aria-hidden="true"></i> {{ trans('messages.qauntidade_de_pessoas') }}: {{ $pacote->pessoas }} </h5>
+                    <div id="flex" class="col-md-12">
+                        <div class="row">
+                        
+                                <h5><i class="fa fa-calendar" aria-hidden="true"></i> {{ trans('messages.data') }}: {{ date('d/m/Y',strtotime($pacote->data)) }}</h5>
+                                <h5><i class="fa fa-users" aria-hidden="true"></i> {{ trans('messages.qauntidade_de_pessoas') }}: {{ $pacote->pessoas }} </h5>
+                                
+                        
+                        </div>
+
+                        <div class="row">
+            
                             <h5><i class="fa fa-bed" aria-hidden="true"></i> {{ trans('messages.qauntidade_de_dias') }}: {{ $pacote->dias }} </h5>
                             <h5><i class="fa fa-home" aria-hidden="true"></i> {{ trans('messages.comunidade') }}: {{ $pacote->comunidade->nome }} </h5>
+                      
                         </div>
                     </div>
-
+                    <br>
                     <div class="row">
                         <div class="col-md-12">
                             <h5>Atividades</h5>
