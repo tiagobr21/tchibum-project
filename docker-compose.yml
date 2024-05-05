@@ -86,7 +86,7 @@ services:
                 - wget
                 - '--no-verbose'
                 - '--spider'
-                - 'http://localhost:7700/health'
+                - 'https://tchibumnaamazonia.com:7700/health'
             retries: 3
             timeout: 5s
     mailpit:

@@ -3,7 +3,7 @@
 @section('content')
 
 
-<section id="posts" class="ftco-section" style="background-image:url('{{ asset('/storage/18.webp') }}');">
+<section id="posts" class="ftco-section" style="background-image:url('{{ secure_asset('/storage/18.webp') }}');">
     <div class="container">
         <div class="row d-flex">
 
@@ -312,7 +312,7 @@
 
                     console.log(comunidade);
 
-                    var imgSrc = "{{ asset('/storage/') }}" + '/' + comunidade.imagem_principal;
+                    var imgSrc = "{{ secure_asset('/storage/') }}" + '/' + comunidade.imagem_principal;
                     $('#info-comunidade').html('<div style="background-color: white; padding: 10px; border-radius: 10px; margin-bottom: 10px;">' +
                         '<h4 class="text-center">' + comunidade.nome + '</h4>' +
                         '<p> ' + comunidade.descricao + '</p>' +

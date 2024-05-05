@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-          <img id="logo" src="{{asset('/storage/logo.webp')}}">
+          <img id="logo" src="{{secure_asset('/storage/logo.webp')}}">
         </x-slot>
 
         <x-validation-errors class="mb-4" />
@@ -12,7 +12,7 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="https://tchibumnaamazonia.com/login">
             @csrf
 
             <div>

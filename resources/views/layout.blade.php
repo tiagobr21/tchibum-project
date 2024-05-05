@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
-    <link rel="icon" href="{{asset('/storage/logo.webp')}}"/>
+    <link rel="icon" href="{{secure_asset('/storage/logo.webp')}}"/>
 
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
@@ -21,22 +21,22 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/animate.css">
 
-    <link rel="stylesheet" href="{{ asset('/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/owl.theme.default.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('/css/magnific-popup.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/bootstrap-datepicker.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/jquery.timepicker.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/custom.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('/css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('/css/jquery.timepicker.css') }}">
 
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.14/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('/multiselect-05/css/style.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('/multiselect-05/css/style.css') }}">
 
 
-    <link rel="stylesheet" href="{{ asset('/css/flaticon.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('/css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('/css/style.css') }}">
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -201,7 +201,7 @@
 
 
 
-    <footer class="ftco-footer bg-bottom ftco-no-pt" style="background-image: url('{{ asset('/storage/bg_footer.webp') }}');">
+    <footer class="ftco-footer bg-bottom ftco-no-pt" style="background-image: url('{{ secure_asset('/storage/bg_footer.webp') }}');">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md pt-5">
@@ -339,22 +339,22 @@
 
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.14/dist/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
-    <script src="{{ asset('multiselect-05/js/main.js') }}"></script>
-    <script src="{{ asset('js/jquery-3.6.4.min.js') }}"></script>
-    <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
-    <script src="{{ asset('js/popper.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
-    <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
-    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.animateNumber.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
-    <script src="{{ asset('js/scrollax.min.js') }}"></script>
+    <script src="{{ secure_asset('multiselect-05/js/main.js') }}"></script>
+    <script src="{{ secure_asset('js/jquery-3.6.4.min.js') }}"></script>
+    <script src="{{ secure_asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
+    <script src="{{ secure_asset('js/popper.min.js') }}"></script>
+    <script src="{{ secure_asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ secure_asset('js/jquery.easing.1.3.js') }}"></script>
+    <script src="{{ secure_asset('js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ secure_asset('js/jquery.stellar.min.js') }}"></script>
+    <script src="{{ secure_asset('js/owl.carousel.min.js') }}"></script>
+    <script src="{{ secure_asset('js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ secure_asset('js/jquery.animateNumber.min.js') }}"></script>
+    <script src="{{ secure_asset('js/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ secure_asset('js/scrollax.min.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="{{ asset('js/google-map.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ secure_asset('js/google-map.js') }}"></script>
+    <script src="{{ secure_asset('js/main.js') }}"></script>
     
 
 </body>

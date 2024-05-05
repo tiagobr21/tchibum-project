@@ -14,7 +14,7 @@
     top: 0;
     left: 0;
   ">
-            <source src="{{ asset('/storage/' . $home->video_principal) }}" type="video/mp4">
+            <source src="{{ secure_asset('/storage/' . $home->video_principal) }}" type="video/mp4">
             Seu navegador não suporta o elemento de vídeo.
         </video>
         <div class="overlay"></div>
@@ -52,7 +52,7 @@
                                                 <a href="/pacotes">
                                                     <div id="pacotes">
                                                         <div id="pacote-fixo">
-                                                            <img id="pacote-fixo-img" src="{{asset('/storage/pacote-fechado.webp')}}">
+                                                            <img id="pacote-fixo-img" src="{{secure_asset('/storage/pacote-fechado.webp')}}">
                                                         </div>
                                                         <p id="pacote-fixo-nome">{{ trans('messages.pacote_fechado') }}</p>
                                                     </div>
@@ -60,7 +60,7 @@
                                             
                                                 <div id="pacotes">
                                                     <div id="pacote-comunidade">
-                                                        <img id="pacote-comunidade-img" src="{{asset('/storage/pacote-personalizado.webp')}}">
+                                                        <img id="pacote-comunidade-img" src="{{secure_asset('/storage/pacote-personalizado.webp')}}">
                                                     </div>
                                                     <p id="pacote-comunidade-nome">{{ trans('messages.pacote_personalizado') }}</p>
                                                 </div>
@@ -163,7 +163,7 @@
                     <div class="row">
                         <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
                             <div class="services services-1 color-1 d-block img"
-                                style="background-image: url('{{ asset('/storage/' . $home->imagem_atividade_comunidade1) }}');">
+                                style="background-image: url('{{ secure_asset('/storage/' . $home->imagem_atividade_comunidade1) }}');">
                                 {{-- <div class="icon d-flex align-items-center justify-content-center">
                                     <span class="flaticon-paragliding"></span></div> --}}
                                 <div class="media-body">
@@ -175,7 +175,7 @@
                         </div>
                         <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
                             <div class="services services-1 color-2 d-block img"
-                                style="background-image: url('{{ asset('/storage/' . $home->imagem_atividade_comunidade2) }}');">
+                                style="background-image: url('{{ secure_asset('/storage/' . $home->imagem_atividade_comunidade2) }}');">
                               {{--   <div class="icon d-flex align-items-center justify-content-center"><span
                                         class="flaticon-route"></span></div> --}}
                                 <div class="media-body">
@@ -187,7 +187,7 @@
                         </div>
                         <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
                             <div class="services services-1 color-3 d-block img"
-                                style="background-image: url('{{ asset('/storage/' . $home->imagem_atividade_comunidade3) }}');">
+                                style="background-image: url('{{ secure_asset('/storage/' . $home->imagem_atividade_comunidade3) }}');">
                                {{--  <div class="icon d-flex align-items-center justify-content-center"><span
                                         class="flaticon-tour-guide"></span></div> --}}
                                 <div class="media-body">
@@ -199,7 +199,7 @@
                         </div>
                         <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
                             <div class="services services-1 color-4 d-block img"
-                                style="background-image: url('{{ asset('/storage/' . $home->imagem_atividade_comunidade4) }}');">
+                                style="background-image: url('{{ secure_asset('/storage/' . $home->imagem_atividade_comunidade4) }}');">
                                 {{-- <div class="icon d-flex align-items-center justify-content-center"><span
                                         class="flaticon-map"></span></div> --}}
                                 <div class="media-body">
@@ -232,7 +232,7 @@
 
                 <div class="col-md-4 ftco-animate">
                     <div class="project-wrap">
-                        <a class="img" style="background-image: url('{{ asset('/storage/'. $pacote->imagem_principal) }}')">
+                        <a class="img" style="background-image: url('{{ secure_asset('/storage/'. $pacote->imagem_principal) }}')">
                             <span class="price">R$ {{$pacote->preco}} </span>
                         </a>
                         <div class="text p-4">
@@ -254,7 +254,7 @@
         </div>
     </section>
 
-    <section class="ftco-section" style="{{ asset('/storage/bg_3.webp') }}">
+    <section class="ftco-section" style="{{ secure_asset('/storage/bg_3.webp') }}">
         <div class="container">
             <div class="row d-flex text-center">
                 <div class="col-md-12 heading-section text-center ftco-animate">
@@ -265,7 +265,7 @@
                 @foreach ($posts as $post)
                     <div class="col-md-4 d-flex ftco-animate">
                         <div class="blog-entry justify-content-end">
-                            <img class="block-20" src="{{ asset('/storage/' . $post->imagem_principal) }}">
+                            <img class="block-20" src="{{ secure_asset('/storage/' . $post->imagem_principal) }}">
 
                             @php
                                 $created_at = $post->created_at;
@@ -321,7 +321,7 @@
                 <div class="row col-12" style="margin-top: 10px;">
                     <div class="col-md-6 mx-auto">
                         <a class="block-30 d-flex align-items-center justify-content-center"
-                            style="background-image: url('{{ asset('/storage/' . $comunidade->imagem_principal) }}'); height: 300px; width:100% ; margin-top:10px; border-radius: 50px;">
+                            style="background-image: url('{{ secure_asset('/storage/' . $comunidade->imagem_principal) }}'); height: 300px; width:100% ; margin-top:10px; border-radius: 50px;">
                         </a>
                     </div>
                     <div class="col-md-6 mx-auto" >
@@ -339,7 +339,7 @@
 
     {{-- Atividades --}}
 
-    <section class="ftco-section img ftco-select-destination" style="background-image: url('{{ asset('/storage/bg_3.webp') }}');">
+    <section class="ftco-section img ftco-select-destination" style="background-image: url('{{ secure_asset('/storage/bg_3.webp') }}');">
         <div class="container">
             <div class="row justify-content-center pb-4">
                 <div class="col-md-6 heading-section text-center ftco-animate">
@@ -361,7 +361,7 @@
                             <div class="item">
                                 <div class="project-destination">
                                     <a href="/atividade-{{ $opcoe->id }}" class="img"
-                                        style="background-image: url('{{ asset('/storage/' . $opcoe->imagem) }}');">
+                                        style="background-image: url('{{ secure_asset('/storage/' . $opcoe->imagem) }}');">
                                         <div class="text">
                                             <h3>{{ $opcoe->nome }}</h3>
 
@@ -396,7 +396,7 @@
 
                 @foreach ($imagens as $imagem)
                     <div class="col-lg-4 col-md-6 galeria-item">
-                        <div class="portfolio-img"><img src="{{ asset('/storage/' . $imagem->imagem) }}"
+                        <div class="portfolio-img"><img src="{{ secure_asset('/storage/' . $imagem->imagem) }}"
                                 class="img-fluid" alt="{{ $imagem->imagem }}"></div>
                     </div>
                 @endforeach
@@ -418,7 +418,7 @@
         </div>
     </section>
 
-    <section class="ftco-section testimony-section bg-bottom" style="background-image: url('{{ asset('/storage/bg_feedback.webp') }}');">
+    <section class="ftco-section testimony-section bg-bottom" style="background-image: url('{{ secure_asset('/storage/bg_feedback.webp') }}');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row justify-content-center pb-4">
@@ -438,7 +438,7 @@
                                         <p class="mb-4">{{ $depoimento->depoimento }}</p>
                                         <div class="d-flex align-items-center">
                                             <div class="user-img"
-                                                style="background-image: url('{{ asset('/storage/' . $depoimento->foto) }}')">
+                                                style="background-image: url('{{ secure_asset('/storage/' . $depoimento->foto) }}')">
                                             </div>
                                             <div class="pl-3 depoimento-info">
                                                 <p class="name depoimento-nome">{{ $depoimento->nome }}</p>

@@ -39,7 +39,7 @@
                   </div>
                   <div class="d-flex align-items-center">
 
-                    <div class="user-img" style="background-image: url('{{ asset('/storage/' . $depoimento->foto) }}')"></div>
+                    <div class="user-img" style="background-image: url('{{ secure_asset('/storage/' . $depoimento->foto) }}')"></div>
                     <div class="pl-3">
                       <p class="name">{{  $depoimento->nome }}</p>
                       <span class="position">{{  $depoimento->ocupação }}</span>

@@ -3,17 +3,17 @@
 @section('content')
 
 
-<section id="posts" class="ftco-section" style="background-image:url('{{ asset('/storage/32.webp') }}');">
+<section id="posts" class="ftco-section" style="background-image:url('{{ secure_asset('/storage/32.webp') }}');">
     <div class="container">
         <div class="row d-flex">
 
             <div class="product-container">
 
                 <div class="image-thumbnails">
-                    <img class="thumbnail" src="{{asset('/storage/'. $pacote->imagem_principal)}}" alt="Thumbnail 1">
+                    <img class="thumbnail" src="{{secure_asset('/storage/'. $pacote->imagem_principal)}}" alt="Thumbnail 1">
 
                     @foreach ($pacote->imagens_secundarias as $imagem )
-                        <img class="thumbnail" src="{{asset('/storage/'. $imagem )}}" alt="Thumbnail 1">
+                        <img class="thumbnail" src="{{secure_asset('/storage/'. $imagem )}}" alt="Thumbnail 1">
                     @endforeach
                 </div>
 
@@ -26,7 +26,7 @@
 
 
                <div class="product-image">
-                <img class="img-fluid" src="{{asset('/storage/'. $pacote->imagem_principal)}}" alt="Product Image">
+                <img class="img-fluid" src="{{secure_asset('/storage/'. $pacote->imagem_principal)}}" alt="Product Image">
               </div>
 
 

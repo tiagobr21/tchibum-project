@@ -157,7 +157,7 @@ Generic layout (demo looks)
       width: 1px;
   }
 </style>
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{ asset('/storage/bg_comunidade.webp') }}');">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{ secure_asset('/storage/bg_comunidade.webp') }}');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
@@ -178,7 +178,7 @@ Generic layout (demo looks)
         <article>
             <div class="article-wrapper">
                 <figure>
-                    <img src="{{ asset('/storage/' . $comunidade->imagem_principal) }}" alt="" />
+                    <img src="{{ secure_asset('/storage/' . $comunidade->imagem_principal) }}" alt="" />
                 </figure>
                 <div class="article-body">
                     <h2>{{ $comunidade->nome }}</h2>
