@@ -52,7 +52,7 @@
                                                 <a href="/pacotes">
                                                     <div id="pacotes">
                                                         <div id="pacote-fixo">
-                                                            <img id="pacote-fixo-img" src="{{secure_asset('/storage/pacote-fechado.webp')}}">
+                                                            <img id="pacote-fixo-img" src="{{secure_asset('/storage/pacote-fechado.jpg')}}">
                                                         </div>
                                                         <p id="pacote-fixo-nome">{{ trans('messages.pacote_fechado') }}</p>
                                                     </div>
@@ -60,7 +60,7 @@
                                             
                                                 <div id="pacotes">
                                                     <div id="pacote-comunidade">
-                                                        <img id="pacote-comunidade-img" src="{{secure_asset('/storage/pacote-personalizado.webp')}}">
+                                                        <img id="pacote-comunidade-img" src="{{secure_asset('/storage/pacote-personalizado.jpg')}}">
                                                     </div>
                                                     <p id="pacote-comunidade-nome">{{ trans('messages.pacote_personalizado') }}</p>
                                                 </div>
@@ -254,7 +254,7 @@
         </div>
     </section>
 
-    <section class="ftco-section" style="{{ secure_asset('/storage/bg_3.webp') }}">
+    <section class="ftco-section" style="{{ secure_asset('/storage/bg_3.jpg') }}">
         <div class="container">
             <div class="row d-flex text-center">
                 <div class="col-md-12 heading-section text-center ftco-animate">
@@ -339,7 +339,7 @@
 
     {{-- Atividades --}}
 
-    <section class="ftco-section img ftco-select-destination" style="background-image: url('{{ secure_asset('/storage/bg_3.webp') }}');">
+    <section class="ftco-section img ftco-select-destination" style="background-image: url('{{ secure_asset('/storage/bg_3.jpg') }}');">
         <div class="container">
             <div class="row justify-content-center pb-4">
                 <div class="col-md-6 heading-section text-center ftco-animate">
@@ -418,7 +418,7 @@
         </div>
     </section>
 
-    <section class="ftco-section testimony-section bg-bottom" style="background-image: url('{{ secure_asset('/storage/bg_feedback.webp') }}');">
+    <section class="ftco-section testimony-section bg-bottom" style="background-image: url('{{ secure_asset('/storage/bg_feedback.jpg') }}');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row justify-content-center pb-4">

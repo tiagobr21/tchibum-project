@@ -157,7 +157,7 @@ Generic layout (demo looks)
       width: 1px;
   }
 </style>
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{ secure_asset('/storage/bg_comunidade.webp') }}');">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{ secure_asset('/storage/bg_comunidade.jpg') }}');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">

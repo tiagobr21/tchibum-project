@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
-    <link rel="icon" href="{{secure_asset('/storage/logo.webp')}}"/>
+    <link rel="icon" href="{{secure_asset('/storage/logo.jpg')}}"/>
 
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
@@ -201,7 +201,7 @@
 
 
 
-    <footer class="ftco-footer bg-bottom ftco-no-pt" style="background-image: url('{{ secure_asset('/storage/bg_footer.webp') }}');">
+    <footer class="ftco-footer bg-bottom ftco-no-pt" style="background-image: url('{{ secure_asset('/storage/bg_footer.jpg') }}');">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md pt-5">
