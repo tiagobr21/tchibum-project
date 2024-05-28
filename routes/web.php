@@ -15,6 +15,7 @@ use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\ActivitiesController;
 use App\Http\Controllers\PacksCustomControllers;
 use App\Http\Controllers\Shopping;
+use App\Http\Controllers\PaymentControllers;;
 
 
 
@@ -103,6 +104,10 @@ Route::middleware([
         Route::get('/pacoteperso/aprovarsolicitacao/{pacotepersonalizado}', [PacksCustomControllers::class, 'AprovarSolicitacao']);
         Route::get('/pacoteperso/reprovarsolicitacao/{pacotepersonalizado}', [PacksCustomControllers::class, 'ReprovarSolicitacao']);
     });
+
+    // payment
+     
+    Route::get('/payment', [PaymentControllers::class, 'index']);
 
     // Calendar
 
