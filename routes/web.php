@@ -15,7 +15,7 @@ use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\ActivitiesController;
 use App\Http\Controllers\PacksCustomControllers;
 use App\Http\Controllers\Shopping;
-use App\Http\Controllers\PaymentControllers;;
+use App\Http\Controllers\PaymentController;
 
 
 
@@ -107,7 +107,7 @@ Route::middleware([
 
     // payment
      
-    Route::get('/payment', [PaymentControllers::class, 'index']);
+    Route::get('/payment', [PaymentController::class, 'index']);
 
     // Calendar
 

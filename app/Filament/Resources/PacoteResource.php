@@ -83,7 +83,7 @@ class PacoteResource extends Resource
                     ->maxSize(50000)
                     ->required(),
                 Forms\Components\TextInput::make('pessoas')
-                    ->required()
+                    // ->required()
                     ->numeric(),
                 Forms\Components\TextInput::make('dias')
                     ->required()

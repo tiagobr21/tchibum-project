@@ -1,9 +1,14 @@
-@extends('layout')
-@section('title','payment')
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
 
-
-<div class="checkout-panel">
+      <div class="checkout-panel">
           <div class="panel-body">
                   <h2 class="title">Checkout here!</h2>
               
@@ -110,9 +115,8 @@
             <button class="btn next-btn">Next Step</button>
           </div>
         </div>
-
-
-        <style>
+  
+  <style>
     * {
      box-sizing: border-box;
    }
@@ -445,5 +449,5 @@ input[type='password']:focus {
 
   </script>
 
-
-@endsection
+</body>
+</html>
