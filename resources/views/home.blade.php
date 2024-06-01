@@ -233,7 +233,7 @@
                 <div class="col-md-4 ftco-animate">
                     <div class="project-wrap">
                         <a class="img" style="background-image: url('{{ asset('/storage/'. $pacote->imagem_principal) }}')">
-                            <span class="price">R$ {{$pacote->preco}} </span>
+                            <span class="price">R$ {{ number_format($pacote->preco, 2, ',', '.') }} </span>
                         </a>
                         <div class="text p-4">
                             <span class="days">{{$pacote->dias}} Dias de Tour</span>

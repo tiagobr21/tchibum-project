@@ -13,13 +13,14 @@
     <div id="pacote">
         <p> <strong>Pacote:</strong>  {{$pacote->nome}}</p>
         <p>  <strong>Preço:</strong> R$ {{$pacote->preco}}</p>
-        <p> <strong>Data:</strong> {{date('d/m/Y', strtotime($pacote->data))}}</p>
+        <p> <strong>Quantidade de Pessoas:</strong> {{$pacote->pessoas}}</p>
+        
 
     </div>
 
     <div id="pacote">
-        <p> <strong>Quantidade de Pessoas:</strong> {{$pacote->pessoas}}</p>
-        <p> <strong>Dias do Pacote:</strong> {{$pacote->dias}}</p>
+         <p> <strong>Data:</strong> {{date('d/m/Y', strtotime($pacote->data))}}</p>
+        <p> <strong>Data Final:</strong> {{date('d/m/Y', strtotime($pacote->data_final))}}}</p>
         <p> <strong>Comunidade:</strong> {{$pacote->comunidade->nome}}</p>
     </div>
 

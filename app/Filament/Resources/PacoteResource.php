@@ -55,8 +55,12 @@ class PacoteResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('preco')
                     ->required()
-                    ->numeric(10,2),
+                    ->numeric(10,2)
+                    ->extraAttributes(['data-inputmask' => "'alias': 'currency', 'prefix': '', 'rightAlign': false, 'digits': 2, 'digitsOptional': false, 'radixPoint': ',', 'groupSeparator': '.', 'autoGroup': true"]),
                 Forms\Components\DatePicker::make('data')
+                    ->date()
+                    ->required(),
+                Forms\Components\DatePicker::make('data_final')
                     ->date()
                     ->required(),
                 MarkdownEditor::make('infos')
@@ -85,10 +89,7 @@ class PacoteResource extends Resource
                 Forms\Components\TextInput::make('pessoas')
                     // ->required()
                     ->numeric(),
-                Forms\Components\TextInput::make('dias')
-                    ->required()
-                    ->numeric(),
-
+         
             ]);
 
 

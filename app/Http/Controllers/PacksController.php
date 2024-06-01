@@ -38,11 +38,12 @@ class PacksController extends Controller
         ]);
 
 
-        $this->enviarSolicitacao($pacote->id);
+        // $this->enviarSolicitacao($pacote->id);
 
         $contato = Contato::find(1);
 
         $dataFormatada = date("d/m/y", strtotime($pacote->data));
+        $dataFinalFormatada = date("d/m/y", strtotime($pacote->data_final));
         $user = auth()->user();
 
         $mensagem = "Solicitação de Compra (Pacote Fechado) :\n\n";
@@ -51,7 +52,7 @@ class PacksController extends Controller
         $mensagem .= "Nome do Pacote: " . $pacote->nome . "\n";
         $mensagem .= "Preço: R$" . $pacote->preco . "\n";
         $mensagem .= "Data: " . $dataFormatada . "\n";
-        $mensagem .= "Dias: " . $pacote->dias . "\n";
+        $mensagem .= "Data Final: " . $dataFinalFormatada . "\n";
         $mensagem .= "Nome da Comunidade: " . $pacote->comunidade->nome . "\n\n";
         $mensagem .= "Informações das Atividades Inclusas: \n\n";
         foreach ($pacote->opcoes as $key => $opcao) {

@@ -3,7 +3,9 @@
 @section('content')
 
 
-<section id="posts" class="ftco-section" style="background-image:url('{{ secure_asset('/storage/32.jpg') }}');">
+
+
+<section id="posts" class="ftco-section" style="background-image:url('{{ secure_asset('/storage/32.jpg') }}'); background-repeat: no-repeat;">
     <div class="container">
         <div class="row d-flex">
 
@@ -36,7 +38,7 @@
                     <p class="product-description">
                         {{ $pacote->descricao }}
                     </p>
-                    <p class="product-price">R$ {{ $pacote->preco }}</p>
+                    <p class="product-price">R$ {{ number_format($pacote->preco, 2, ',', '.') }}</p>
 
                     <a  id="comprar" class="btn btn-success">{{ trans('messages.comprar') }}</a>
 
@@ -57,7 +59,7 @@
 
                         <div class="row">
             
-                            <h5><i class="fa fa-bed" aria-hidden="true"></i> {{ trans('messages.qauntidade_de_dias') }}: {{ $pacote->dias }} </h5>
+                            <h5><i class="fa fa-calendar" aria-hidden="true"></i> {{ trans('messages.data_final') }}: {{ date('d/m/Y',strtotime($pacote->data_final)) }} </h5>
                             <h5><i class="fa fa-home" aria-hidden="true"></i> {{ trans('messages.comunidade') }}: {{ $pacote->comunidade->nome }} </h5>
                       
                         </div>
@@ -201,7 +203,7 @@
 
   <script>
 
-
+     
      let user = @json(auth()->user());
      let pacote = @json($pacote);
 
@@ -244,7 +246,8 @@
 
 
     $("#comprar").click(function () {
-
+        
+    
         if(user == null){
 
             window.location.href = '/register';
@@ -309,6 +312,7 @@
                     success: function (response) {
 
                         $("#loading").hide();
+                        console.log(response)
                         window.location.href = response;
 
 

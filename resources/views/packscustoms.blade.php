@@ -13,43 +13,43 @@
             </div>
 
 
-            <div  class="container mt-4">
+            <!--<div  class="container mt-4">-->
                 <!-- Alerta Bootstrap -->
-                <div id="message-data-ocupado" class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ trans('messages.ja_existe_agendamento') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+            <!--    <div id="message-data-ocupado" class="alert alert-danger alert-dismissible fade show" role="alert">-->
+            <!--        {{ trans('messages.ja_existe_agendamento') }}-->
+            <!--        <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">-->
+            <!--            <span aria-hidden="true">&times;</span>-->
+            <!--        </button>-->
+            <!--    </div>-->
 
             
-            <div  class="container mt-4">
+            <!--<div  class="container mt-4">-->
                 <!-- Alerta Bootstrap -->
-                <div id="message-data-disponivel" class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ trans('messages.data_esta_disponivel') }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+            <!--    <div id="message-data-disponivel" class="alert alert-success alert-dismissible fade show" role="alert">-->
+            <!--        {{ trans('messages.data_esta_disponivel') }}-->
+            <!--    <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">-->
+            <!--        <span aria-hidden="true">&times;</span>-->
+            <!--    </button>-->
+            <!--</div>-->
             
         
-            <div  class="container mt-4">
+            <!--<div  class="container mt-4">-->
                 <!-- Alerta Bootstrap -->
-                <div id="message-dias-ocupado" class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ trans('messages.colidem') }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+            <!--    <div id="message-dias-ocupado" class="alert alert-danger alert-dismissible fade show" role="alert">-->
+            <!--        {{ trans('messages.colidem') }}-->
+            <!--    <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">-->
+            <!--        <span aria-hidden="true">&times;</span>-->
+            <!--    </button>-->
+            <!--</div>-->
 
-            <div  class="container mt-4">
+            <!--<div  class="container mt-4">-->
                 <!-- Alerta Bootstrap -->
-                <div id="message-dias-disponivel" class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ trans('messages.conformidade') }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+            <!--    <div id="message-dias-disponivel" class="alert alert-success alert-dismissible fade show" role="alert">-->
+            <!--        {{ trans('messages.conformidade') }}-->
+            <!--    <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">-->
+            <!--        <span aria-hidden="true">&times;</span>-->
+            <!--    </button>-->
+            <!--</div>-->
 
 
             <!-- partial:index.partial.html -->
@@ -129,11 +129,11 @@
                                 </div>
                             </div>
                         
-                            <!-- Dias -->
+                            <!-- Data Final -->
                             <div class="col-md-4">
                                 <div class="mb-3">
-                                    <label for="dias" class="form-label">{{ trans('messages.dias') }}:</label>
-                                    <input type="number" class="form-control" id="dias" name="dias" disabled>
+                                    <label for="data_final" class="form-label">{{ trans('messages.data_final') }}:</label>
+                                    <input type="date" class="form-control" id="data_final" name="data_final" disabled>
                                 </div>
                             </div>
                         </div>
@@ -219,13 +219,14 @@
         $('#enviarDados').on('click', function() {
             // if (podeClicar == 'true') {
 
+                 
 
                 
                 let formData = {
                     comunidade: dados.comunidade,
                     data: dados.data,
-                    dias: dados.dias,
-                    pessoas: dados.dias,
+                    data_final: dados.data_final,
+                    pessoas: dados.pessoas,
                     opcoes:  [],
                     precototal: dados.precototal
                 };
@@ -234,8 +235,8 @@
 
                     formData.opcoes.push({ atividade: opcoe.text , preco: opcoe.id});
                 });
-
-
+                  
+                  
                 $.ajax({
                     type: 'POST',
                     url: '/pacoteperso/criarpacotepersonalizado',
@@ -297,7 +298,7 @@
 
         $('#data').change(function() {
          // Habilitar o campo de data se uma comunidade for selecionada
-          $('#dias').prop('disabled', false);
+          $('#data_final').prop('disabled', false);
           $('#enviarDados').prop('disabled', false);
        });
 
@@ -355,25 +356,22 @@
                 comunidade: dados.comunidade
              };
 
-
-             verificarData(formData);
        
        
         });
 
 
-        $('#dias').on('input', function() {
-            dados.dias = $(this).val();
+        $('#data_final').on('input', function() {
+            dados.data_final = $(this).val();
 
             let formData = {
                
                data: dados.data,
                comunidade: dados.comunidade,
-               dias: dados.dias
+               data_final: dados.data_final
             };
 
 
-            verificarDias(formData);
       
 
         });
@@ -393,21 +391,32 @@
             let comunidade = '<i class="fa fa-home" aria-hidden="true"> <strong> Comunidade: </strong>' + dados.comunidade + '<br><br>';
 
             var dataOriginal = dados.data;  // Substitua isso pela sua data
+            var dataFinalOriginal = dados.data_final;  // Substitua isso pela sua data
 
             // Converte para um objeto Date
             var dataObjeto = new Date(dataOriginal);
+            var dataFinalObjeto = new Date(dataFinalOriginal);
 
             // Obtém os componentes da data
             var dia = dataObjeto.getDate().toString().padStart(2, '0');
             var mes = (dataObjeto.getMonth() + 1).toString().padStart(2, '0');
             var ano = dataObjeto.getFullYear();
+            
 
             // Cria a string da data no formato desejado
             var dataFormatada = dia + '/' + mes + '/' + ano;
+            
+            // Obtém os componentes da data
+            var dia_final = dataFinalObjeto.getDate().toString().padStart(2, '0');
+            var mes_final = (dataFinalObjeto.getMonth() + 1).toString().padStart(2, '0');
+            var ano_final = dataFinalObjeto.getFullYear();
+            
+            // Cria a string da data no formato desejado
+            var dataFinalFormatada = dia_final + '/' + mes_final + '/' + ano_final;
 
-            let data = '<i class="fa fa-calendar" aria-hidden="true"> <strong> Data: </strong> ' + dataFormatada + '<br><br>';
+            let data = '<i class="fa fa-calendar" aria-hidden="true"> <strong> Data Inicial: </strong> ' + dataFormatada + '<br><br>';
 
-            let dias = '<i class="fa fa-bed" aria-hidden="true"> <strong> Quantidade de Dias: </strong> ' + dados.dias + '<br><br>';
+            let data_final = '<i class="fa fa-bed" aria-hidden="true"> <strong> Data Final: </strong> ' + dataFinalFormatada + '<br><br>';
 
             let pessoas = '<i class="fa fa-users" aria-hidden="true"> <strong> Quantidade de Pessoas: </strong>' + dados.pessoas + '<br><br>';
 
@@ -450,7 +459,7 @@
 
             let precototal = '<i class="fa fa-money-bill" aria-hidden="true"> <strong> Preço Total: </strong> ' + 'R$' + Math.floor(soma)
 
-            resultado = comunidade + data + dias + pessoas + '<strong> Opções selecionadas: </strong> <br>';
+            resultado = comunidade + data + data_final + pessoas + '<strong> Opções selecionadas: </strong> <br>';
 
 
             dados.opcoes.forEach(function(opcao) {
@@ -469,71 +478,7 @@
 
     
 
-    function verificarData(formData) {
-       
-        $('#loading').fadeIn();
 
-
-        $.ajax({
-                type: 'POST',
-                url: '/pacoteperso/verificardata',
-                data: { _token: '{{ csrf_token() }}', formData },
-                success: function (response) {
-
-                    $('#loading').fadeOut();
-                   
-        
-                    if (response) {
-                        
-                        $('#message-data-disponivel').fadeIn();
-                    }else{
-                  
-                        $('#message-data-ocupado').fadeIn();
-                    }
-
-
-                },
-                error: function (error) {
-                 
-                    console.log(error);
-                }
-
-                });
-
-    }
-
-    function verificarDias(formData){
-        $('#loading').fadeIn();
-
-
-        $.ajax({
-                type: 'POST',
-                url: '/pacoteperso/verificardias',
-                data: { _token: '{{ csrf_token() }}', formData },
-                success: function (response) {
-
-                    $('#loading').fadeOut();
-
-            
-                   
-        
-                    if (response) {
-                        
-                        $('#message-dias-disponivel').fadeIn();
-                    }else{
-                  
-                        $('#message-dias-ocupado').fadeIn();
-                    } 
-
-
-                },
-                error: function (error) {
-                 
-                    console.log(error);
-                }
-
-                });
-    }
 
       function exibirResultado() {
 

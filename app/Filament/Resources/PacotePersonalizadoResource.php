@@ -44,12 +44,15 @@ class PacotePersonalizadoResource extends Resource
                 Forms\Components\DatePicker::make('data')
                     ->date('d/m/Y')
                     ->required(),
+                Forms\Components\DatePicker::make('data_final')
+                    ->date('d/m/Y')
+                    ->required(),
                 Forms\Components\TextInput::make('pessoas')
                     ->required()
                     ->numeric(),
-                Forms\Components\TextInput::make('dias')
-                    ->required()
-                    ->numeric(),
+                // Forms\Components\TextInput::make('dias')
+                //     ->required()
+                //     ->numeric(),
                 Forms\Components\Select::make('status')
                     ->required()
                     ->options([ 'EM_ANALISE' => 'EM ANALISE',
@@ -74,6 +77,9 @@ class PacotePersonalizadoResource extends Resource
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('data')
+                    ->date('d/M/Y')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('data_final')
                     ->date('d/M/Y')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('status')

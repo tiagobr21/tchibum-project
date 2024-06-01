@@ -129,7 +129,6 @@ class PacksCustomControllers extends Controller
     public function createPacotePerso(Request $request){
 
 
-
         $response = $request->formData;
 
         $opcoes = [];
@@ -151,7 +150,7 @@ class PacksCustomControllers extends Controller
             'preco' =>  $response['precototal'],
             'data' =>  $response['data'],
             'pessoas' => $response['pessoas'],
-            'dias' => $response['dias'],
+            'data_final' => $response['data_final'],
             'comunidade_id' => $comunidade[0]->id,
             'user_id' => $user->id,
         ]);
@@ -171,31 +170,33 @@ class PacksCustomControllers extends Controller
 
 
         // Criar data do Calendário
-
        
         $dataString = $response['data'];
+        $dataFinalString = $response['data_final'];
 
         // Desmembrar a string em ano, mês e dia
         list($ano, $mes, $dia) = explode('-', $dataString);
+        list($ano_final, $mes_final, $dia_final) = explode('-', $dataFinalString);
         
         // Converter para inteiros se necessário
+        
         $ano = (int)$ano;
         $mes = (int)$mes;
         $dia = (int)$dia;
+        
+        $ano_final = (int)$ano_final;
+        $mes_final = (int)$mes_final;
+        $dia_final = (int)$dia_final;
 
         // Data inicial
         $dataInicial = Carbon::create($ano, $mes, $dia);
 
-        // Número de dias a serem adicionados
-        $diasASomar = $response['dias'];
-
-        // Adiciona os dias à data inicial
-        $dataFinal = $dataInicial->addDays($diasASomar);
     
-        $dataFinal = $dataFinal->addSeconds(01);
+        // Data Final
+    
+        $dataFinal = Carbon::create($ano_final, $mes_final, $dia_final);
 
 
-        $dataInicial = Carbon::create($ano, $mes, $dia);
          
          $calendar = Calendar::create([
             'title' => $comunidade[0]->nome,
@@ -207,18 +208,19 @@ class PacksCustomControllers extends Controller
 
       
 
-        $this->enviarSolicitacao($pacotepersonalizado->id);
+        // $this->enviarSolicitacao($pacotepersonalizado->id);
 
        
         $contato = Contato::find(1);
         $dataFormatada = date("d/m/y", strtotime($pacotepersonalizado->data));
+        $dataFinalFormatada = date("d/m/y", strtotime($pacotepersonalizado->data_final));
 
         $mensagem = "Solicitação de Compra (Pacote Personalizado) :\n\n";
         $mensagem .= "Informações do Pacote:\n\n";
         $mensagem .= "Identificação do Pacote: " . $pacotepersonalizado->id . "\n";
         $mensagem .= "Preço: R$" . $pacotepersonalizado->preco . "\n";
         $mensagem .= "Data: " . $dataFormatada . "\n";
-        $mensagem .= "Dias: " . $pacotepersonalizado->dias . "\n";
+        $mensagem .= "Data Final: " . $dataFinalFormatada . "\n";
         $mensagem .= "Nome da Comunidade: " . $pacotepersonalizado->comunidade->nome . "\n\n";
         $mensagem .= "Informações das Atividades Inclusas: \n\n";
         foreach ($pacotepersonalizado->opcoes as $key => $opcao) {

@@ -77,8 +77,9 @@ return [
 
     'comprar' => 'Comprar', PHP_EOL,
     'data' => 'Data', PHP_EOL,
+    'data_final' => 'Data Final', PHP_EOL,
     'qauntidade_de_pessoas' => 'Quantidade de Pessoas', PHP_EOL,
-    'qauntidade_de_dias' => 'Quantidade de Dias', PHP_EOL,
+    'data_final' => 'Data Final', PHP_EOL,
     'comunidade' => 'Comunidade', PHP_EOL,
     'nome' => 'Nome', PHP_EOL,
     'preco' => 'Preço', PHP_EOL,
